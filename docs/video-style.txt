@@ -1,0 +1,106 @@
+KAFE LEMBARAN - VIDEO STYLE & FORMAT GUIDE
+==========================================
+Channel: @kafe.lembaran (TikTok, YouTube Shorts, Instagram Reels)
+Last updated: 16 Nov 2026 (v1, from video "Jensen Huang / Adikuasa" v4)
+
+Update this file whenever we change the style. Add a line to the CHANGE LOG at the bottom.
+
+
+1. FORMAT
+---------
+- Size: 1080 x 1920 (9:16, vertical), 30 fps, H.264 + AAC, .mp4
+- Length: 35-45 seconds (sweet spot ~42 s)
+- Scenes: 8-10 scenes, each 3.6-5.6 seconds
+    - short punchy lines: ~3.6-4 s
+    - lines with a note/source: ~5-5.6 s
+- Transitions: soft fade, 0.5 s
+- Motion: very slow zoom-in on each scene (about 3.5% over the scene)
+    - render the still at 4x size before zooming, so text does not wobble
+- No voiceover. Text on screen tells the whole story.
+- File name: kafelembaran-<topic>-<book>-v<n>.mp4
+
+
+2. STRUCTURE (story order)
+--------------------------
+1. Hook (news headline, 1 line)           e.g. "CEO cip AI terbesar dunia letak jawatan"
+2. Twist / question                        e.g. "Puncanya? Bukan duit. CIP."
+3. The news fact, with "didakwa" + source if not proven
+4-7. "TAHU TAK? #1-#4" - 3-4 short technical facts the general reader can learn
+8. The big idea in one line                e.g. "Cip AI = minyak abad ke-21"
+9. "BUKU MINGGU INI" - book title + one line on what it explains
+10. Closing: logo + "Link buku kat bio" + kafelembaran.com
+
+
+3. LAYOUT (every scene except the closing)
+------------------------------------------
+- Top tag pill at 150 px from top: "#GEOPOLITIK" (topic tag, outlined, small caps spacing)
+- Text block starts ~330 px from top (below TikTok's top tabs)
+    - small label (e.g. "TAHU TAK? #2", "BERITA MINGGU INI")
+    - main line: max ~8-10 words, 2-4 lines
+    - optional note/source line underneath, smaller
+- Silhouette illustration in the lower half, between text and banner (never behind the words)
+- Bottom banner (always): 250 px tall, cream, orange top line,
+  logo + "Kafe Lembaran" + "kafelembaran.com · @kafe.lembaran"
+- Side margins: 120 px
+- Closing scene: everything centred, large logo, "Kafe Lembaran", "Link buku kat bio", kafelembaran.com in gold
+
+
+4. COLOURS
+----------
+- Dark teal background   #165450   (alternate scenes)
+- Cream background       #f7f1e8   (alternate scenes)
+- Brand teal             #1f6f6a   (highlight words on cream)
+- Gold highlight         #f2c14e   (highlight words on teal, website on closing scene)
+- Orange accent          #e07a3a   (one punch word e.g. "CIP.", banner top line, "vs")
+- Alternate teal / cream scenes so each cut is visible.
+
+
+5. TYPE
+-------
+- Headlines: Lora (serif), 96 px, line height 1.28; highlight key words in bold + colour
+- Labels, tag, notes: Liberation Sans / sans-serif, 34-44 px
+- Max 2 highlighted words per scene
+
+
+6. SILHOUETTES
+--------------
+- Simple flat shapes, one per scene, matching the line (person + door, chip, GPU card,
+  pie chart, wafer, padlock, chess kings, globe + book)
+- Opacity: 17% on teal, 13% on cream - a "glimpse", never competing with the text
+- Generic figures only: never draw a recognisable real person
+
+
+7. SOUND
+--------
+- Original background music only (made by Claude, no copyright issues)
+- Calm piano-like arpeggio + soft pad, ~70 bpm, simple chords (Am - F - C - G)
+- No noise / vinyl crackle layer, no drum thumps (these caused a buzz in v2)
+- Loudness about -26 LUFS (clearly in the background); fade in 2.5 s, fade out 3 s
+- Optional: add a trending TikTok sound at low volume when posting
+
+
+8. WORDING RULES
+----------------
+- Bahasa Melayu santai, short sentences
+- Anything not proven: use "didakwa" / "disyaki" and show the source on screen
+- Talk about the geopolitics, not personal gossip
+- No investment / stock advice
+- Facts must come from a reliable source; put "Anggaran <year> · <source>" under numbers
+
+
+9. POSTING
+----------
+- Platforms: TikTok, YouTube Shorts, Instagram Reels (same video)
+- Scheduled through Metricool by Claude; user approves every post first
+- Caption: 1-2 sentence hook + book name + "Link kat bio: kafelembaran.com" + 5-7 hashtags
+- Hashtags base set: #geopolitik #bukumelayu #booktokmalaysia #kafelembaran + 2-3 topic tags
+- YouTube: title ends with #shorts; first line of description = book link (youtube Sub ID)
+- Post news-hook videos within 1-3 days of the news
+
+
+CHANGE LOG
+----------
+16 Nov 2026  v1  Created from Jensen Huang / Adikuasa video v4.
+                 Learned: v1 zoom wobbled (fixed with 4x render); v2 too fast, too crowded,
+                 music too loud + buzz; v3 too much empty space at top (fixed with top tag
+                 + text starting at 330 px).
