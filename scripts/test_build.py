@@ -64,6 +64,8 @@ check("homepage has logo and favicon", 'assets/logo.svg' in home and 'rel="icon"
 check("logo copied to site", (dist / "assets" / "logo.svg").exists())
 check("homepage hidden from Google while all books are samples", (not all(b.get("sample") for b in data["books"])) or 'content="noindex"' in home)
 
+check("media files published", all((dist / "media" / f.name).exists() for f in (ROOT / "media").glob("*")) if (ROOT / "media").exists() else True)
+
 # 3. text is escaped (no broken pages from quotes or < >)
 evil = copy.deepcopy(data["books"][0]); evil["title"] = 'A <b>"bold"</b> title'
 check("escapes HTML in titles", "<b>\"bold\"</b>" not in build.book_page(data["site"], evil))

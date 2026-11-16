@@ -157,6 +157,8 @@ def main():
         (DIST / b["slug"]).mkdir()
         (DIST / b["slug"] / "index.html").write_text(book_page(site, b), encoding="utf-8")
     shutil.copy(ROOT / "assets" / "logo.svg", DIST / "assets" / "logo.svg")
+    if (ROOT / "media").exists():
+        shutil.copytree(ROOT / "media", DIST / "media")  # videos for social scheduling
     (DIST / "index.html").write_text(home(site, books), encoding="utf-8")
     print(f"Built {len(books)} book pages into dist/" + (" (preview mode)" if PREVIEW else ""))
 
