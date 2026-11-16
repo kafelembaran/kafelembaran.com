@@ -152,3 +152,7 @@ CHANGE LOG
                  Added REFERENCES section (R1 @saktimy).
 16 Nov 2026      Added R2 ("in forty second" stopwatch format), FORMATS F1/F2 and
                  PRODUCTION WORKFLOW (references -> fonts -> storyboard -> render -> feedback).
+16 Nov 2026      Format updated (see docs/video-creating-method.log, now the main reference):
+                 Kafe Klasik theme, opening/closing templates, "Bang, order bang!" + sound A,
+                 kopitiam chatter instead of music, AI Studio voiceover (Enzo, Friendly) with
+                 synced subtitles, visual panel in every middle scene, sound B at the close.
