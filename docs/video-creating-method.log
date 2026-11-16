@@ -284,6 +284,43 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
         TikTok + YouTube via Metricool (AI label on) -> user checks -> public + Instagram Reel.
 
 
+12. DESIGN RULES: ANTI-SLOP (from 17 Nov 2026, applies from the next episode)
+-----------------------------------------------------------------------------
+  Every episode is designed with the "frontend-design" skill (anti-slop design). Load it with the
+  Skill tool before choosing panels, headline wording or any visual change, and follow it.
+  Audit of the pilot against the skill's list of generic "AI-made" tells (all to be removed):
+   - ALL-CAPS labels ("DUA HIRUPAN KOPI", "BUKU DALAM VIDEO INI", "LINK BUKU KAT BIO")
+   - middle-dot strings ("TikTok · YouTube · Instagram", "Anggaran · Fortune")
+   - monospace clock for a small data label
+   - every panel in the same rounded box with the same gold border (SaaS-card kit)
+   - single word picked out in gold (subtitle *didakwa*, gold second title line)
+   - the same fade-and-slide-up on every element
+   - big centred number + small label as the default for every headline
+
+  Design direction v2 "MEJA KOPITIAM" (mock: video/design/meja-kopitiam-mock.png,
+  code: video/design/meja_kopitiam_mock.py). The video happens on a kopitiam table:
+   Colour   brand green #165450 (wall tiles, faint tile grid) | marble #ECE8E1 with soft grey veins
+            (the table: holds footage and diagrams) | order-slip yellow #F3E6B5 with blue ruled
+            lines and a red margin line | menu-board red #B8322B (numbers, stamps; sparingly) |
+            kopi brown #3B2618 (writing on the slip) | cream #F7F1E8 (text on green).
+   Type     Anton (painted menu-board lettering) for numbers and headlines; Inter for subtitles,
+            sources and small text; Lora only in the logo/banner and the hook quote.
+   Layout   left-aligned. Headline written on an order slip (auto-sized to its text, tilted
+            -3..+3 degrees, torn bottom edge, soft shadow) top-left. Footage/diagram sits on the
+            marble table, no border box. Kopitiam wall clock (analog dial + Anton time + "antara dua
+            hirupan kopi") top-left. Subtitles left-aligned, Inter Bold, on a dark band above the
+            banner. Source in kopi brown at the bottom-right of the marble.
+   Motion   ONE moment per scene: the slip slaps down onto the table (drop + small bounce). Cuts
+            between scenes. No fade-up on every element.
+   Words    sentence case everywhere ("Link buku kat bio", "Baca buku ini"); lists written as
+            words ("di TikTok, YouTube dan Instagram"); no single highlighted word; no eyebrow labels.
+   Boldness is spent only on the slip; everything else stays quiet.
+  Checklist before sending any render: look at sheet.png and confirm no text overflows a slip,
+  no caps labels, no middle dots, one motion per scene, subtitles readable, sources readable.
+  Status: mock approved for design review; to be built into kl.py / panels.py / make_episode.py
+  at the next render.
+
+
 CHANGE LOG
 ----------
 16 Nov 2026  Created. Pilot "Kejatuhan Jensen Huang" (kejatuhan-jensen-huang-enzo-v2.mp4, 79 s).
@@ -303,3 +340,6 @@ CHANGE LOG
 16 Nov 2026  Automatic pipeline: episode.json spec, video/make_episode.py (script / align /
              render), parametric panels, automatic voice alignment. Pilot re-rendered from the
              spec matches the approved video.
+17 Nov 2026  Anti-slop design (frontend-design skill) adopted: audit of the pilot, direction v2
+             "Meja Kopitiam" (section 12), mock frames in video/design/. Weekly scout task now loads
+             the skill.
