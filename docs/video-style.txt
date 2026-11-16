@@ -98,9 +98,32 @@ Update this file whenever we change the style. Add a line to the CHANGE LOG at t
 - Post news-hook videos within 1-3 days of the news
 
 
+REFERENCES (videos we like, and what we take from them)
+-------------------------------------------------------
+R1  @saktimy - Lip-Bu Tan / Intel story (TikTok, 16 Nov 2026)
+    Measured: 16:9 horizontal (1024x576), 101 s, a new visual every ~1-2 s,
+    continuous voiceover, loud mix (about -17 dB average).
+    What works:
+      - Word-by-word captions: 1-3 words at a time, white bold sans, centred,
+        soft shadow, synced to the narration ("Presiden", "CEO", "2009,")
+      - Visuals change every 1-2 s while one sentence continues
+      - Story arc: who is this person -> rise -> conflict -> twist -> Malaysia angle
+      - Data cards: dark chart, big red/green % change, dates, tiny source line
+      - Recreated social-post card, labelled as a recreation, over a blurred background
+      - Big number overlays with Malaysian context ("RM860 juta")
+      - Black-and-white moments for drama; tiny source credit bottom-right
+    What we will NOT copy:
+      - News photos of real people / company logos (copyright + likeness);
+        we use silhouettes, illustrations, plain typography, charts and maps instead
+      - Voiceover (Kafe Lembaran choice: no voice) -> word-by-word captions carry the story
+      - 16:9 format (we stay 9:16 for TikTok/Shorts/Reels)
+
+
 CHANGE LOG
 ----------
 16 Nov 2026  v1  Created from Jensen Huang / Adikuasa video v4.
                  Learned: v1 zoom wobbled (fixed with 4x render); v2 too fast, too crowded,
                  music too loud + buzz; v3 too much empty space at top (fixed with top tag
                  + text starting at 330 px).
+16 Nov 2026      Upload test passed: TikTok (Only me) + YouTube (private) via Metricool.
+                 Added REFERENCES section (R1 @saktimy).
