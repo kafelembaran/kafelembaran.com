@@ -1,0 +1,13 @@
+GEMINI VIDEO (Veo). Optional: missing clips fall back to text panels. Save each as clips/<name>.mp4
+
+[clips/chip.mp4]
+Vertical video, macro shot. A silicon wafer and a computer graphics chip under dramatic cool lighting, tiny reflections sweeping across the circuits, slow rotation. Clean, technical, high detail. Soft electronic hum, no music, no speech, no text, no logos.
+
+[clips/taipei-1963.mp4]
+Vertical video, vintage 1960s film look, grainy, sepia tones. A quiet street in old Taipei, Taiwan, with low shophouses and bicycles. A family seen only as dark silhouettes from behind, walking away from the camera. Slow push-in. Soft ambient street sound, no music, no speech, no text, no faces.
+
+[clips/servers.mp4]
+Vertical video. A long corridor of data-centre server racks glowing with green and blue lights, camera gliding slowly forward, lights pulsing like data flowing. Cool, powerful mood. Low machine hum, no music, no speech, no text, no logos.
+
+[clips/meeting.mp4]
+Vertical video, moody and tense. A dim, closed meeting room seen through frosted glass. Several businessmen appear only as blurred dark silhouettes around a table, no faces visible. A desk lamp flickers slightly. Slow, steady camera. Quiet room tone, no music, no speech, no text.

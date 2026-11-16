@@ -201,8 +201,9 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
   - Affiliate disclosure goes in the caption/bio ("link affiliate").
 
 
-9. FILES AND HOW TO RENDER
---------------------------
+9. FILES AND HOW TO RENDER (pilot, hand-tuned)
+----------------------------------------------
+  SUPERSEDED by section 11. These scripts now live in video/legacy/ for reference.
   Repo folder video/ holds everything needed (copied from the work area):
     video/render_samples.py   base helpers: fonts F(), themes, make_bg, caption, banner/logo
     video/intro_template.py   opening: python3 intro_template.py "Line 1" "Line 2" [out.mp4]
@@ -241,6 +242,48 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
   check, then public.
 
 
+11. AUTOMATIC PIPELINE (from 16 Nov 2026)
+-----------------------------------------
+  One folder per episode:  episodes/<YYYY-MM-DD>-<slug>/
+      episode.json        the whole episode as data (see the pilot for a full example)
+      voice.wav           from AI Studio (not committed)
+      clips/*.mp4         Gemini footage, optional (not committed; missing clip -> text panel)
+      tts_script.txt      generated: what the user pastes into AI Studio
+      gemini_prompts.txt  generated: footage prompts for the user
+      out/<slug>.mp4      generated video + out/sheet.png (one frame per scene for checking)
+
+  Kit (video/):  kl.py (theme, fonts, opening + closing cards), panels.py (all panel types),
+                 make_episode.py (commands below), fonts/, assets/, sfx/.
+      python3 video/make_episode.py script episodes/<ep>   -> tts_script.txt + gemini_prompts.txt
+      python3 video/make_episode.py align  episodes/<ep>   -> sentence timings found in voice.wav
+      python3 video/make_episode.py render episodes/<ep>   -> out/<slug>.mp4 + out/sheet.png (~1.5 min)
+  Alignment is automatic: pauses are found with silencedetect, then dynamic programming splits
+  the speech into the script's sentences by length, preferring long pauses. Tested on the pilot:
+  identical to the hand timing. If a sentence lands wrong, check with "align" and adjust the
+  script (each sentence must be read in order, no extra words).
+
+  episode.json fields:
+    slug, date, title [line1, line2], book {title, author, shopee},
+    intro_say (fixed hook), outro_say ("Nak faham ... Baca <Buku>. Link kat bio."),
+    scenes[]: head {kind: big|type|count|stamp, text | value+prefix+suffix, sub},
+              panel {type: clip|cores|pair|calendar|timeline|equals|block|chain|middle|bars|text, ...}
+                    (clip: file, start, prompt, fallback, optional bar {label, value}),
+              source (shown as "Sumber: ..."),
+              say[]: sentences; string, or {"say": spoken words, "show": subtitle text with *gold*}.
+    post {caption, hashtags, youtube_title, youtube_tags, category}, sources [urls].
+  Panel parameters are listed at the top of video/panels.py.
+
+  WHO DOES WHAT
+    Claude (scheduled, weekly):  scan news -> choose 1 issue + matching book -> research with
+        sources -> write episode.json (10-12 scenes, rules in section 8) -> run "script" ->
+        commit -> send the user: topic summary, tts_script.txt, gemini_prompts.txt.
+    User (~5 min):  approve/adjust the topic, generate voice in AI Studio (Enzo, Friendly),
+        optionally the Gemini clips, send them back in the chat.
+    Claude (in chat):  put files in the episode folder -> render -> check sheet.png and the
+        alignment -> send the video -> on approval: copy to media/, push, schedule private on
+        TikTok + YouTube via Metricool (AI label on) -> user checks -> public + Instagram Reel.
+
+
 CHANGE LOG
 ----------
 16 Nov 2026  Created. Pilot "Kejatuhan Jensen Huang" (kejatuhan-jensen-huang-enzo-v2.mp4, 79 s).
@@ -257,3 +300,6 @@ CHANGE LOG
              - Middle section given a visual panel in every scene (footage or infographic).
              - Fixed: text in the opening/closing did not fade in (drawn straight onto the
                frame); now drawn on a transparent layer.
+16 Nov 2026  Automatic pipeline: episode.json spec, video/make_episode.py (script / align /
+             render), parametric panels, automatic voice alignment. Pilot re-rendered from the
+             spec matches the approved video.

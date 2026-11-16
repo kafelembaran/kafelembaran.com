@@ -1,0 +1,217 @@
+"""Kafe Lembaran episode builder.
+
+  python3 make_episode.py script  <episode_dir>   -> tts_script.txt + gemini_prompts.txt (for the user)
+  python3 make_episode.py align   <episode_dir>   -> prints sentence timings found in voice.wav
+  python3 make_episode.py render  <episode_dir>   -> out/<slug>.mp4 + out/sheet.png
+
+<episode_dir> holds episode.json, voice.wav (from AI Studio) and clips/ (Gemini footage, optional).
+"""
+import json, os, re, subprocess, sys, wave
+import numpy as np
+from PIL import Image, ImageDraw
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from kl import (W, H, FPS, HERE, F, FG, GOLD, ORANGE, BANNER, bg, ease_out, text_w, draw_center, fade, clk_str, Intro, Outro)
+from panels import Panel, CX0, CY0
+
+OFF = 2.6          # voice starts after "Bang, order bang!" (0.0 s) and sound A (1.25 s)
+LEAD = 0.3         # a scene appears this long before its first sentence
+TTS_STYLE = ("Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. "
+             "Slow, clear pace. Short pause at each \"...\". Neutral tone, not dramatic.")
+
+def load(ep_dir):
+    with open(os.path.join(ep_dir, "episode.json")) as f: return json.load(f)
+
+def units(ep):
+    """Ordered spoken units: (scene index | 'intro' | 'outro', say, show)."""
+    u = [("intro", ep["intro_say"], ep["intro_say"])]
+    for i, sc in enumerate(ep["scenes"]):
+        for s in sc["say"]:
+            s = {"say": s} if isinstance(s, str) else s
+            u.append((i, s["say"], s.get("show", s["say"])))
+    u.append(("outro", ep["outro_say"], ep["outro_say"]))
+    return u
+
+# ---------------- 1. script for the user ----------------
+def cmd_script(ep_dir):
+    ep = load(ep_dir); out = [ep["intro_say"], ""]
+    for sc in ep["scenes"]:
+        out.append(" ".join(s if isinstance(s, str) else s["say"] for s in sc["say"]))
+    out += ["", ep["outro_say"]]
+    with open(os.path.join(ep_dir, "tts_script.txt"), "w") as f:
+        f.write("AI STUDIO: Gemini 3.8 Flash TTS, Speaker 1 - Enzo, Friendly. Download -> voice.wav\n")
+        f.write(f"STYLE: {TTS_STYLE}\n\n--- paste below ---\n\n" + "\n".join(out) + "\n")
+    prompts = [f"[{sc['panel']['file']}]\n{sc['panel']['prompt']}\n" for sc in ep["scenes"] if sc["panel"].get("prompt")]
+    with open(os.path.join(ep_dir, "gemini_prompts.txt"), "w") as f:
+        f.write("GEMINI VIDEO (Veo). Optional: missing clips fall back to text panels. Save each as clips/<name>.mp4\n\n" + "\n".join(prompts))
+    print(open(os.path.join(ep_dir, "tts_script.txt")).read())
+
+# ---------------- 2. align sentences to the voice ----------------
+def speech_segments(path):
+    r = subprocess.run(["ffmpeg", "-i", path, "-af", "silencedetect=noise=-40dB:d=0.18", "-f", "null", "-"], capture_output=True, text=True).stderr
+    st = [float(x) for x in re.findall(r"silence_start: ([0-9.]+)", r)]; en = [float(x) for x in re.findall(r"silence_end: ([0-9.]+)", r)]
+    dur = float(re.findall(r"Duration: (\d+):(\d+):([0-9.]+)", r)[0][2]) + 60 * float(re.findall(r"Duration: (\d+):(\d+)", r)[0][1])
+    sil = sorted(zip(st, en + [dur] * (len(st) - len(en))))
+    segs, t = [], 0.0
+    for a, b in sil:
+        if a - t > 0.05: segs.append((t, a))
+        t = b
+    if dur - t > 0.05: segs.append((t, dur))
+    return segs, dur
+
+def align(ep, voice):
+    """Dynamic programming: split the speech segments into len(units) consecutive groups whose lengths best match
+    each sentence's character count, preferring to cut at long pauses."""
+    U = units(ep); segs, dur = speech_segments(voice); n, m = len(U), len(segs)
+    chars = np.array([len(re.sub(r"[^\w]", "", u[1])) + 1 for u in U], float)
+    total = segs[-1][1] - segs[0][0]; exp = total * chars / chars.sum()
+    gap_before = [0.0] + [segs[j][0] - segs[j - 1][1] for j in range(1, m)]
+    INF = 1e18; dp = np.full((n + 1, m + 1), INF); back = np.zeros((n + 1, m + 1), int); dp[0][0] = 0
+    for k in range(1, n + 1):
+        for j in range(k, m - (n - k) + 1):
+            for i in range(k - 1, j):
+                if dp[k - 1][i] >= INF: continue
+                span = segs[j - 1][1] - segs[i][0]
+                c = ((span - exp[k - 1]) / max(exp[k - 1], 0.8)) ** 2 - (0.8 * gap_before[i] if i > 0 else 0)
+                if dp[k - 1][i] + c < dp[k][j]: dp[k][j] = dp[k - 1][i] + c; back[k][j] = i
+    cuts, j = [], m
+    for k in range(n, 0, -1): i = back[k][j]; cuts.append((i, j)); j = i
+    cuts.reverse()
+    return [(U[k], segs[i][0], segs[j - 1][1], segs[i:j]) for k, (i, j) in enumerate(cuts)], dur
+
+def cmd_align(ep_dir):
+    ep = load(ep_dir); res, dur = align(ep, os.path.join(ep_dir, "voice.wav"))
+    for (sc, say, _), a, b, _ in res: print(f"{a:6.2f}-{b:6.2f}  [{sc}]  {say[:70]}")
+    print("voice length", dur)
+
+# ---------------- 3. render ----------------
+def head(H_, age, d, lay):
+    kind = H_["kind"]; fh = F("lora", 230, 700); y = 680
+    if kind == "type":
+        s = str(H_["text"]); n = min(len(s), int(age / 0.14) + 1); d.text(((W - text_w(fh, s)) / 2, 360), s[:n], font=fh, fill=GOLD)
+    elif kind == "count":
+        k = ease_out(age / 1.4); v = H_["value"] * k; v = f"{v:.0f}" if float(H_["value"]).is_integer() else f"{v:.1f}"
+        draw_center(d, 360, f"{H_.get('prefix', '')}{v}{H_.get('suffix', '')}", fh, GOLD)
+    elif kind == "stamp":
+        import random
+        f = F("lora", 140, 700); st = Image.new("RGBA", (900, 320), (0, 0, 0, 0)); sd = ImageDraw.Draw(st); tw = text_w(f, H_["text"])
+        sd.rounded_rectangle([450 - tw / 2 - 40, 40, 450 + tw / 2 + 40, 40 + f.size * 1.25], radius=18, outline=ORANGE, width=14)
+        sd.text((450 - tw / 2, 40 + f.size * 0.05), H_["text"], font=f, fill=ORANGE); st = st.rotate(6, resample=Image.BICUBIC, expand=True)
+        p = min(1, age / 0.25); sc = 2.2 - 1.2 * p ** 2; sh = random.Random(int(age * 100)).randint(-9, 9) if 0.25 <= age < 0.45 else 0
+        nw, nh = int(st.width * sc), int(st.height * sc); s2 = st.resize((nw, nh), Image.BICUBIC)
+        if p < 1: s2.putalpha(s2.getchannel("A").point(lambda v: int(v * p)))
+        lay.alpha_composite(s2, (int(540 - nw / 2 + sh), int(470 - nh / 2 + sh)))
+    else:
+        s = H_["text"]; size = 170 if text_w(F("lora", 170, 700), s) < 980 else 120; k = ease_out(age / 0.5)
+        draw_center(d, 400 + (1 - k) * 50, s, F("lora", size, 700), fade(GOLD, k)); y = 400 + size * 1.35
+    if H_.get("sub"):
+        k = ease_out((age - 0.45) / 0.4); small = H_["sub"].startswith("(")
+        draw_center(d, y + (1 - k) * 20, H_["sub"], F("inter", 40 if small else 52, 500 if small else 600), fade(FG, (0.7 if small else 1) * k))
+
+def subtitle(fr, txt, age):
+    a = ease_out(age / 0.2); f = F("poppins", 60); sp = text_w(f, " "); toks, hl = [], False
+    for w in txt.split():
+        if w.startswith("*"): hl = True
+        toks.append((w.replace("*", ""), hl))
+        if "*" in w[1:]: hl = False
+    rows, cur = [], []
+    for tk in toks:
+        if cur and sum(text_w(f, x[0]) for x in cur + [tk]) + sp * len(cur) > 960: rows.append(cur); cur = [tk]
+        else: cur.append(tk)
+    rows.append(cur); y0 = 1625 - 84 * len(rows); d = ImageDraw.Draw(fr)
+    for j, ln in enumerate(rows):
+        x = (W - sum(text_w(f, w) for w, _ in ln) - sp * (len(ln) - 1)) / 2
+        for w, h in ln:
+            d.text((x, y0 + j * 84 + (1 - a) * 12), w, font=f, fill=fade(GOLD if h else (255, 255, 255, 255), a), stroke_width=7, stroke_fill=(0, 0, 0, int(230 * a)))
+            x += text_w(f, w) + sp
+
+def cmd_render(ep_dir):
+    ep = load(ep_dir); voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
+    intro_u = res[0]; outro_u = res[-1]; mid = res[1:-1]
+    SCN = [min(a for (u, a, b, s) in mid if u[0] == i) - LEAD for i in range(len(ep["scenes"]))]
+    OUT_T = outro_u[1] - LEAD; TOTAL = OFF + vlen + 1.2
+    SUBS = [(a - 0.1, u[2]) for (u, a, b, s) in mid]; SUB_END = OUT_T - 0.3
+    iseg = intro_u[3]; line_b = max(iseg[1:], key=lambda s: s[0] - 0)[0] if len(iseg) > 1 else intro_u[1] + 2.0
+    if len(iseg) > 1:                                   # second half starts after the longest pause inside the hook
+        gaps = [(iseg[k][0] - iseg[k - 1][1], iseg[k][0]) for k in range(1, len(iseg))]; line_b = max(gaps)[1]
+    intro = Intro(ep["title"][0], ep["title"][1], OFF + SCN[0], OFF + intro_u[1], OFF + line_b)
+    CLK = OUT_T - SCN[0]; outro = Outro(ep["book"]["title"], ep["book"]["author"], clk_str(CLK))
+    panels = [Panel(sc["panel"], ep_dir) for sc in ep["scenes"]]; bgs = [bg(0), bg(1)]
+
+    def scene(i, tv):
+        sc = ep["scenes"][i]; age = tv - SCN[i]; dur = (SCN[i + 1] if i + 1 < len(SCN) else OUT_T) - SCN[i]
+        fr = bgs[i % 2].copy(); ck = ease_out(age / 0.45); im = panels[i].render(age, dur)
+        if ck < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * ck)))
+        fr.alpha_composite(im, (CX0, int(CY0 + (1 - ck) * 30)))
+        lay = Image.new("RGBA", (W, H), (0, 0, 0, 0)); head(sc["head"], age, ImageDraw.Draw(lay), lay); fr.alpha_composite(lay)
+        if sc.get("source"):
+            f = F("inter", 28, 500); s = "Sumber: " + sc["source"]; ImageDraw.Draw(fr).text((W - 60 - text_w(f, s), 1342), s, font=f, fill=fade(FG, 0.63))
+        return fr
+    def mid_frame(tv):
+        i = max(k for k in range(len(SCN)) if SCN[k] <= tv); fr = scene(i, tv)
+        if i > 0 and tv - SCN[i] < 0.3: fr = Image.blend(scene(i - 1, tv), fr, ease_out((tv - SCN[i]) / 0.3))
+        d = ImageDraw.Draw(fr); draw_center(d, 96, clk_str(max(0, tv - SCN[0])), F("mono", 64), (255, 255, 255, 255))
+        draw_center(d, 185, "Antara dua hirupan kopi", F("inter", 34, 700), fade(FG, 0.82))
+        cur = [s for s in SUBS if s[0] <= tv]
+        if cur and tv < SUB_END: subtitle(fr, cur[-1][1], tv - cur[-1][0])
+        fr.alpha_composite(BANNER); return fr
+    def frame(t):
+        tv = t - OFF
+        if tv < SCN[0]: return intro.frame(t)
+        if tv >= OUT_T:
+            fr = outro.frame(tv - OUT_T)
+            return Image.blend(mid_frame(OUT_T - 0.001), fr, ease_out((tv - OUT_T) / 0.3)) if tv - OUT_T < 0.3 else fr
+        fr = mid_frame(tv)
+        return Image.blend(intro.frame(OFF + SCN[0] - 0.001), fr, ease_out((tv - SCN[0]) / 0.3)) if tv - SCN[0] < 0.3 else fr
+
+    out_dir = os.path.join(ep_dir, "out"); os.makedirs(out_dir, exist_ok=True); silent = os.path.join(out_dir, "silent.mp4")
+    ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", silent], stdin=subprocess.PIPE)
+    for fi in range(int(TOTAL * FPS)): ff.stdin.write(frame(fi / FPS).convert("RGB").tobytes())
+    ff.stdin.close(); ff.wait()
+    for p in panels:
+        if p.clip: p.clip.close()
+
+    # audio: chatter bed + call + A + voice + ticks + B
+    sr = 44100; n = int(TOTAL * sr); tt = np.arange(n) / sr; SFX = os.path.join(HERE, "sfx")
+    def wav(p):
+        tmp = os.path.join(out_dir, "_tmp.wav"); subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", p, "-ar", "44100", "-ac", "2", tmp], check=True)
+        q = wave.open(tmp); return np.frombuffer(q.readframes(q.getnframes()), np.int16).reshape(-1, 2) / 32768
+    c1 = wav(os.path.join(SFX, "chatter_1.wav"))[int(0.3 * sr):int(9.9 * sr)]; c2 = wav(os.path.join(SFX, "chatter_2.wav"))[int(0.3 * sr):int(9.9 * sr)]
+    def chain(order, skip):
+        o = np.zeros((n + sr * 12, 2)); pos, i, xf = 0, 0, int(1.2 * sr); r = np.linspace(0, 1, xf)[:, None]
+        while pos < n:
+            s = order[i % 2].copy()
+            if i == 0: s = s[int(skip * sr):]
+            s[-xf:] *= r[::-1]
+            if i: s[:xf] *= r
+            o[pos:pos + len(s)] += s; pos += len(s) - xf; i += 1
+        return o[:n]
+    bed = chain([c1, c2], 0) * 0.8 + chain([c2, c1], 4.7)[:, ::-1] * 0.5
+    env = np.where(tt < OFF - 0.2, 0.85, 0.32) * np.clip(tt / 0.4, 0, 1) * np.clip((TOTAL - tt) / 2, 0, 1)
+    k_ = int(0.3 * sr); cs = np.cumsum(np.concatenate([np.full(k_, env[0]), env, np.full(k_, env[-1])])); env = ((cs[2 * k_:] - cs[:-2 * k_]) / (2 * k_))[:n]
+    mix = bed * env[:, None]
+    def put(x, at, g):
+        s = int(at * sr); e = min(n, s + len(x)); mix[s:e] += x[:e - s] * g
+    put(wav(os.path.join(SFX, "shout.wav")), 0.0, 1.2); put(wav(os.path.join(SFX, "ahh_A.wav")), 1.25, 1.0); put(wav(voice), OFF, 1.6)
+    put(wav(os.path.join(SFX, "ting_B.wav")), OFF + OUT_T + Outro.LAND - 0.143, 1.1)
+    tk = np.arange(int(0.03 * sr)) / sr; click = np.repeat((np.sin(2 * np.pi * 1800 * tk) * np.exp(-tk * 180) * 0.025)[:, None], 2, axis=1)
+    for s_ in range(int(CLK) + 1): put(click, OFF + SCN[0] + s_, 1.0)
+    mix *= 0.9 / np.abs(mix).max(); mixp = os.path.join(out_dir, "mix.wav")
+    w = wave.open(mixp, "wb"); w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes((mix * 32767).astype(np.int16).tobytes()); w.close()
+    final = os.path.join(out_dir, f"{ep['slug']}.mp4")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", silent, "-i", mixp, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5",
+                    "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", final], check=True)
+    # contact sheet for checking: one frame per scene + opening + closing
+    times = [2.0, OFF + SCN[0] - 0.5] + [OFF + SCN[i] + 1.6 for i in range(len(SCN))] + [OFF + OUT_T + 2.5]
+    sheet = Image.new("RGB", (216 * 7, 384 * ((len(times) + 6) // 7)))
+    for k, t in enumerate(times):
+        p = os.path.join(out_dir, "_f.png"); subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", final, "-frames:v", "1", "-vf", "scale=216:-1", p])
+        sheet.paste(Image.open(p), ((k % 7) * 216, (k // 7) * 384))
+    sheet.save(os.path.join(out_dir, "sheet.png"))
+    for p in ("silent.mp4", "_tmp.wav", "_f.png", "mix.wav"):
+        try: os.remove(os.path.join(out_dir, p))
+        except OSError: pass
+    print(json.dumps({"video": final, "length": round(TOTAL, 1), "scenes": [round(x, 2) for x in SCN], "outro": round(OUT_T, 2), "clock": clk_str(CLK)}))
+
+if __name__ == "__main__":
+    {"script": cmd_script, "align": cmd_align, "render": cmd_render}[sys.argv[1]](sys.argv[2])
