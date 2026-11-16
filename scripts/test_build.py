@@ -53,6 +53,17 @@ for b in data["books"]:
     check(f"{b['slug']}: buy links marked sponsored", 'rel="sponsored' in h)
     check(f"{b['slug']}: sample pages hidden from Google", (not b.get("sample")) or 'name="robots" content="noindex"' in h)
 
+# 2b. homepage
+home = (dist / "index.html").read_text(encoding="utf-8") if (dist / "index.html").exists() else ""
+check("homepage exists", bool(home))
+check("homepage links every book", all(f'href="{b["slug"]}/' in home for b in data["books"]))
+feat = next((b for b in data["books"] if b.get("featured")), None)
+check("homepage shows book of the week", "Buku minggu ini" in home and (not feat or feat["title"].split(",")[0] in home))
+check("no WhatsApp button without a channel link", data["site"].get("whatsapp_channel") or "saluran WhatsApp" not in home)
+check("homepage has logo and favicon", 'assets/logo.svg' in home and 'rel="icon"' in home)
+check("logo copied to site", (dist / "assets" / "logo.svg").exists())
+check("homepage hidden from Google while all books are samples", (not all(b.get("sample") for b in data["books"])) or 'content="noindex"' in home)
+
 # 3. text is escaped (no broken pages from quotes or < >)
 evil = copy.deepcopy(data["books"][0]); evil["title"] = 'A <b>"bold"</b> title'
 check("escapes HTML in titles", "<b>\"bold\"</b>" not in build.book_page(data["site"], evil))

@@ -1,20 +1,20 @@
 :root{
-  --cream:#f7f1e8; --paper:#fffaf3; --ink:#2b1d14; --mut:#7a6656; --line:#e6dccd;
-  --coffee:#5b3a29; --coffee-d:#3e271b; --shopee:#ee4d2d; --shopee-d:#c93e22;
+  --cream:#f7f1e8; --paper:#fffaf3; --ink:#1d2b2a; --mut:#5c6b69; --line:#e6dccd;
+  --brand:#1f6f6a; --brand-d:#165450; --brand-l:#e3efec; --shopee:#ee4d2d; --shopee-d:#c93e22;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:var(--coffee)}
+a{color:var(--brand)}
 .wrap{max-width:560px;margin:0 auto;padding:0 18px}
 .top{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{font-family:Lora,Georgia,serif;font-weight:700;font-size:20px;color:var(--coffee-d);text-decoration:none}
+.brand{font-family:Lora,Georgia,serif;font-weight:700;font-size:20px;color:var(--brand-d);text-decoration:none}
 .top a.back{font-size:15px;text-decoration:none}
 .sample{background:#fde7c7;color:#7a4a0c;font-size:13px;font-weight:600;text-align:center;padding:6px 10px}
 
 .cover{width:180px;aspect-ratio:2/3;margin:12px auto 18px;border-radius:6px 12px 12px 6px;color:#fff;
   display:flex;flex-direction:column;justify-content:space-between;padding:18px 16px;
-  box-shadow:0 10px 24px rgba(43,29,20,.25), inset 6px 0 0 rgba(0,0,0,.18)}
+  box-shadow:0 10px 24px rgba(22,84,80,.25), inset 6px 0 0 rgba(0,0,0,.18)}
 .cover b{font-family:Lora,Georgia,serif;font-size:20px;line-height:1.25}
 .cover small{font-size:12px;opacity:.85}
 .cover img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
@@ -29,10 +29,10 @@ h1{font-family:Lora,Georgia,serif;font-size:26px;line-height:1.25;margin:0 0 4px
 .buy small{display:block;font-weight:500;font-size:13px;opacity:.9}
 .buy:active{transform:translateY(2px);box-shadow:0 2px 0 var(--shopee-d)}
 .alt{display:flex;gap:8px;margin:12px 0 22px}
-.alt a{flex:1;text-align:center;text-decoration:none;border:1.5px solid var(--coffee);color:var(--coffee);border-radius:12px;padding:10px 6px;font-weight:600;font-size:15px;background:var(--paper)}
+.alt a{flex:1;text-align:center;text-decoration:none;border:1.5px solid var(--brand);color:var(--brand);border-radius:12px;padding:10px 6px;font-weight:600;font-size:15px;background:var(--paper)}
 
 .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 12px}
-.card h2{font-family:Lora,Georgia,serif;font-size:18px;margin:0 0 6px;color:var(--coffee-d)}
+.card h2{font-family:Lora,Georgia,serif;font-size:18px;margin:0 0 6px;color:var(--brand-d)}
 .card p{margin:0}
 .card ul{margin:0;padding-left:20px}
 .card li{margin:2px 0}
@@ -46,3 +46,27 @@ footer a{color:var(--mut)}
 .list .mini{width:44px;aspect-ratio:2/3;border-radius:3px 6px 6px 3px;flex:none}
 .list b{display:block;font-family:Lora,Georgia,serif}
 .list small{color:var(--mut)}
+
+/* homepage */
+.brandrow{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brandrow img{width:40px;height:40px;border-radius:50%}
+.hero{text-align:center;padding:18px 0 8px}
+.hero h1{font-size:28px;margin:0 0 6px}
+.hero p{margin:0;color:var(--mut)}
+.label{font-family:Lora,Georgia,serif;font-size:19px;color:var(--brand-d);margin:26px 0 10px}
+.feat{display:flex;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--ink)}
+.feat .cover{width:110px;margin:0;padding:12px 10px;flex:none}
+.feat .cover b{font-size:14px}
+.feat .cover small{font-size:10px}
+.feat h3{font-family:Lora,Georgia,serif;margin:0 0 2px;font-size:20px}
+.feat .by{color:var(--mut);font-size:14px;margin:0 0 8px}
+.feat .why{font-size:15px;margin:0 0 10px}
+.feat .go{display:inline-block;background:var(--brand);color:#fff;border-radius:10px;padding:8px 14px;font-weight:600;font-size:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid a{text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.grid .cover{width:100%;margin:0;padding:12px 10px}
+.grid .cover b{font-size:15px}
+.grid .cover small{font-size:10px}
+.grid strong{font-family:Lora,Georgia,serif;font-size:16px;line-height:1.3}
+.grid small.meta{color:var(--mut);font-size:13px}
+.wa{display:block;text-align:center;margin:26px 0 0;background:#25d366;color:#fff;text-decoration:none;font-weight:700;border-radius:14px;padding:14px}

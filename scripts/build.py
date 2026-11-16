@@ -63,7 +63,7 @@ def href(path):
 def cover(b, cls="cover"):
     if b.get("cover_image"):
         return f'<div class="{cls} img"><img src="{e(b["cover_image"])}" alt="Kulit buku {e(b["title"])}"></div>'
-    return (f'<div class="{cls}" style="background:{e(b.get("cover_color", "#5b3a29"))}" aria-hidden="true">'
+    return (f'<div class="{cls}" style="background:{e(b.get("cover_color", "#1f6f6a"))}" aria-hidden="true">'
             f'<b>{e(b["title"])}</b><small>{e(b["author"])}</small></div>')
 
 
@@ -83,6 +83,7 @@ def head(title, desc, canonical, noindex, css):
 {robots}
 {FONTS}
 <link rel="stylesheet" href="{css}">
+<link rel="icon" href="{css.replace('style.css', 'logo.svg')}">
 </head>
 <body>"""
 
@@ -94,7 +95,7 @@ def book_page(site, b):
     out = [head(title, desc, f'{site["domain"]}/{b["slug"]}/', b.get("sample"), "../assets/style.css")]
     if b.get("sample"):
         out.append('<div class="sample">CONTOH: buku dan pautan ini untuk ujian sahaja</div>')
-    out.append(f'<div class="wrap"><nav class="top"><a class="brand" href="{href("../")}">{e(site["name"])}</a>'
+    out.append(f'<div class="wrap"><nav class="top"><a class="brandrow brand" href="{href("../")}"><img src="../assets/logo.svg" alt="">{e(site["name"])}</a>'
                f'<a class="back" href="{href("../")}">&larr; Semua buku</a></nav>')
     out.append(cover(b))
     out.append(f'<h1>{e(b["title"])}</h1><p class="author">{e(b["author"])}</p><span class="cat">{e(b["category"])}</span>')
@@ -117,15 +118,30 @@ def book_page(site, b):
     return "\n".join(out)
 
 
-def temp_home(site, books):
-    """Plain list so the book pages can be tested. Replaced by the real homepage in step 3."""
-    out = [head(site["name"], site["tagline"], site["domain"] + "/", True, "assets/style.css")]
-    out.append(f'<div class="wrap"><nav class="top"><span class="brand">{e(site["name"])}</span></nav>')
-    out.append('<p style="color:var(--mut);font-size:15px">Senarai ujian (halaman utama sebenar dibina dalam langkah 3).</p><div class="list">')
+def home(site, books):
+    """Homepage: book of the week, grid of all books, optional WhatsApp button."""
+    featured = next((b for b in books if b.get("featured")), books[0] if books else None)
+    noindex = all(b.get("sample") for b in books)
+    desc = f'{site["tagline"]} Cadangan buku untuk orang sibuk, dengan pautan beli di Shopee.'
+    out = [head(f'{site["name"]}: cadangan buku untuk orang sibuk', desc, site["domain"] + "/", noindex, "assets/style.css")]
+    if any(b.get("sample") for b in books):
+        out.append('<div class="sample">CONTOH: buku dan pautan ini untuk ujian sahaja</div>')
+    out.append(f'<div class="wrap"><nav class="top"><a class="brandrow brand" href="{href("")}"><img src="assets/logo.svg" alt="">{e(site["name"])}</a></nav>')
+    out.append(f'<header class="hero"><h1>Cadangan buku untuk orang sibuk</h1><p>{e(site["tagline"])} Satu buku, satu minit.</p></header>')
+    if featured:
+        f = featured
+        out.append('<h2 class="label">Buku minggu ini</h2>')
+        out.append(f'<a class="feat" href="{href(f["slug"] + "/")}">{cover(f)}<span><h3>{e(f["title"])}</h3>'
+                   f'<p class="by">{e(f["author"])}</p><p class="why">{e(f["why_read"])}</p><span class="go">Lihat buku &rarr;</span></span></a>')
+    out.append(f'<h2 class="label">Semua buku ({len(books)})</h2><div class="grid">')
     for b in books:
-        out.append(f'<a href="{href(b["slug"] + "/")}"><span class="mini" style="background:{e(b.get("cover_color", "#5b3a29"))}"></span>'
-                   f'<span><b>{e(b["title"])}</b><small>{e(b["author"])} &middot; {e(b["category"])}</small></span></a>')
-    out.append("</div></div></body></html>")
+        out.append(f'<a href="{href(b["slug"] + "/")}">{cover(b)}<strong>{e(b["title"])}</strong>'
+                   f'<small class="meta">{e(b["author"])} &middot; {e(b["category"])}</small></a>')
+    out.append("</div>")
+    if site.get("whatsapp_channel"):
+        out.append(f'<a class="wa" href="{e(site["whatsapp_channel"])}" rel="noopener" target="_blank">Sertai saluran WhatsApp: 1 buku seminggu</a>')
+    out.append(f'<p class="disclose">{e(site["disclosure"])}</p>')
+    out.append(f'<footer>{e(site["name"])} &middot; {e(site["tagline"])}</footer></div></body></html>')
     return "\n".join(out)
 
 
@@ -140,7 +156,8 @@ def main():
     for b in books:
         (DIST / b["slug"]).mkdir()
         (DIST / b["slug"] / "index.html").write_text(book_page(site, b), encoding="utf-8")
-    (DIST / "index.html").write_text(temp_home(site, books), encoding="utf-8")
+    shutil.copy(ROOT / "assets" / "logo.svg", DIST / "assets" / "logo.svg")
+    (DIST / "index.html").write_text(home(site, books), encoding="utf-8")
     print(f"Built {len(books)} book pages into dist/" + (" (preview mode)" if PREVIEW else ""))
 
 
