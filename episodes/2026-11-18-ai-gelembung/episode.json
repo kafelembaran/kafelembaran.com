@@ -1,0 +1,233 @@
+{
+ "slug": "kafelembaran-ai-gelembung",
+ "date": "2026-11-18",
+ "style": "kopitiam",
+ "title": [
+  "AI gelembung?",
+  "Pelajaran tahun 2000"
+ ],
+ "book": {
+  "title": "Labur Santai",
+  "slip_lines": [
+   "Labur Santai"
+  ],
+  "author": "Adib Yazid & Kauthar Rozmal",
+  "shopee": "TODO: Shopee affiliate short link"
+ },
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "outro_say": "Nak mula melabur dengan tenang? Baca Labur Santai. Link kat bio.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "big",
+    "text": "$115.8 bil",
+    "sub": "hasil Nvidia, 3 bulan"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "2025",
+      57
+     ],
+     [
+      "2026",
+      115.8
+     ]
+    ],
+    "unit": " bil",
+    "caption": "Hasil suku ketiga Nvidia (USD)",
+    "highlight": 1
+   },
+   "source": "Nvidia",
+   "say": [
+    {
+     "say": "Minggu ini, Nvidia umum hasil seratus lima belas bilion dolar, dalam tiga bulan.",
+     "show": "Minggu ini, Nvidia umum hasil $115.8 bilion, dalam tiga bulan."
+    },
+    "Dua kali ganda tahun lepas.",
+    "Jadi... AI ini gelembung, atau tidak?"
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "YTL Power",
+    "sub": "12 November"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Saham pusat data",
+     "jatuh di Bursa"
+    ]
+   },
+   "source": "The Edge",
+   "say": [
+    "Di Malaysia pun, orang mula risau.",
+    {
+     "say": "Dua belas November, saham pusat data di Bursa jatuh, diketuai YTL Power.",
+     "show": "12 November, saham pusat data di Bursa jatuh, diketuai YTL Power."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "count",
+    "value": 30,
+    "prefix": "RM",
+    "suffix": " bil",
+    "sub": "pembiayaan pusat data, Johor"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Duit pinjaman",
+     "untuk bina AI"
+    ]
+   },
+   "source": "The Star",
+   "say": [
+    "Kerisauannya satu: banyak pembinaan AI guna duit pinjaman.",
+    {
+     "say": "Di Johor, bank-bank termasuk Maybank dan CIMB sediakan pembiayaan tiga puluh bilion ringgit, untuk satu syarikat pusat data.",
+     "show": "Di Johor, bank-bank termasuk Maybank dan CIMB sediakan pembiayaan RM30 bilion, untuk satu syarikat pusat data."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "count",
+    "value": 78,
+    "prefix": "-",
+    "suffix": "%",
+    "sub": "Nasdaq, 2000 hingga 2002"
+   },
+   "panel": {
+    "type": "timeline",
+    "start": 2000,
+    "end": 2015,
+    "ticks": [
+     2002
+    ],
+    "left": "puncak",
+    "right": "pulih",
+    "caption": "{n} tahun"
+   },
+   "source": "Nasdaq",
+   "say": [
+    "Kita pernah lalui ini.",
+    {
+     "say": "Tahun dua ribu, gelembung dot-com pecah. Indeks teknologi Nasdaq jatuh tujuh puluh lapan peratus.",
+     "show": "Tahun 2000, gelembung dot-com pecah. Indeks teknologi Nasdaq jatuh 78%."
+    },
+    {
+     "say": "Ambil lima belas tahun untuk kembali ke paras asal.",
+     "show": "Ambil 15 tahun untuk kembali ke paras asal."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "Tapi",
+    "sub": "internet tak gagal"
+   },
+   "panel": {
+    "type": "versus",
+    "left": {
+     "text": "Tiada hasil|sebenar",
+     "mark": "no",
+     "note": "jatuh ke sifar"
+    },
+    "right": {
+     "text": "Ada hasil|sebenar",
+     "mark": "yes",
+     "note": "Amazon: -94%, kemudian pulih"
+    }
+   },
+   "say": [
+    "Tapi internet tak gagal.",
+    "Yang mati, syarikat tanpa hasil sebenar.",
+    {
+     "say": "Amazon pun jatuh sembilan puluh empat peratus... tapi kemudian naik lebih seratus kali ganda dari paras terendahnya.",
+     "show": "Amazon pun jatuh 94%... tapi kemudian naik lebih 100 kali ganda dari paras terendahnya."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Duit masuk",
+    "sub": "atau duit pinjam?"
+   },
+   "panel": {
+    "type": "versus",
+    "left": {
+     "text": "Hasil|sebenar",
+     "mark": "yes"
+    },
+    "right": {
+     "text": "Hidup atas|hutang",
+     "mark": "no"
+    }
+   },
+   "say": [
+    "Jadi soalan sebenar bukan, AI gelembung atau tidak.",
+    "Tapi syarikat mana yang ada duit masuk sebenar... dan mana yang hidup atas hutang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Sabar",
+    "sub": "bukan kejar hype"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Ilmu + sabar",
+     "bukan nasihat pelaburan"
+    ]
+   },
+   "say": [
+    "Gelembung datang dan pergi.",
+    "Yang selamat, yang melabur dengan ilmu dan sabar... bukan yang kejar hype.",
+    "Ini bukan nasihat pelaburan."
+   ]
+  }
+ ],
+ "post": {
+  "caption": "AI gelembung? Pelajaran dari tahun 2000, diterangkan di antara dua hirupan kopi ☕\n\nNvidia baru umum hasil $115.8 bilion dalam tiga bulan. Tapi saham pusat data di Bursa jatuh, dan banyak pembinaan AI guna duit pinjaman. Tahun 2000, Nasdaq jatuh 78%. Yang mati, syarikat tanpa hasil sebenar.\n\nBuku: Labur Santai, Adib Yazid & Kauthar Rozmal. Link kat bio (link affiliate).\n\nSumber: Nvidia, The Edge, The Star, Nasdaq.\nBukan nasihat pelaburan. Suara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "AIbubble",
+   "gelembungAI",
+   "Nvidia",
+   "pelaburan",
+   "sahamMalaysia",
+   "bukumalaysia"
+  ],
+  "youtube_title": "AI gelembung? Pelajaran dari crash dot-com 2000 | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "AI bubble",
+   "gelembung AI",
+   "Nvidia",
+   "dot-com crash",
+   "Bursa Malaysia",
+   "YTL Power",
+   "pelaburan"
+  ],
+  "category": "EDUCATION",
+  "political": false
+ },
+ "sources": [
+  "https://www.globenewswire.com/news-release/2026/11/17/3405200/0/en/nvidia-announces-financial-results-for-third-quarter-fiscal-2027.html",
+  "https://theedgemalaysia.com/node/825519",
+  "https://www.thestar.com.my/business/insight/2026/11/07/when-the-ai-bubble-bursts",
+  "https://www.thewealthadvisor.com/article/i-was-there-dot-com-bust-heres-why-ai-boom-isnt-same",
+  "https://investing-in-the-age-of-ai.pages.dev/what-the-dot-com-bust-actually-teaches-about-ai",
+  "https://www.dailymaverick.co.za/article/2026-11-10-day-of-reckoning-is-the-ai-bubble-finally-about-to-burst/"
+ ]
+}

@@ -1,0 +1,254 @@
+{
+ "slug": "kafelembaran-robot-pertama-al-jazari",
+ "date": "2026-11-18",
+ "style": "kopitiam",
+ "title": [
+  "Robot pertama",
+  "820 tahun dulu?"
+ ],
+ "book": {
+  "title": "Saintis-Saintis Agung Islam",
+  "slip_lines": [
+   "Saintis-Saintis",
+   "Agung Islam"
+  ],
+  "author": "Ammar Akmal",
+  "shopee": "TODO: Shopee affiliate short link"
+ },
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "outro_say": "Nak kenal saintis Islam yang lain? Baca Saintis-Saintis Agung Islam. Link kat bio.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "count",
+    "value": 19100,
+    "sub": "robot humanoid, Jan hingga Jun 2026"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "2025",
+      5100
+     ],
+     [
+      "2026",
+      19100
+     ]
+    ],
+    "caption": "Penghantaran robot humanoid, separuh pertama tahun",
+    "highlight": 1
+   },
+   "source": "Smart Analytics Global",
+   "say": [
+    {
+     "say": "Separuh pertama tahun ini, dunia hantar lebih sembilan belas ribu robot humanoid.",
+     "show": "Separuh pertama 2026, dunia hantar lebih 19,000 robot humanoid."
+    },
+    {
+     "say": "Naik dua ratus tujuh puluh dua peratus.",
+     "show": "Naik 272%."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "1206",
+    "sub": "tahun buku itu siap"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Mesin yang bergerak sendiri"
+    ]
+   },
+   "say": [
+    "Tapi idea mesin yang bergerak sendiri bukan lahir di Silicon Valley.",
+    {
+     "say": "Ia ditulis dalam sebuah buku, tahun seribu dua ratus enam.",
+     "show": "Ia ditulis dalam sebuah buku, tahun 1206."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "al-Jazari",
+    "sub": "ketua jurutera istana"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Istana Artuqid, Turki hari ini"
+    ]
+   },
+   "say": [
+    "Penulisnya, Ismail al-Jazari.",
+    "Ketua jurutera istana Artuqid, di Turki hari ini."
+   ]
+  },
+  {
+   "head": {
+    "kind": "count",
+    "value": 50,
+    "suffix": " mesin",
+    "sub": "lengkap dengan cara membina"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Lukisan + cara membina"
+    ]
+   },
+   "say": [
+    {
+     "say": "Dalam bukunya ada lima puluh mesin, lengkap dengan lukisan dan cara membinanya.",
+     "show": "Dalam bukunya ada 50 mesin, lengkap dengan lukisan dan cara membinanya."
+    },
+    "Dan dia cuma tulis mesin yang dia sendiri pernah bina.",
+    "Macam manual buat sendiri, lapan abad lebih awal."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Aci engkol",
+    "sub": "crankshaft"
+   },
+   "panel": {
+    "type": "crank",
+    "mode": "rotary_to_linear"
+   },
+   "say": [
+    "Antara isinya, aci engkol. Crankshaft.",
+    "Ia tukar pusingan roda kepada gerakan tolak-tarik."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Pam 2 silinder",
+    "sub": "1206"
+   },
+   "panel": {
+    "type": "crank",
+    "mode": "twin_pump"
+   },
+   "say": [
+    {
+     "say": "Al-Jazari guna ia dalam pam air dua silinder.",
+     "show": "Al-Jazari guna ia dalam pam air 2 silinder."
+    },
+    "Enjin kereta anda guna prinsip yang sama, cuma terbalik.",
+    "Omboh yang tolak-tarik, jadi pusingan roda."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Gear segmen",
+    "sub": "pertama kali jelas, 1206"
+   },
+   "panel": {
+    "type": "timeline",
+    "start": 1206,
+    "end": 1364,
+    "left": "al-Jazari",
+    "right": "Eropah, de Dondi",
+    "caption": "{n} tahun"
+   },
+   "source": "Lynn White, melalui Muslim Heritage",
+   "say": [
+    "Gear segmen pula muncul jelas buat pertama kali dalam buku al-Jazari.",
+    "Di Eropah, ia muncul lebih seabad kemudian."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Jam gajah",
+    "sub": "4 budaya, 1 mesin"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Gajah India · Phoenix Mesir",
+     "Permaidani Parsi · Naga Cina"
+    ]
+   },
+   "say": [
+    "Mesinnya bukan sekadar berguna.",
+    "Jam gajahnya gabungkan gajah India, burung phoenix Mesir, permaidani Parsi, dan naga Cina."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Alat wuduk",
+    "sub": "untuk istana"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Mesin untuk berwuduk"
+    ]
+   },
+   "say": [
+    "Ada juga alat untuk mengambil wuduk, dibina untuk istana."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "820 tahun",
+    "sub": "dari pelan ke berita"
+   },
+   "panel": {
+    "type": "timeline",
+    "start": 1206,
+    "end": 2026,
+    "left": "pelan al-Jazari",
+    "right": "19,000 robot humanoid",
+    "caption": "{n} tahun"
+   },
+   "say": [
+    "Jadi bila robot jadi tajuk berita tahun ini, ingat:",
+    "pelannya sudah dilukis seorang jurutera Muslim, lapan abad dahulu."
+   ]
+  }
+ ],
+ "post": {
+  "caption": "Robot pertama, 820 tahun dulu? Diterangkan di antara dua hirupan kopi ☕\n\nTahun ini dunia hantar lebih 19,000 robot humanoid. Tapi pada 1206, Ismail al-Jazari sudah tulis buku 50 mesin, lengkap dengan cara membinanya. Antaranya aci engkol (crankshaft), prinsip yang masih ada dalam enjin kereta anda.\n\nBuku: Saintis-Saintis Agung Islam, Ammar Akmal. Link kat bio (link affiliate).\n\nSumber: Smart Analytics Global, Wikipedia, Muslim Heritage, Qatar National Library.\nSuara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "aljazari",
+   "sejarahislam",
+   "saintisislam",
+   "robotik",
+   "kejuruteraan",
+   "bukumalaysia"
+  ],
+  "youtube_title": "Robot pertama 820 tahun dulu? Al-Jazari dan aci engkol | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "al-Jazari",
+   "bapa robotik",
+   "saintis Islam",
+   "crankshaft",
+   "aci engkol",
+   "sejarah kejuruteraan",
+   "robot humanoid"
+  ],
+  "category": "EDUCATION",
+  "political": false
+ },
+ "sources": [
+  "https://book.st-hakky.com/en/news/humanoid-robots-new-gemini-openai-chaos",
+  "https://en.wikipedia.org/wiki/Ismail_al-Jazari",
+  "https://muslimheritage.com/article/800-years-later-memory-al-jazari-genius-mechanical-engineer",
+  "https://exhibits.qnl.qa/en/3556-2/",
+  "https://superscout.co/innovation/al-jazari-ingenious-devices",
+  "https://philosophical.chat/?p=13292"
+ ]
+}
