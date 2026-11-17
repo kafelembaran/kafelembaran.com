@@ -8,67 +8,22 @@
   },
   "books": [
     {
-      "slug": "tabiat-kecil",
-      "sample": true,
+      "slug": "power-sharing-in-a-divided-nation",
       "featured": true,
-      "added": "2026-11-16",
-      "title": "Tabiat Kecil, Hasil Besar",
-      "author": "Penulis Contoh",
-      "category": "Motivasi",
-      "cover_color": "#2f5d50",
+      "added": "2026-11-17",
+      "title": "Power Sharing in a Divided Nation",
+      "author": "Johan Saravanamuttu",
+      "category": "Politik & Sejarah",
+      "cover_color": "#165450",
       "summary": [
-        "Perubahan besar bermula daripada langkah yang sangat kecil.",
-        "Buku ini tunjuk cara bina rutin harian yang kekal tanpa paksa diri.",
-        "Setiap bab ada latihan ringkas yang boleh terus dicuba hari ini."
+        "Bagaimana Malaysia berkongsi kuasa antara kaum melalui pilihan raya, dari 1952 hingga 2016.",
+        "Bermula dengan pakatan UMNO-MCA di Kuala Lumpur, Perikatan 1955, hingga kebangkitan dan cabaran Barisan Nasional.",
+        "Penulis menamakannya 'mediated communalism': parti kaum yang bekerjasama untuk menang."
       ],
-      "why_read": "Bahasa santai, contoh dekat dengan kehidupan orang Malaysia, dan boleh habis baca dalam seminggu.",
-      "for_who": "Pelajar, pekerja muda, dan sesiapa yang selalu mula azam baru tapi susah nak teruskan.",
+      "why_read": "Kalau anda tertanya kenapa formula Perikatan masih menang pada 2026, buku ini terangkan akar sejarahnya dengan data pilihan raya enam dekad.",
+      "for_who": "Pembaca politik dan sejarah Malaysia, pelajar sains politik, dan sesiapa yang mahu faham PRU16 lebih dalam. Bahasa Inggeris, gaya akademik.",
       "links": {
-        "shopee": "https://shopee.com.my/",
-        "publisher": "",
-        "bookcafe": "https://www.bookcafe.my/"
-      }
-    },
-    {
-      "slug": "resepi-dapur-nenek",
-      "sample": true,
-      "featured": false,
-      "added": "2026-11-15",
-      "title": "Resepi Dapur Nenek",
-      "author": "Penulis Contoh",
-      "category": "Masakan",
-      "cover_color": "#a0522d",
-      "summary": [
-        "Himpunan resepi kampung yang diwarisi turun-temurun.",
-        "Setiap resepi disusun langkah demi langkah dengan sukatan mudah.",
-        "Ada tip menyimpan rempah dan memasak untuk keluarga besar."
-      ],
-      "why_read": "Resepi diuji di dapur biasa, bukan dapur restoran. Bahan senang dapat di pasar.",
-      "for_who": "Pasangan baru berumah tangga dan sesiapa yang rindu masakan kampung.",
-      "links": {
-        "shopee": "https://shopee.com.my/",
-        "publisher": "https://example.com/",
-        "bookcafe": ""
-      }
-    },
-    {
-      "slug": "misteri-pulau-senja",
-      "sample": true,
-      "featured": false,
-      "added": "2026-11-14",
-      "title": "Misteri Pulau Senja",
-      "author": "Penulis Contoh",
-      "category": "Novel",
-      "cover_color": "#3b3f6b",
-      "summary": [
-        "Seorang guru muda ditugaskan ke sekolah di pulau terpencil.",
-        "Satu demi satu rahsia lama penduduk pulau mula terbongkar.",
-        "Pengakhiran yang tak dijangka dan susah nak diletak."
-      ],
-      "why_read": "Plot laju, bab pendek, sesuai dibaca sebelum tidur atau dalam perjalanan.",
-      "for_who": "Peminat novel misteri dan thriller tempatan.",
-      "links": {
-        "shopee": "https://shopee.com.my/",
+        "shopee": "https://s.shopee.com.my/80EISyvbtg",
         "publisher": "",
         "bookcafe": ""
       }

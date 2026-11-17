@@ -257,8 +257,10 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
       python3 video/make_episode.py script episodes/<ep>   -> tts_script.txt + gemini_prompts.txt
       python3 video/make_episode.py align  episodes/<ep>   -> sentence timings found in voice.wav
       python3 video/make_episode.py render episodes/<ep>   -> out/<slug>.mp4 + out/sheet.png (~1.5 min)
-  Alignment is automatic: pauses are found with silencedetect, then dynamic programming splits
-  the speech into the script's sentences by length, preferring long pauses. Tested on the pilot:
+  Alignment is automatic: pauses are found with silencedetect (-34 dB, 0.12 s), then dynamic
+  programming splits the speech into the script's sentences by their spoken SYLLABLE count (acronyms
+  by letter: MCA = 3, UMNO = 2; digits as words), preferring long pauses. Check: the speaking rate per
+  sentence should come out even (about 5-7 syllables a second for Enzo). Tested on the pilot:
   identical to the hand timing. If a sentence lands wrong, check with "align" and adjust the
   script (each sentence must be read in order, no extra words).
 
@@ -317,8 +319,11 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
    Boldness is spent only on the slip; everything else stays quiet.
   Checklist before sending any render: look at sheet.png and confirm no text overflows a slip,
   no caps labels, no middle dots, one motion per scene, subtitles readable, sources readable.
-  Status: mock approved for design review; to be built into kl.py / panels.py / make_episode.py
-  at the next render.
+  Status: BUILT (17 Nov 2026) as video/style_kopitiam.py. An episode uses it with "style": "kopitiam"
+  in episode.json (the pilot keeps the old look). New panels: pagoda (swaying floors, central pillar,
+  floor labels, pillar label, height label, question mark), flex (rigid cracks vs flexible sways),
+  seats (seat dots by party), seatrows (one row of seats per election), trio (three people holding a
+  pillar), versus (two columns, optional tick or cross). bars takes "highlight": index.
 
 
 CHANGE LOG
@@ -343,3 +348,7 @@ CHANGE LOG
 17 Nov 2026  Anti-slop design (frontend-design skill) adopted: audit of the pilot, direction v2
              "Meja Kopitiam" (section 12), mock frames in video/design/. Weekly scout task now loads
              the skill.
+17 Nov 2026  Episode 2 "Formula 1955 kembali?" (PRN Melaka, the Alliance model, the Toji pagoda analogy;
+             book Power Sharing in a Divided Nation). First render in the Meja Kopitiam style.
+             Alignment switched from characters to syllables after a one-sentence slip. Sample books
+             removed from the website; the first real book is live.

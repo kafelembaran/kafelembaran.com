@@ -1,0 +1,425 @@
+{
+ "slug": "kafelembaran-formula-1955-kembali",
+ "date": "2026-11-17",
+ "style": "kopitiam",
+ "title": [
+  "Formula 1955",
+  "kembali?"
+ ],
+ "book": {
+  "title": "Power Sharing in a Divided Nation",
+  "slip_lines": [
+   "Power Sharing",
+   "in a Divided Nation"
+  ],
+  "author": "Johan Saravanamuttu",
+  "shopee": "https://s.shopee.com.my/80EISyvbtg"
+ },
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "count",
+    "value": 21,
+    "suffix": "/28",
+    "sub": "Melaka, 14 November"
+   },
+   "panel": {
+    "type": "seats",
+    "total": 28,
+    "cols": 10,
+    "groups": [
+     [
+      "BN",
+      21,
+      "accent"
+     ],
+     [
+      "PH",
+      4,
+      "fg"
+     ],
+     [
+      "PN",
+      3,
+      "muted"
+     ]
+    ]
+   },
+   "source": "SPR, melalui RTM",
+   "say": [
+    {
+     "say": "Empat belas November, Melaka.",
+     "show": "14 November, Melaka."
+    },
+    {
+     "say": "BN menang dua puluh satu daripada dua puluh lapan kerusi.",
+     "show": "BN menang 21 daripada 28 kerusi."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "3 PRN",
+    "sub": "Julai hingga November 2026"
+   },
+   "panel": {
+    "type": "seatrows",
+    "rows": [
+     [
+      "Johor",
+      48,
+      56,
+      "BN"
+     ],
+     [
+      "N. Sembilan",
+      25,
+      36,
+      "BN dan PN"
+     ],
+     [
+      "Melaka",
+      24,
+      28,
+      "BN dan PN"
+     ]
+    ]
+   },
+   "source": "The Sun, The Vibes, RTM",
+   "say": [
+    "Bukan kebetulan.",
+    {
+     "say": "Julai, Johor: empat puluh lapan kerusi. Ogos, Negeri Sembilan: bersama PN, dua puluh lima kerusi.",
+     "show": "Julai, Johor: 48 kerusi. Ogos, Negeri Sembilan: bersama PN, 25 kerusi."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "count",
+    "value": 8,
+    "prefix": "4 → ",
+    "sub": "kerusi MCA di Johor"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "2022",
+      4
+     ],
+     [
+      "2026",
+      8
+     ]
+    ],
+    "caption": "Kerusi DUN MCA di Johor",
+    "highlight": 1
+   },
+   "source": "The Star, Focus Malaysia",
+   "say": [
+    "Yang menarik, bukan UMNO sahaja.",
+    {
+     "say": "Di Johor, MCA naik daripada empat kepada lapan kerusi.",
+     "show": "Di Johor, MCA naik daripada 4 kepada 8 kerusi."
+    },
+    "Di Negeri Sembilan, MCA tumbangkan Setiausaha Agung DAP."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "2018",
+    "sub": "MCA tinggal 1 kerusi"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "2013",
+      7
+     ],
+     [
+      "2018",
+      1
+     ]
+    ],
+    "caption": "Kerusi Parlimen MCA",
+    "highlight": 1
+   },
+   "source": "The Edge",
+   "say": [
+    {
+     "say": "Ingat dua ribu lapan belas?",
+     "show": "Ingat 2018?"
+    },
+    "MCA tinggal satu kerusi Parlimen.",
+    "Ramai kata BN dah mati.",
+    "Tapi BN tak bubar."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Keras atau lentur?",
+    "sub": "yang tahu cara memberi"
+   },
+   "panel": {
+    "type": "flex",
+    "left": "Keras: retak",
+    "right": "Lentur: bertahan"
+   },
+   "say": [
+    "Kenapa ia boleh bertahan?",
+    "Dalam kejuruteraan, struktur yang paling tahan bukan yang paling keras... tapi yang tahu cara memberi."
+   ]
+  },
+  {
+   "head": {
+    "kind": "count",
+    "value": 2,
+    "sub": "runtuh dalam 1,400 tahun"
+   },
+   "panel": {
+    "type": "pagoda",
+    "caption": "Pagoda kayu lima tingkat, Jepun"
+   },
+   "source": "Gizmodo, rekod pagoda Jepun",
+   "say": [
+    "Macam pagoda kayu di Jepun.",
+    {
+     "say": "Dalam seribu empat ratus tahun, hanya dua yang runtuh kerana gempa.",
+     "show": "Dalam 1,400 tahun, hanya dua yang runtuh kerana gempa."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Toji, Kyoto",
+    "sub": "gempa Kobe 1995"
+   },
+   "panel": {
+    "type": "pagoda",
+    "height_label": "55 m",
+    "amp": 14
+   },
+   "source": "CNN",
+   "say": [
+    "Contohnya pagoda Toji di Kyoto.",
+    {
+     "say": "Tahun seribu sembilan ratus sembilan puluh lima, gempa Kobe meruntuhkan banyak bangunan... tapi pagoda lima puluh lima meter itu tetap berdiri.",
+     "show": "Tahun 1995, gempa Kobe meruntuhkan banyak bangunan... tapi pagoda 55 meter itu tetap berdiri."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Tiang tengah",
+    "sub": "shinbashira"
+   },
+   "panel": {
+    "type": "pagoda",
+    "highlight_pillar": true,
+    "pillar_label": "tiang tengah",
+    "amp": 16
+   },
+   "say": [
+    "Rahsianya?",
+    "Setiap tingkat bergerak sendiri, tapi semuanya berpaut pada satu tiang tengah.",
+    "Bila gempa, ia bergoyang... ia memberi... tapi tak tumbang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Satu tiang",
+    "sub": "perkongsian kuasa"
+   },
+   "panel": {
+    "type": "pagoda",
+    "highlight_pillar": true,
+    "labels": [
+     "UMNO",
+     "MCA",
+     "MIC"
+    ],
+    "pillar_label": "kongsi kuasa",
+    "amp": 8
+   },
+   "say": [
+    "Model BN pun begitu.",
+    "Setiap parti ada pengundi sendiri, tapi berkongsi satu tiang: perkongsian kuasa."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Tiga arkitek",
+    "sub": "pengasas Perikatan"
+   },
+   "panel": {
+    "type": "trio",
+    "pillar": "perkongsian kuasa",
+    "names": [
+     "Tunku Abdul|Rahman (UMNO)",
+     "Tan Cheng|Lock (MCA)",
+     "V.T. Sambanthan|(MIC)"
+    ]
+   },
+   "source": "rekod Parti Perikatan",
+   "say": [
+    "Tiang itu dibina oleh tiga arkitek: Tunku Abdul Rahman, Tan Cheng Lock, dan V.T. Sambanthan."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "1952",
+    "sub": "pilihan raya Kuala Lumpur"
+   },
+   "panel": {
+    "type": "versus",
+    "left": {
+     "text": "Satu parti|berbilang kaum",
+     "mark": "no",
+     "note": "IMP, Dato' Onn"
+    },
+    "right": {
+     "text": "Pakatan|UMNO dan MCA",
+     "mark": "yes",
+     "note": "menang 9 daripada 12"
+    }
+   },
+   "source": "Majlis Peguam Malaysia",
+   "say": [
+    {
+     "say": "Seribu sembilan ratus lima puluh dua, Dato' Onn cuba satu parti berbilang kaum.",
+     "show": "1952, Dato' Onn cuba satu parti berbilang kaum."
+    },
+    "Tapi yang menang di Kuala Lumpur ialah pakatan UMNO dan MCA."
+   ]
+  },
+  {
+   "head": {
+    "kind": "count",
+    "value": 51,
+    "suffix": "/52",
+    "sub": "Perikatan, 1955"
+   },
+   "panel": {
+    "type": "seats",
+    "total": 52,
+    "cols": 13,
+    "r": 16,
+    "groups": [
+     [
+      "Perikatan",
+      51,
+      "accent"
+     ],
+     [
+      "PAS",
+      1,
+      "muted"
+     ]
+    ]
+   },
+   "source": "NST",
+   "say": [
+    {
+     "say": "Tiga tahun kemudian, Perikatan menang lima puluh satu daripada lima puluh dua kerusi.",
+     "show": "Tiga tahun kemudian, Perikatan menang 51 daripada 52 kerusi."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "Tapi",
+    "sub": "ada soalan"
+   },
+   "panel": {
+    "type": "versus",
+    "left": {
+     "text": "BN menang|bersama PN",
+     "note": "Melaka, N. Sembilan"
+    },
+    "right": {
+     "text": "Kerusi bukan Melayu|kebanyakannya DAP",
+     "note": "Melaka: 4 kerusi PH"
+    }
+   },
+   "source": "RTM, Bernama, The Vibes",
+   "say": [
+    "Tapi ada soalan.",
+    "Di Melaka dan Negeri Sembilan, BN menang bersama PN.",
+    "Dan kerusi bukan Melayu kebanyakannya masih dimenangi DAP."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "PRU16",
+    "sub": "tiang masih kukuh?"
+   },
+   "panel": {
+    "type": "pagoda",
+    "highlight_pillar": true,
+    "question": true,
+    "amp": 18
+   },
+   "say": [
+    {
+     "say": "Jadi, tiang seribu sembilan ratus lima puluh lima masih kukuh... atau cuma undi Melayu yang bersatu?",
+     "show": "Jadi, tiang 1955 masih kukuh... atau cuma undi Melayu yang bersatu?"
+    },
+    {
+     "say": "Jawapannya, kita tahu pada PRU enam belas.",
+     "show": "Jawapannya, kita tahu pada PRU16."
+    }
+   ]
+  }
+ ],
+ "outro_say": "Nak faham asal-usul formula ini? Baca Power Sharing in a Divided Nation. Link kat bio.",
+ "post": {
+  "caption": "Formula 1955 kembali? Diterangkan di antara dua hirupan kopi ☕\n\nBN menang tiga PRN berturut-turut tahun ini: Johor, Negeri Sembilan dan Melaka. Adakah model perkongsian kuasa Perikatan (UMNO, MCA, MIC) kembali berfungsi, atau ini undi Melayu yang bersatu? Dan apa kaitannya dengan pagoda kayu di Jepun?\n\nBuku: Power Sharing in a Divided Nation, Johan Saravanamuttu. Link kat bio (link affiliate).\n\nSumber: SPR/RTM, The Sun, The Vibes, The Star, Focus Malaysia, The Edge, NST, Majlis Peguam, CNN, Gizmodo.\nSuara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "PRNMelaka",
+   "politikmalaysia",
+   "sejarahmalaysia",
+   "BarisanNasional",
+   "Perikatan",
+   "bukumalaysia"
+  ],
+  "youtube_title": "Formula 1955 kembali? BN, 3 PRN dan pagoda Jepun | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "PRN Melaka",
+   "Barisan Nasional",
+   "Perikatan",
+   "perkongsian kuasa",
+   "MCA",
+   "sejarah Malaysia",
+   "pagoda"
+  ],
+  "category": "NEWS_POLITICS"
+ },
+ "sources": [
+  "https://berita.rtm.gov.my/mandat/senarai-berita-mandat/senarai-artikel/keputusan-rasmi-prn-melaka-bn-menang-21-kerusi-ph-4-pn-3-pengerusi-spr/",
+  "https://thesun.my/?p=641751",
+  "https://www.thevibes.com/articles/uncategorized/125722/bn-pn-cooperation-to-continue-in-melaka-says-zahid",
+  "https://www.thestar.com.my/news/nation/2026/07/13/mca-winning-back-non-malay-voters-says-analyst",
+  "https://focusmalaysia.my/?p=252830",
+  "https://theedgemarkets.com/article/ge14-roundup-what-now-mca-mic-and-gerakan",
+  "https://gizmodo.com/how-japans-oldest-wooden-building-survives-giant-earthq-5846501",
+  "https://www.aol.com/japan-spent-more-century-earthquake-000226025.html",
+  "https://en.wikipedia.org/wiki/Alliance_Party_(Malaysia)",
+  "https://malaysianbar.org.my/article/news/legal-and-general-news/general-news/electing-the-government",
+  "https://www.nst.com.my/amp/news/nation/2015/11/114651/tunkus-rise-and-fall"
+ ]
+}

@@ -47,7 +47,7 @@ def cmd_script(ep_dir):
 
 # ---------------- 2. align sentences to the voice ----------------
 def speech_segments(path):
-    r = subprocess.run(["ffmpeg", "-i", path, "-af", "silencedetect=noise=-40dB:d=0.18", "-f", "null", "-"], capture_output=True, text=True).stderr
+    r = subprocess.run(["ffmpeg", "-i", path, "-af", "silencedetect=noise=-34dB:d=0.12", "-f", "null", "-"], capture_output=True, text=True).stderr
     st = [float(x) for x in re.findall(r"silence_start: ([0-9.]+)", r)]; en = [float(x) for x in re.findall(r"silence_end: ([0-9.]+)", r)]
     dur = float(re.findall(r"Duration: (\d+):(\d+):([0-9.]+)", r)[0][2]) + 60 * float(re.findall(r"Duration: (\d+):(\d+)", r)[0][1])
     sil = sorted(zip(st, en + [dur] * (len(st) - len(en))))
@@ -58,12 +58,22 @@ def speech_segments(path):
     if dur - t > 0.05: segs.append((t, dur))
     return segs, dur
 
+SPOKEN_WORDS = {"UMNO": 2}
+def syllables(text):
+    """Spoken syllables in Malay text: vowel groups (ai/au/oi = one), acronyms by letter (MCA = 3), digits as words."""
+    n = 0
+    for tok in re.findall(r"[A-Za-z']+|\d+", text):
+        if tok.isdigit(): n += 3 * len(tok)                              # numbers are read out in words
+        elif tok.isupper() and len(tok) <= 4: n += SPOKEN_WORDS.get(tok, len(tok))
+        else: n += max(1, len(re.findall(r"ai|au|oi|[aeiou]", tok.lower())))
+    return n
+
 def align(ep, voice):
     """Dynamic programming: split the speech segments into len(units) consecutive groups whose lengths best match
     each sentence's character count, preferring to cut at long pauses."""
     U = units(ep); segs, dur = speech_segments(voice); n, m = len(U), len(segs)
-    chars = np.array([len(re.sub(r"[^\w]", "", u[1])) + 1 for u in U], float)
-    total = segs[-1][1] - segs[0][0]; exp = total * chars / chars.sum()
+    weight = np.array([syllables(u[1]) + 1.0 * u[1].count("...") for u in U], float)
+    total = segs[-1][1] - segs[0][0]; exp = total * weight / weight.sum()
     gap_before = [0.0] + [segs[j][0] - segs[j - 1][1] for j in range(1, m)]
     INF = 1e18; dp = np.full((n + 1, m + 1), INF); back = np.zeros((n + 1, m + 1), int); dp[0][0] = 0
     for k in range(1, n + 1):
@@ -71,7 +81,7 @@ def align(ep, voice):
             for i in range(k - 1, j):
                 if dp[k - 1][i] >= INF: continue
                 span = segs[j - 1][1] - segs[i][0]
-                c = ((span - exp[k - 1]) / max(exp[k - 1], 0.8)) ** 2 - (0.8 * gap_before[i] if i > 0 else 0)
+                c = 2.0 * np.log(max(span, 0.2) / max(exp[k - 1], 0.4)) ** 2 - (0.8 * gap_before[i] if i > 0 else 0)
                 if dp[k - 1][i] + c < dp[k][j]: dp[k][j] = dp[k - 1][i] + c; back[k][j] = i
     cuts, j = [], m
     for k in range(n, 0, -1): i = back[k][j]; cuts.append((i, j)); j = i
@@ -163,6 +173,9 @@ def cmd_render(ep_dir):
         fr = mid_frame(tv)
         return Image.blend(intro.frame(OFF + SCN[0] - 0.001), fr, ease_out((tv - SCN[0]) / 0.3)) if tv - SCN[0] < 0.3 else fr
 
+    if ep.get("style") == "kopitiam":
+        import style_kopitiam
+        frame, _ = style_kopitiam.build(ep, SCN, OUT_T, SUBS, SUB_END, OFF + intro_u[1], OFF + line_b, OFF, panels)
     out_dir = os.path.join(ep_dir, "out"); os.makedirs(out_dir, exist_ok=True); silent = os.path.join(out_dir, "silent.mp4")
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", silent], stdin=subprocess.PIPE)

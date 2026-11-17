@@ -28,12 +28,12 @@ def rejects(name, mutate):
 
 # 1. bad data is refused
 rejects("rejects uppercase slug", lambda d: d["books"][0].update(slug="Tabiat Kecil"))
-rejects("rejects duplicate slug", lambda d: d["books"][1].update(slug=d["books"][0]["slug"]))
+rejects("rejects duplicate slug", lambda d: d["books"].append(dict(d["books"][0], featured=False)))
 rejects("rejects reserved slug", lambda d: d["books"][0].update(slug="assets"))
 rejects("rejects 2-line summary", lambda d: d["books"][0].update(summary=["a", "b"]))
 rejects("rejects http (not https) link", lambda d: d["books"][0]["links"].update(shopee="http://shopee.com.my/"))
 rejects("rejects book with no buy link", lambda d: d["books"][0].update(links={"shopee": "", "publisher": "", "bookcafe": ""}))
-rejects("rejects two featured books", lambda d: [b.update(featured=True) for b in d["books"]])
+rejects("rejects two featured books", lambda d: d["books"].append(dict(d["books"][0], slug=d["books"][0]["slug"] + "-2", featured=True)))
 
 # 2. the real build works
 r = subprocess.run([sys.executable, "-I", str(ROOT / "scripts" / "build.py")], capture_output=True, text=True)

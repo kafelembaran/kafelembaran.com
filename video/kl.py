@@ -6,7 +6,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 W, H, FPS = 1080, 1920, 30
-FONT = {"lora": "Lora-Variable.ttf", "poppins": "Poppins-Bold.ttf", "inter": "Inter.ttf", "mono": "ShareTechMono.ttf"}
+FONT = {"lora": "Lora-Variable.ttf", "poppins": "Poppins-Bold.ttf", "inter": "Inter.ttf", "mono": "ShareTechMono.ttf", "playfair": "Playfair.ttf",
+        "anton": "Anton.ttf", "oswald": "Oswald.ttf", "bebas": "BebasNeue.ttf", "caveat": "Caveat.ttf", "elite": "SpecialElite.ttf", "marker": "PermanentMarker.ttf", "vt": "VT323.ttf"}
 _cache = {}
 
 def F(name, size, wght=None):
