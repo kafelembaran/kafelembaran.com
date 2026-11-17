@@ -237,6 +237,12 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
 -----------
   Copy the final .mp4 into media/ in this repo, commit, push -> GitHub Pages serves it at
   https://kafelembaran.github.io/kafelembaran.com/media/<file>.mp4
+  Search metadata (every post): caption starts with the searchable topic words people type
+  ("PRN Melaka 2026: ..."); names of people, parties and places in the caption text; 10-15 hashtags
+  (topic, year, parties/people, then #duahirupankopi #kafelembaran #bukumalaysia), no #fyp spam;
+  YouTube title starts with the topic, 12-16 YouTube tags incl. the teaching hook (e.g. "pagoda Toji");
+  TikTok title = short topic line; category NEWS_POLITICS or EDUCATION; TikTok "third-party commercial
+  content" ON because of the affiliate link; AI labels ON.
   Metricool (connector): createScheduledPost with the public URL; TikTok privacy and
   YouTube type "short"; set isAigc / isAiGeneratedContent = true. First post private,
   check, then public.
