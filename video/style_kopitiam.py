@@ -133,7 +133,7 @@ class Intro:
         place_slap(fr, self.slip, 50, 220, t, 0.4)
         lay = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ld = ImageDraw.Draw(lay); fq = F("lora", 58, 500)
         ka, kb = ease_out((t - self.a) / 0.4), ease_out((t - self.b) / 0.4)
-        if ka > 0: ld.text((70, 990), "“Biar saya terangkan isu ini…", font=fq, fill=CREAM[:3] + (int(255 * ka),))
+        if ka > 0: ld.text((70, 880), "“Biar saya terangkan isu ini…", font=fq, fill=CREAM[:3] + (int(255 * ka),))
         if kb > 0: ld.text((70, 960), "di antara dua hirupan kopi.”", font=fq, fill=CREAM[:3] + (int(255 * kb),))
         fr.alpha_composite(lay); fr.alpha_composite(BANNER, (0, H - 256)); return fr
 
