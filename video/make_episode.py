@@ -139,7 +139,7 @@ def cmd_render(ep_dir):
     intro_u = res[0]; outro_u = res[-1]; mid = res[1:-1]
     SCN = [min(a for (u, a, b, s) in mid if u[0] == i) - LEAD for i in range(len(ep["scenes"]))]
     OUT_T = outro_u[1] - LEAD; TOTAL = OFF + vlen + 1.2
-    SUBS = [(a - 0.1, u[2]) for (u, a, b, s) in mid]; SUB_END = OUT_T - 0.3
+    SUBS = [(a + 0.05, u[2]) for (u, a, b, s) in mid]; SUB_END = OUT_T - 0.3
     iseg = intro_u[3]; line_b = max(iseg[1:], key=lambda s: s[0] - 0)[0] if len(iseg) > 1 else intro_u[1] + 2.0
     if len(iseg) > 1:                                   # second half starts after the longest pause inside the hook
         gaps = [(iseg[k][0] - iseg[k - 1][1], iseg[k][0]) for k in range(1, len(iseg))]; line_b = max(gaps)[1]
