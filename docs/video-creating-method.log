@@ -276,7 +276,10 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
   Panel parameters are listed at the top of video/panels.py.
 
   WHO DOES WHAT
-    Claude (scheduled, weekly):  scan news -> choose 1 issue + matching book -> research with
+    Schedule: no fixed days. A daily check (12:05pm) keeps at least 2 episodes a week and never more
+    than 1 waiting for the user's voice. An episode counts as published when media/<slug>.mp4 exists
+    (so always name the published video exactly after the episode slug).
+    Claude (scheduled check):  scan news -> choose 1 issue + matching book -> research with
         sources -> write episode.json (10-12 scenes, rules in section 8) -> run "script" ->
         commit -> send the user: topic summary, tts_script.txt, gemini_prompts.txt.
     User (~5 min):  approve/adjust the topic, generate voice in AI Studio (Enzo, Friendly),
@@ -352,3 +355,6 @@ CHANGE LOG
              book Power Sharing in a Divided Nation). First render in the Meja Kopitiam style.
              Alignment switched from characters to syllables after a one-sentence slip. Sample books
              removed from the website; the first real book is live.
+17 Nov 2026  Episode 2 posted publicly (TikTok, YouTube Short, Instagram Reel). Schedule changed from
+             Mon/Thu to a daily check with a minimum of 2 episodes per week. Subtitles now appear 0.05 s
+             after each sentence starts (viewer said they came early).
