@@ -199,6 +199,12 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
   - Book cover: never show an AI-generated cover as the real one. Use a photo of the real
     book, or text only (current closing uses text).
   - Affiliate disclosure goes in the caption/bio ("link affiliate").
+  - POLITICAL / ELECTION / ISSUE-BASED topics on TikTok: TikTok bans political content in branded or
+    commercial posts (17 Nov 2026: episode 2 was removed for this). For these episodes post a
+    separate TikTok version made with  make_episode.py render <ep> --no-book  (voice cut before
+    the book line, closing card "Ikut kami @kafe.lembaran"), caption WITHOUT the book or affiliate
+    wording, commercial content toggle OFF. YouTube and Instagram keep the normal version with the
+    book. Non-political topics may use the book version on TikTok with the commercial toggle ON.
 
 
 9. FILES AND HOW TO RENDER (pilot, hand-tuned)
@@ -364,3 +370,5 @@ CHANGE LOG
 17 Nov 2026  Episode 2 posted publicly (TikTok, YouTube Short, Instagram Reel). Schedule changed from
              Mon/Thu to a daily check with a minimum of 2 episodes per week. Subtitles now appear 0.05 s
              after each sentence starts (viewer said they came early).
+17 Nov 2026  TikTok removed episode 2 (political topic posted with the commercial toggle on). Added the
+             --no-book TikTok version and the rule in section 8.

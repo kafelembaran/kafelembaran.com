@@ -142,7 +142,10 @@ class Outro:
     def __init__(self, book_lines, author, clock_secs):
         self.secs = clock_secs; self.bg = TILES.copy(); self.bg.alpha_composite(_marble(W, 1100), (0, 560))
         self.cup = cup_img(260, GREEN)
-        lines = [("Baca buku ini", 46, "inter", KOPI)] + [(b, 120, "anton", RED) for b in book_lines] + [(author, 44, "inter", KOPI), ("Link buku kat bio", 56, "inter", RED)]
+        if book_lines:
+            lines = [("Baca buku ini", 46, "inter", KOPI)] + [(b, 120, "anton", RED) for b in book_lines] + [(author, 44, "inter", KOPI), ("Link buku kat bio", 56, "inter", RED)]
+        else:      # no-book version (political topics on TikTok: no commercial content)
+            lines = [("Isu seterusnya", 46, "inter", KOPI), ("Ikut kami", 120, "anton", RED), ("@kafe.lembaran", 64, "inter", KOPI)]
         self.slip = slip(lines, rot=2)
     def frame(self, t):
         fr = self.bg.copy(); clock(fr, self.secs, frozen=True)
@@ -164,7 +167,8 @@ def build(ep, SCN, OUT_T, SUBS, SUB_END, intro_a, intro_b, OFF, panels_list):
     slips = [head_slip(sc["head"], i) for i, sc in enumerate(ep["scenes"])]
     stamps = {i: stamp_img(sc["head"]["text"]) for i, sc in enumerate(ep["scenes"]) if sc["head"]["kind"] == "stamp"}
     intro = Intro(ep["title"][0], ep["title"][1], OFF + SCN[0], intro_a, intro_b)
-    outro = Outro(ep["book"].get("slip_lines", [ep["book"]["title"]]), ep["book"]["author"], OUT_T - SCN[0])
+    nobook = ep.get("_nobook")
+    outro = Outro(None if nobook else ep["book"].get("slip_lines", [ep["book"]["title"]]), ep["book"]["author"], OUT_T - SCN[0])
 
     def scene(i, tv):
         sc = ep["scenes"][i]; age = tv - SCN[i]; dur = (SCN[i + 1] if i + 1 < len(SCN) else OUT_T) - SCN[i]

@@ -134,11 +134,12 @@ def subtitle(fr, txt, age):
             d.text((x, y0 + j * 84 + (1 - a) * 12), w, font=f, fill=fade(GOLD if h else (255, 255, 255, 255), a), stroke_width=7, stroke_fill=(0, 0, 0, int(230 * a)))
             x += text_w(f, w) + sp
 
-def cmd_render(ep_dir):
-    ep = load(ep_dir); voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
+def cmd_render(ep_dir, nobook=False):
+    ep = load(ep_dir); ep["_nobook"] = nobook; voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
     intro_u = res[0]; outro_u = res[-1]; mid = res[1:-1]
     SCN = [min(a for (u, a, b, s) in mid if u[0] == i) - LEAD for i in range(len(ep["scenes"]))]
     OUT_T = outro_u[1] - LEAD; TOTAL = OFF + vlen + 1.2
+    if nobook: TOTAL = OFF + OUT_T + 4.5          # the spoken book line is cut, so the closing is shorter
     SUBS = [(a + 0.05, u[2]) for (u, a, b, s) in mid]; SUB_END = OUT_T - 0.3
     iseg = intro_u[3]; line_b = max(iseg[1:], key=lambda s: s[0] - 0)[0] if len(iseg) > 1 else intro_u[1] + 2.0
     if len(iseg) > 1:                                   # second half starts after the longest pause inside the hook
@@ -205,13 +206,16 @@ def cmd_render(ep_dir):
     mix = bed * env[:, None]
     def put(x, at, g):
         s = int(at * sr); e = min(n, s + len(x)); mix[s:e] += x[:e - s] * g
-    put(wav(os.path.join(SFX, "shout.wav")), 0.0, 1.2); put(wav(os.path.join(SFX, "ahh_A.wav")), 1.25, 1.0); put(wav(voice), OFF, 1.6)
+    put(wav(os.path.join(SFX, "shout.wav")), 0.0, 1.2); put(wav(os.path.join(SFX, "ahh_A.wav")), 1.25, 1.0); vo = wav(voice)
+    if nobook:                                    # cut the voice before the spoken book line
+        cut = int((outro_u[1] - 0.12) * sr); vo = vo[:cut].copy(); f = int(0.08 * sr); vo[-f:] *= np.linspace(1, 0, f)[:, None]
+    put(vo, OFF, 1.6)
     put(wav(os.path.join(SFX, "ting_B.wav")), OFF + OUT_T + Outro.LAND - 0.143, 1.1)
     tk = np.arange(int(0.03 * sr)) / sr; click = np.repeat((np.sin(2 * np.pi * 1800 * tk) * np.exp(-tk * 180) * 0.025)[:, None], 2, axis=1)
     for s_ in range(int(CLK) + 1): put(click, OFF + SCN[0] + s_, 1.0)
     mix *= 0.9 / np.abs(mix).max(); mixp = os.path.join(out_dir, "mix.wav")
     w = wave.open(mixp, "wb"); w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes((mix * 32767).astype(np.int16).tobytes()); w.close()
-    final = os.path.join(out_dir, f"{ep['slug']}.mp4")
+    final = os.path.join(out_dir, f"{ep['slug']}{'-tiktok' if nobook else ''}.mp4")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", silent, "-i", mixp, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5",
                     "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", final], check=True)
     # contact sheet for checking: one frame per scene + opening + closing
@@ -227,4 +231,5 @@ def cmd_render(ep_dir):
     print(json.dumps({"video": final, "length": round(TOTAL, 1), "scenes": [round(x, 2) for x in SCN], "outro": round(OUT_T, 2), "clock": clk_str(CLK)}))
 
 if __name__ == "__main__":
-    {"script": cmd_script, "align": cmd_align, "render": cmd_render}[sys.argv[1]](sys.argv[2])
+    if sys.argv[1] == "render" and "--no-book" in sys.argv: cmd_render(sys.argv[2], nobook=True)
+    else: {"script": cmd_script, "align": cmd_align, "render": cmd_render}[sys.argv[1]](sys.argv[2])
