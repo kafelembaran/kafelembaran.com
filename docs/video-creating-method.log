@@ -341,6 +341,19 @@ Companion file: docs/video-style.txt (colours, fonts, references, older decision
   pillar), versus (two columns, optional tick or cross). bars takes "highlight": index.
 
 
+13. SAFE ZONES (from 17 Nov 2026)
+--------------------------------
+TikTok, Reels and Shorts draw their own interface over the video. On a 1080x1920 frame:
+  - top 0-150 px: search bar / back button;
+  - bottom 1440-1920 px: account name, caption, AI label, boost banner;
+  - right 930-1080 px from y 850 to 1440: like, comment, save, share buttons.
+Rule: anything that must be read (subtitles, clock, headline slip, panel, source line, closing
+text) stays inside x 0-930, y 150-1440. The zones above get only background (tiles, marble, cup).
+Values in video/style_kopitiam.py: SAFE_TOP/SAFE_BOTTOM/SAFE_RIGHT, clock centre y 210,
+slip at y 275 scaled 0.82, panel scaled 0.88 at y 640, subtitles end at y 1430 (max width 820).
+The bottom "Kafe Lembaran" banner was removed: the platforms already show the account name there.
+Check: extract frames and shade the three zones red; nothing readable may fall in red.
+
 CHANGE LOG
 ----------
 16 Nov 2026  Created. Pilot "Kejatuhan Jensen Huang" (kejatuhan-jensen-huang-enzo-v2.mp4, 79 s).
@@ -372,3 +385,5 @@ CHANGE LOG
              after each sentence starts (viewer said they came early).
 17 Nov 2026  TikTok removed episode 2 (political topic posted with the commercial toggle on). Added the
              --no-book TikTok version and the rule in section 8.
+17 Nov 2026  TikTok captions covered the subtitles. Layout moved into the platform safe zones
+             (section 13); bottom banner removed. Episode 2 re-rendered (both versions).

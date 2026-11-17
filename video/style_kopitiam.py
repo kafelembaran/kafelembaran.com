@@ -10,7 +10,12 @@ import panels
 
 GREEN = (22, 84, 80, 255); TILE = (18, 74, 70, 255); MARBLE = (236, 232, 225, 255); CHIT = (243, 230, 181, 255)
 RED = (184, 50, 43, 255); KOPI = (59, 38, 24, 255); CREAM = (247, 241, 232, 255); MUTED = (150, 140, 128, 255); DIM = (205, 199, 188, 255)
-TABLE_Y, TABLE_H = 640, 760
+# Safe zones: TikTok/Reels/Shorts cover the top ~150 px (search bar), the bottom ~480 px (name, caption)
+# and the right ~140 px (like/comment buttons). Everything that must be read stays inside SAFE_*.
+SAFE_TOP, SAFE_BOTTOM, SAFE_RIGHT = 150, 1440, 930
+TABLE_Y = 600; TABLE_H = H - TABLE_Y
+PANEL_SCALE, PANEL_Y = 0.88, 640
+SLIP_SCALE, SLIP_Y = 0.82, 275
 LAND = 0.55
 rng = np.random.default_rng(3)
 
@@ -36,9 +41,10 @@ def _banner():
 
 TILES = _tiles(); MARB = _marble(W, TABLE_H); BANNER = _banner()
 SCENE_BG = TILES.copy(); SCENE_BG.alpha_composite(MARB, (0, TABLE_Y))
-SHADE = Image.new("RGBA", (W, 330), (0, 0, 0, 0))
+SHADE_Y = 1150
+SHADE = Image.new("RGBA", (W, 360), (0, 0, 0, 0))
 _sd = ImageDraw.Draw(SHADE)
-for _y in range(330): _sd.line([(0, _y), (W, _y)], fill=(10, 25, 23, int(175 * _y / 330)))
+for _y in range(360): _sd.line([(0, _y), (W, _y)], fill=(10, 25, 23, int(175 * min(1, _y / 90, (360 - _y) / 60))))
 
 def theme_panels():
     """Panels are drawn straight onto the marble in kopi-brown ink with menu-board red accents."""
@@ -84,7 +90,8 @@ def head_slip(Hd, i):
     lines = ([(big, 190 if len(big) <= 8 else 130, "anton", RED)] if big else [])
     if Hd.get("sub"): lines.append((Hd["sub"], 46, "inter", KOPI))
     if not lines: lines = [(" ", 46, "inter", KOPI)]
-    return slip(lines, rot=(-2.5, 2.0, -1.5, 2.5)[i % 4])
+    im = slip(lines, rot=(-2.5, 2.0, -1.5, 2.5)[i % 4])
+    return im.resize((int(im.width * SLIP_SCALE), int(im.height * SLIP_SCALE)), Image.LANCZOS)
 
 def stamp_img(text):
     f = F("anton", 120); tw = text_w(f, text); st = Image.new("RGBA", (int(tw) + 80, 190), (0, 0, 0, 0)); sd = ImageDraw.Draw(st)
@@ -102,21 +109,21 @@ def place_slap(fr, img, x, y, age, delay=0.0):
 
 # ---------------- clock, subtitles ----------------
 def clock(fr, secs, frozen=False):
-    d = ImageDraw.Draw(fr); cx, cy, r = 112, 120, 52
+    d = ImageDraw.Draw(fr); cx, cy, r = 112, 210, 52
     d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=CREAM, outline=KOPI, width=5)
     for k in range(12):
         a = 2 * math.pi * k / 12; d.line([(cx + 40 * math.cos(a), cy + 40 * math.sin(a)), (cx + 46 * math.cos(a), cy + 46 * math.sin(a))], fill=KOPI, width=3)
     a = -math.pi / 2 + 2 * math.pi * (secs % 60) / 60
     d.line([(cx, cy), (cx + 40 * math.cos(a), cy + 40 * math.sin(a))], fill=RED, width=5); d.ellipse([cx - 6, cy - 6, cx + 6, cy + 6], fill=KOPI)
-    d.text((190, 76), f"{int(secs // 60)}:{int(secs % 60):02d}", font=F("anton", 64), fill=(242, 193, 78, 255) if frozen else CREAM)
-    d.text((192, 152), "antara dua hirupan kopi", font=F("inter", 30, 500), fill=(220, 230, 225, 255))
+    d.text((190, 166), f"{int(secs // 60)}:{int(secs % 60):02d}", font=F("anton", 64), fill=(242, 193, 78, 255) if frozen else CREAM)
+    d.text((192, 242), "antara dua hirupan kopi", font=F("inter", 30, 500), fill=(220, 230, 225, 255))
 
 def subtitle(fr, txt, age):
     txt = txt.replace("*", ""); f = F("inter", 54, 700); rows, cur = [], ""
     for w in txt.split():
-        if cur and text_w(f, cur + " " + w) > 940: rows.append(cur); cur = w
+        if cur and text_w(f, cur + " " + w) > SAFE_RIGHT - 110: rows.append(cur); cur = w
         else: cur = (cur + " " + w).strip()
-    rows.append(cur); y0 = 1640 - 70 * len(rows); d = ImageDraw.Draw(fr)
+    rows.append(cur); y0 = SAFE_BOTTOM - 10 - 70 * len(rows); d = ImageDraw.Draw(fr)
     for j, r in enumerate(rows): d.text((70, y0 + j * 70), r, font=f, fill=(255, 255, 255, 255), stroke_width=6, stroke_fill=(20, 30, 28, 255))
 
 # ---------------- opening / closing ----------------
@@ -135,7 +142,7 @@ class Intro:
         ka, kb = ease_out((t - self.a) / 0.4), ease_out((t - self.b) / 0.4)
         if ka > 0: ld.text((70, 880), "“Biar saya terangkan isu ini…", font=fq, fill=CREAM[:3] + (int(255 * ka),))
         if kb > 0: ld.text((70, 960), "di antara dua hirupan kopi.”", font=fq, fill=CREAM[:3] + (int(255 * kb),))
-        fr.alpha_composite(lay); fr.alpha_composite(BANNER, (0, H - 256)); return fr
+        fr.alpha_composite(lay); return fr
 
 class Outro:
     LAND = LAND
@@ -151,7 +158,7 @@ class Outro:
         fr = self.bg.copy(); clock(fr, self.secs, frozen=True)
         if t < LAND: y = 1080 - 220 * (1 - ease_out(t / LAND)) ** 1.5
         else: q = min(1, (t - LAND) / 0.25); y = 1080 - 8 * math.sin(q * math.pi) * (1 - q)
-        fr.alpha_composite(self.cup, (760, int(y)))
+        fr.alpha_composite(self.cup, (SAFE_RIGHT - 300, int(y)))
         place_slap(fr, self.slip, 50, 300, t, LAND + 0.1)
         k = ease_out((t - LAND - 0.7) / 0.4)
         if k > 0:
@@ -159,7 +166,7 @@ class Outro:
             ld.text((70, 1330), "kafelembaran.com", font=F("inter", 50, 800), fill=KOPI[:3] + (int(255 * k),))
             ld.text((70, 1400), "@kafe.lembaran di TikTok, YouTube dan Instagram", font=F("inter", 32, 500), fill=(70, 60, 50, int(255 * k)))
             fr.alpha_composite(lay)
-        fr.alpha_composite(BANNER, (0, H - 256)); return fr
+        return fr
 
 # ---------------- whole timeline ----------------
 def build(ep, SCN, OUT_T, SUBS, SUB_END, intro_a, intro_b, OFF, panels_list):
@@ -173,15 +180,17 @@ def build(ep, SCN, OUT_T, SUBS, SUB_END, intro_a, intro_b, OFF, panels_list):
     def scene(i, tv):
         sc = ep["scenes"][i]; age = tv - SCN[i]; dur = (SCN[i + 1] if i + 1 < len(SCN) else OUT_T) - SCN[i]
         fr = SCENE_BG.copy()
-        fr.alpha_composite(panels_list[i].render(age, dur, frame_panel), (60, TABLE_Y + 60))
+        pim = panels_list[i].render(age, dur, frame_panel)
+        pim = pim.resize((int(pim.width * PANEL_SCALE), int(pim.height * PANEL_SCALE)), Image.BILINEAR)
+        fr.alpha_composite(pim, (60, PANEL_Y))
         if sc.get("source"):
-            ImageDraw.Draw(fr).text((W - 60, TABLE_Y + 640), "Sumber: " + sc["source"], font=F("inter", 30, 600), fill=KOPI, anchor="ra")
-        place_slap(fr, slips[i], 30, 240, age, 0.0)
-        if i in stamps: place_slap(fr, stamps[i], 520, 300, age, 0.35)
-        fr.alpha_composite(SHADE, (0, 1334))
+            ImageDraw.Draw(fr).text((SAFE_RIGHT, PANEL_Y + pim.height + 8), "Sumber: " + sc["source"], font=F("inter", 28, 600), fill=KOPI, anchor="ra")
+        place_slap(fr, slips[i], 30, SLIP_Y, age, 0.0)
+        if i in stamps: place_slap(fr, stamps[i], 500, SLIP_Y + 50, age, 0.35)
+        fr.alpha_composite(SHADE, (0, SHADE_Y))
         cur = [s for s in SUBS if s[0] <= tv]
         if cur and tv < SUB_END: subtitle(fr, cur[-1][1], tv - cur[-1][0])
-        clock(fr, max(0, tv - SCN[0])); fr.alpha_composite(BANNER, (0, H - 256)); return fr
+        clock(fr, max(0, tv - SCN[0])); return fr
 
     def frame(t):
         tv = t - OFF
