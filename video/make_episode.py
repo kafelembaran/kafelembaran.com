@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from kl import (W, H, FPS, HERE, F, FG, GOLD, ORANGE, BANNER, bg, ease_out, text_w, draw_center, fade, clk_str, Intro, Outro)
 from panels import Panel, CX0, CY0
 
+CHATTER_TEMPO = 0.88   # kopitiam chatter played a little slower (pitch kept), calmer bed
 OFF = 2.6          # voice starts after "Bang, order bang!" (0.0 s) and sound A (1.25 s)
 LEAD = 0.3         # a scene appears this long before its first sentence
 TTS_STYLE = ("Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. "
@@ -205,10 +206,11 @@ def cmd_render(ep_dir, nobook=False):
 
     # audio: chatter bed + call + A + voice + ticks + B
     sr = 44100; n = int(TOTAL * sr); tt = np.arange(n) / sr; SFX = os.path.join(HERE, "sfx")
-    def wav(p):
-        tmp = os.path.join(out_dir, "_tmp.wav"); subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", p, "-ar", "44100", "-ac", "2", tmp], check=True)
+    def wav(p, af=None):
+        tmp = os.path.join(out_dir, "_tmp.wav"); subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", p] + (["-af", af] if af else []) + ["-ar", "44100", "-ac", "2", tmp], check=True)
         q = wave.open(tmp); return np.frombuffer(q.readframes(q.getnframes()), np.int16).reshape(-1, 2) / 32768
-    c1 = wav(os.path.join(SFX, "chatter_1.wav"))[int(0.3 * sr):int(9.9 * sr)]; c2 = wav(os.path.join(SFX, "chatter_2.wav"))[int(0.3 * sr):int(9.9 * sr)]
+    slow = f"atempo={CHATTER_TEMPO}"; cut = int((9.9 / CHATTER_TEMPO) * sr)
+    c1 = wav(os.path.join(SFX, "chatter_1.wav"), slow)[int(0.3 * sr):cut]; c2 = wav(os.path.join(SFX, "chatter_2.wav"), slow)[int(0.3 * sr):cut]
     def chain(order, skip):
         o = np.zeros((n + sr * 12, 2)); pos, i, xf = 0, 0, int(1.2 * sr); r = np.linspace(0, 1, xf)[:, None]
         while pos < n:
@@ -218,7 +220,7 @@ def cmd_render(ep_dir, nobook=False):
             if i: s[:xf] *= r
             o[pos:pos + len(s)] += s; pos += len(s) - xf; i += 1
         return o[:n]
-    bed = chain([c1, c2], 0) * 0.8 + chain([c2, c1], 4.7)[:, ::-1] * 0.5
+    bed = chain([c1, c2], 0) * 0.8 + chain([c2, c1], 4.7 / CHATTER_TEMPO)[:, ::-1] * 0.5
     env = np.where(tt < OFF - 0.2, 0.85, 0.32) * np.clip(tt / 0.4, 0, 1) * np.clip((TOTAL - tt) / 2, 0, 1)
     k_ = int(0.3 * sr); cs = np.cumsum(np.concatenate([np.full(k_, env[0]), env, np.full(k_, env[-1])])); env = ((cs[2 * k_:] - cs[:-2 * k_]) / (2 * k_))[:n]
     mix = bed * env[:, None]
