@@ -8,8 +8,29 @@
   },
   "books": [
     {
-      "slug": "power-sharing-in-a-divided-nation",
+      "slug": "labur-santai",
       "featured": true,
+      "added": "2026-11-18",
+      "title": "Labur Santai",
+      "author": "Adib Yazid & Kauthar Rozmal",
+      "category": "Kewangan & Pelaburan",
+      "cover_color": "#2F3A3A",
+      "summary": [
+        "Asas pelaburan yang realistik, diterangkan dalam bahasa harian.",
+        "Pelaburan ialah perjalanan panjang: jangan lompat terus dari A ke Z.",
+        "Cara membina kekayaan dan kekal tenang bila pasaran bergoyang."
+      ],
+      "why_read": "Bila orang bercakap tentang gelembung AI dan saham jatuh, buku ini mengajar asas yang membuat pelabur tak panik: ilmu dan sabar, bukan kejar hype.",
+      "for_who": "Pelabur baru yang mahu bermula dengan betul. Bahasa Melayu, 274 muka surat, gaya santai.",
+      "links": {
+        "shopee": "https://s.shopee.com.my/3g5L2Y11vv",
+        "publisher": "",
+        "bookcafe": ""
+      }
+    },
+    {
+      "slug": "power-sharing-in-a-divided-nation",
+      "featured": false,
       "added": "2026-11-17",
       "title": "Power Sharing in a Divided Nation",
       "author": "Johan Saravanamuttu",
