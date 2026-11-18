@@ -394,3 +394,7 @@ CHANGE LOG
              (0.99^k counting down, optional 1 - x flip), "grid" (10x10 dots). Optional intro gag
              ("intro_gag": true): "satu hirupan" crossed out with a record scratch (sfx/scratch.wav, made in code),
              then "DUA!". Any spoken line can carry "sfx_after": "<sfx name>"; the voice gets a 1.1 s gap there.
+18 Nov 2026  Thumbnails: the profile grid shows the first frame, cropped to 3:4 (y 240-1680). The intro title slip
+             is now on the table from frame 0 at y 300 (no slap), so every video has a readable cover. When
+             scheduling with Metricool, also set videoCoverMilliseconds = 500 (used by Instagram, YouTube and
+             TikTok business accounts; personal TikTok uses the first frame).

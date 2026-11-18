@@ -138,7 +138,7 @@ class Intro:
         for j, x0 in enumerate((480, 540, 600)):
             pts = [(x0 + 12 * math.sin(i * 0.35 + t * 3 + j * 2.1) * (i / 22 + 0.3), 1290 - i * 8) for i in range(14)]
             for i in range(13): d.line([pts[i], pts[i + 1]], fill=(255, 255, 255, int(140 * (1 - i / 14))), width=5)
-        place_slap(fr, self.slip, 50, 220, t, 0.4)
+        place_slap(fr, self.slip, 50, 300, t, -1.0)   # already on the table at frame 0: the first frame is the grid thumbnail
         lay = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ld = ImageDraw.Draw(lay); fq = F("lora", 58, 500)
         ka, kb = ease_out((t - self.a) / 0.4), ease_out((t - self.b) / 0.4)
         if ka > 0: ld.text((70, 880 if self.gag is None else 800), "“Biar saya terangkan isu ini…", font=fq, fill=CREAM[:3] + (int(255 * ka),))
