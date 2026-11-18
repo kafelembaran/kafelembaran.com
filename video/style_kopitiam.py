@@ -13,6 +13,7 @@ RED = (184, 50, 43, 255); KOPI = (59, 38, 24, 255); CREAM = (247, 241, 232, 255)
 # Safe zones: TikTok/Reels/Shorts cover the top ~150 px (search bar), the bottom ~480 px (name, caption)
 # and the right ~140 px (like/comment buttons). Everything that must be read stays inside SAFE_*.
 SAFE_TOP, SAFE_BOTTOM, SAFE_RIGHT = 150, 1440, 930
+SUB_BOTTOM = 1490   # subtitles may sit 50 px lower than SAFE_BOTTOM: TikTok's name starts ~1650, Reels/Shorts ~1540
 TABLE_Y = 600; TABLE_H = H - TABLE_Y
 PANEL_SCALE, PANEL_Y = 0.88, 640
 SLIP_SCALE, SLIP_Y = 0.82, 275
@@ -41,7 +42,7 @@ def _banner():
 
 TILES = _tiles(); MARB = _marble(W, TABLE_H); BANNER = _banner()
 SCENE_BG = TILES.copy(); SCENE_BG.alpha_composite(MARB, (0, TABLE_Y))
-SHADE_Y = 1150
+SHADE_Y = 1210
 SHADE = Image.new("RGBA", (W, 360), (0, 0, 0, 0))
 _sd = ImageDraw.Draw(SHADE)
 for _y in range(360): _sd.line([(0, _y), (W, _y)], fill=(10, 25, 23, int(175 * min(1, _y / 90, (360 - _y) / 60))))
@@ -123,7 +124,7 @@ def subtitle(fr, txt, age):
     for w in txt.split():
         if cur and text_w(f, cur + " " + w) > SAFE_RIGHT - 110: rows.append(cur); cur = w
         else: cur = (cur + " " + w).strip()
-    rows.append(cur); y0 = SAFE_BOTTOM - 10 - 70 * len(rows); d = ImageDraw.Draw(fr)
+    rows.append(cur); y0 = SUB_BOTTOM - 70 * len(rows); d = ImageDraw.Draw(fr)
     for j, r in enumerate(rows): d.text((70, y0 + j * 70), r, font=f, fill=(255, 255, 255, 255), stroke_width=6, stroke_fill=(20, 30, 28, 255))
 
 # ---------------- opening / closing ----------------

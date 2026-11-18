@@ -350,7 +350,8 @@ TikTok, Reels and Shorts draw their own interface over the video. On a 1080x1920
 Rule: anything that must be read (subtitles, clock, headline slip, panel, source line, closing
 text) stays inside x 0-930, y 150-1440. The zones above get only background (tiles, marble, cup).
 Values in video/style_kopitiam.py: SAFE_TOP/SAFE_BOTTOM/SAFE_RIGHT, clock centre y 210,
-slip at y 275 scaled 0.82, panel scaled 0.88 at y 640, subtitles end at y 1430 (max width 820).
+slip at y 275 scaled 0.82, panel scaled 0.88 at y 640, subtitles end at y 1490 (SUB_BOTTOM, max width 820; TikTok's account name starts ~1650,
+Reels/Shorts ~1540), shade band starts at y 1210 so it clears the source line.
 The bottom "Kafe Lembaran" banner was removed: the platforms already show the account name there.
 Check: extract frames and shade the three zones red; nothing readable may fall in red.
 
@@ -387,3 +388,5 @@ CHANGE LOG
              --no-book TikTok version and the rule in section 8.
 17 Nov 2026  TikTok captions covered the subtitles. Layout moved into the platform safe zones
              (section 13); bottom banner removed. Episode 2 re-rendered (both versions).
+18 Nov 2026  Subtitles and shade moved 60 px lower (ends y 1490) at the user's request; still clear of
+             platform captions.
