@@ -151,7 +151,7 @@ def info(P, age):
         for j, (name, v) in enumerate(items):
             y = 90 + j * (360 / len(items)); p = ease_out((age - j * 0.2) / 1.2)
             label(d, 150, y + 30, name, 32, FG); d.rounded_rectangle([280, y + 8, 280 + 560 * v / mx * p + 1, y + 52], radius=12, fill=GOLD if j == P.get("highlight", 0) else DIM)
-            d.text((300 + 560 * v / mx * p, y + 30), f"{v * p:.0f}{unit}", font=F("inter", 32, 700), fill=FG, anchor="lm")
+            d.text((300 + 560 * v / mx * p, y + 30), f"{v * p:.{0 if float(v).is_integer() else 1}f}{unit}", font=F("inter", 32, 700), fill=FG, anchor="lm")
         label(d, 480, 480, P.get("caption", ""), 32, GOLD)
     elif t == "text":
         for j, s in enumerate(P["lines"]):
