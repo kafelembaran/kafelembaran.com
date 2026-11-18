@@ -136,6 +136,16 @@ def subtitle(fr, txt, age):
 
 def cmd_render(ep_dir, nobook=False):
     ep = load(ep_dir); ep["_nobook"] = nobook; voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
+    says_ = [({"say": x} if isinstance(x, str) else x) for sc in ep["scenes"] for x in sc["say"]]
+    gaps_at = [res[1:-1][k][2] + 0.05 for k, sd in enumerate(says_) if sd.get("sfx_after")]
+    if gaps_at:                                         # open a 1.1 s gap in the voice for each sound effect, then re-align
+        q = wave.open(voice); fr_ = q.getframerate(); ch = q.getnchannels(); sw = q.getsampwidth(); raw = np.frombuffer(q.readframes(q.getnframes()), np.int16).reshape(-1, ch); q.close()
+        parts, last = [], 0
+        for g in gaps_at:
+            i = int(g * fr_); parts += [raw[last:i], np.zeros((int(1.1 * fr_), ch), np.int16)]; last = i
+        parts.append(raw[last:]); voice = os.path.join(ep_dir, "out", "voice_fx.wav"); os.makedirs(os.path.dirname(voice), exist_ok=True)
+        q = wave.open(voice, "wb"); q.setnchannels(ch); q.setsampwidth(sw); q.setframerate(fr_); q.writeframes(np.concatenate(parts).tobytes()); q.close()
+        res, vlen = align(ep, voice)
     intro_u = res[0]; outro_u = res[-1]; mid = res[1:-1]
     SCN = [min(a for (u, a, b, s) in mid if u[0] == i) - LEAD for i in range(len(ep["scenes"]))]
     OUT_T = outro_u[1] - LEAD; TOTAL = OFF + vlen + 1.2
@@ -144,6 +154,14 @@ def cmd_render(ep_dir, nobook=False):
     iseg = intro_u[3]; line_b = max(iseg[1:], key=lambda s: s[0] - 0)[0] if len(iseg) > 1 else intro_u[1] + 2.0
     if len(iseg) > 1:                                   # second half starts after the longest pause inside the hook
         gaps = [(iseg[k][0] - iseg[k - 1][1], iseg[k][0]) for k in range(1, len(iseg))]; line_b = max(gaps)[1]
+    gag = None
+    if ep.get("intro_gag") and len(iseg) >= 3:          # "satu hirupan" -> scratch -> "Eh, tak cukup. Dua hirupan!"
+        gaps = [(iseg[k][0] - iseg[k - 1][1], k) for k in range(1, len(iseg))]; km = max(gaps)[1]
+        before = [g for g in gaps if g[1] < km]; after = [g for g in gaps if g[1] > km]
+        line_b = iseg[max(before)[1]][0] if before else (iseg[0][0] + iseg[km - 1][1]) / 2
+        t_scr = iseg[km - 1][1] + 0.08; t_dua = iseg[max(after)[1]][0] if after else iseg[km][0] + 1.0
+        gag = (OFF + t_scr, OFF + t_dua)
+    ep["_gag"] = gag
     intro = Intro(ep["title"][0], ep["title"][1], OFF + SCN[0], OFF + intro_u[1], OFF + line_b)
     CLK = OUT_T - SCN[0]; outro = Outro(ep["book"]["title"], ep["book"]["author"], clk_str(CLK))
     panels = [Panel(sc["panel"], ep_dir) for sc in ep["scenes"]]; bgs = [bg(0), bg(1)]
@@ -211,6 +229,10 @@ def cmd_render(ep_dir, nobook=False):
         cut = int((outro_u[1] - 0.12) * sr); vo = vo[:cut].copy(); f = int(0.08 * sr); vo[-f:] *= np.linspace(1, 0, f)[:, None]
     put(vo, OFF, 1.6)
     put(wav(os.path.join(SFX, "ting_B.wav")), OFF + OUT_T + Outro.LAND - 0.143, 1.1)
+    if gag: put(wav(os.path.join(SFX, "scratch.wav")), gag[0], 0.9)
+    says = [({"say": x} if isinstance(x, str) else x) for sc in ep["scenes"] for x in sc["say"]]
+    for (u, a, b, s_), sd in zip(mid, says):           # optional sound after a sentence, e.g. {"sfx_after": "ahh_A"}
+        if sd.get("sfx_after"): put(wav(os.path.join(SFX, sd["sfx_after"] + ".wav")), OFF + b + 0.05, 0.8)
     tk = np.arange(int(0.03 * sr)) / sr; click = np.repeat((np.sin(2 * np.pi * 1800 * tk) * np.exp(-tk * 180) * 0.025)[:, None], 2, axis=1)
     for s_ in range(int(CLK) + 1): put(click, OFF + SCN[0] + s_, 1.0)
     mix *= 0.9 / np.abs(mix).max(); mixp = os.path.join(out_dir, "mix.wav")

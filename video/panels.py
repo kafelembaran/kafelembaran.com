@@ -267,3 +267,61 @@ EXTRA_TYPES = {"pagoda", "flex", "seats", "seatrows", "trio", "versus"}
 _info_base = info
 def info(P, age):
     return info_extra(P, age) if P["type"] in EXTRA_TYPES else _info_base(P, age)
+
+# ---------------- added 18 Nov 2026: tree, compound, grid (maths episodes) ----------------
+def _sup(d, x, y, base, sup, size, col, anchor_mid=True):
+    """Draw base text with a superscript; (x, y) is the centre of the whole expression."""
+    fb = F(FONTMAP.get("anton", "anton"), size); fs = F(FONTMAP.get("anton", "anton"), int(size * 0.5))
+    wb, ws = text_w(fb, base), text_w(fs, sup); x0 = x - (wb + ws + 6) / 2 if anchor_mid else x
+    d.text((x0, y), base, font=fb, fill=col, anchor="lm"); d.text((x0 + wb + 6, y - size * 0.32), sup, font=fs, fill=col, anchor="lm")
+    return x0 + wb + ws + 6
+
+def info_maths(P, age):
+    t = P["type"]; im = Image.new("RGBA", (CW, CH), PANEL_BG); d = ImageDraw.Draw(im)
+    fi = lambda sz, w=700: F(FONTMAP.get("inter", "inter"), sz, w)
+    if t == "tree":
+        gens = P.get("gens", 7); y0, step = 40, 52; shown = min(gens, int(max(0, age - P.get("start", 0)) / P.get("pace", 0.4)))
+        TX = CW / 2 - 40; prev = [(TX, y0)]; d.ellipse([TX - 9, y0 - 9, TX + 9, y0 + 9], fill=GOLD)
+        d.text((TX + 22, y0), P.get("you", "Anda"), font=fi(26), fill=FG, anchor="lm")
+        collapse = P.get("collapse") and age > P.get("collapse_at", 1.2)
+        for g in range(1, shown + 1):
+            n = 2 ** g; span = min(780, 60 * n); x0 = TX - span / 2; gap = span / (n - 1); y = y0 + g * step
+            r = max(2.5, min(8, gap * 0.36)); cur = []
+            for k in range(n):
+                x = x0 + k * gap; cur.append((x, y))
+                if g <= 5: d.line([prev[k // 2], (x, y)], fill=DIM, width=2)
+                dead = collapse and g == gens and (k * 37) % 128 < 28          # ~22% of the last row are repeats
+                d.ellipse([x - r, y - r, x + r, y + r], fill=(DIM if dead else (GOLD if g == gens else FG)))
+            prev = cur
+            d.text((CW - 12, y), str(n), font=fi(22, 600), fill=MUTED, anchor="rm")
+        if shown >= gens:
+            if collapse: label(d, CW / 2, 490, P.get("collapse_label", "≈ 100 orang berbeza"), 40, GOLD)
+            else:
+                fa = F(FONTMAP.get("anton", "anton"), 64); tail = f"  =  {2 ** gens}"; wt = text_w(fa, tail)
+                xe = _sup(d, CW / 2 - wt / 2 - 30, 490, "2", str(gens), 64, FG); d.text((xe, 490), tail, font=fa, fill=GOLD, anchor="lm")
+    elif t == "compound":
+        base = P.get("base", 0.99); N = P.get("n", 100); k = max(1, min(N, int(1 + max(0, age - P.get("start", 0)) * P.get("speed", 40))))
+        v = base ** k; t_full = P.get("start", 0) + N / P.get("speed", 40); flip = P.get("flip") and k >= N and age > t_full + 0.8
+        _sup(d, CW / 2, 120, "0.99", str(k), 96, FG); d.text((CW / 2, 230), f"= {v * 100:.0f}%", font=F(FONTMAP.get("anton", "anton"), 80), fill=GOLD, anchor="mm")
+        bx0, bx1, by = 80, CW - 80, 330
+        d.rounded_rectangle([bx0, by, bx1, by + 46], radius=20, fill=DIM)
+        d.rounded_rectangle([bx0, by, bx0 + (bx1 - bx0) * v, by + 46], radius=20, fill=FG)
+        d.text((bx0, by + 70), P.get("clean_label", "peluang semua moyang bersih"), font=fi(28, 600), fill=FG, anchor="lm")
+        if flip:
+            q = ease_out((age - t_full - 0.8) / 0.6)
+            d.rounded_rectangle([bx0 + (bx1 - bx0) * v, by, bx0 + (bx1 - bx0) * (v + (1 - v) * q), by + 46], radius=20, fill=RED)
+            d.text((bx1, by + 120), f"1 − {v:.2f} = {1 - v:.2f}  →  {(1 - v) * 100:.0f}%", font=fi(40, 800), fill=RED, anchor="rm")
+    elif t == "grid":
+        cols = P.get("cols", 10); rows = P.get("rows", 10); total = cols * rows; fill = P["filled"]
+        on = min(fill, int(age * P.get("speed", 45))); r = 13; gap = 34; x0 = (CW - (cols - 1) * gap) / 2; y0 = 40
+        for k in range(total):
+            rr, cc = divmod(k, cols); x = x0 + cc * gap; y = y0 + rr * gap
+            d.ellipse([x - r, y - r, x + r, y + r], fill=(RED if k < on else DIM))
+        if P.get("caption"): label(d, CW / 2, 400, P["caption"], 34, FG)
+        if P.get("note"): label(d, CW / 2, 455, P["note"], 28, MUTED)
+    return im
+
+MATHS_TYPES = {"tree", "compound", "grid"}
+_info_prev = info
+def info(P, age):
+    return info_maths(P, age) if P["type"] in MATHS_TYPES else _info_prev(P, age)

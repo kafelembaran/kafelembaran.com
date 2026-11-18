@@ -390,3 +390,7 @@ CHANGE LOG
              (section 13); bottom banner removed. Episode 2 re-rendered (both versions).
 18 Nov 2026  Subtitles and shade moved 60 px lower (ends y 1490) at the user's request; still clear of
              platform captions.
+18 Nov 2026  New panels for maths episodes: "tree" (ancestors doubling, optional collapse), "compound"
+             (0.99^k counting down, optional 1 - x flip), "grid" (10x10 dots). Optional intro gag
+             ("intro_gag": true): "satu hirupan" crossed out with a record scratch (sfx/scratch.wav, made in code),
+             then "DUA!". Any spoken line can carry "sfx_after": "<sfx name>"; the voice gets a 1.1 s gap there.
