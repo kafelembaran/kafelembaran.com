@@ -398,5 +398,5 @@ CHANGE LOG
              is now on the table from frame 0 at y 300 (no slap), so every video has a readable cover. When
              scheduling with Metricool, also set videoCoverMilliseconds = 500 (used by Instagram, YouTube and
              TikTok business accounts; personal TikTok uses the first frame).
-18 Nov 2026  Kopitiam chatter bed played at 0.88x speed (atempo, pitch kept) for a calmer background
-             (CHATTER_TEMPO in make_episode.py; 1.0 = original).
+19 Nov 2026  Kopitiam chatter bed quieter: 0.60 before the voice, 0.22 under it (was 0.85 / 0.32);
+             CHATTER_LEVEL in make_episode.py. Playback speed back to normal (CHATTER_TEMPO = 1.0).

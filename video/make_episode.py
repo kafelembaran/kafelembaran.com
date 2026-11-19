@@ -13,7 +13,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from kl import (W, H, FPS, HERE, F, FG, GOLD, ORANGE, BANNER, bg, ease_out, text_w, draw_center, fade, clk_str, Intro, Outro)
 from panels import Panel, CX0, CY0
 
-CHATTER_TEMPO = 0.88   # kopitiam chatter played a little slower (pitch kept), calmer bed
+CHATTER_TEMPO = 1.0    # chatter playback speed (1.0 = original)
+CHATTER_LEVEL = (0.60, 0.22)   # chatter volume before the voice, and under the voice (was 0.85 / 0.32)
 OFF = 2.6          # voice starts after "Bang, order bang!" (0.0 s) and sound A (1.25 s)
 LEAD = 0.3         # a scene appears this long before its first sentence
 TTS_STYLE = ("Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. "
@@ -233,7 +234,7 @@ def cmd_render(ep_dir, nobook=False):
             o[pos:pos + len(s)] += s; pos += len(s) - xf; i += 1
         return o[:n]
     bed = chain([c1, c2], 0) * 0.8 + chain([c2, c1], 4.7 / CHATTER_TEMPO)[:, ::-1] * 0.5
-    env = np.where(tt < OFF - 0.2, 0.85, 0.32) * np.clip(tt / 0.4, 0, 1) * np.clip((TOTAL - tt) / 2, 0, 1)
+    env = np.where(tt < OFF - 0.2, CHATTER_LEVEL[0], CHATTER_LEVEL[1]) * np.clip(tt / 0.4, 0, 1) * np.clip((TOTAL - tt) / 2, 0, 1)
     k_ = int(0.3 * sr); cs = np.cumsum(np.concatenate([np.full(k_, env[0]), env, np.full(k_, env[-1])])); env = ((cs[2 * k_:] - cs[:-2 * k_]) / (2 * k_))[:n]
     mix = bed * env[:, None]
     def put(x, at, g):
