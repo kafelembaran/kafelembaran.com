@@ -8,8 +8,29 @@
   },
   "books": [
     {
-      "slug": "labur-santai",
+      "slug": "ilmu-alam-melayu",
       "featured": true,
+      "added": "2026-11-19",
+      "title": "Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi",
+      "author": "Naim Tamdjis",
+      "category": "Budaya & Sejarah Melayu",
+      "cover_color": "#3A2F2A",
+      "summary": [
+        "Kepercayaan mistik Melayu dijejak melalui manuskrip lama.",
+        "Dari sihir, polong dan pelesit hingga ritual seperti Puja Pantai di pantai timur.",
+        "Bagaimana kepercayaan ini berubah bila agama dan zaman berubah."
+      ],
+      "why_read": "Video saka kami tunjuk matematik di sebalik dakwaan 'keluarga awak ada saka'. Buku ini menerangkan dari mana kepercayaan itu datang, berdasarkan manuskrip dan sejarah.",
+      "for_who": "Sesiapa yang minat sejarah, budaya dan mistik Melayu. Bahasa Melayu.",
+      "links": {
+        "shopee": "https://s.shopee.com.my/6AmhcCSg7D",
+        "publisher": "",
+        "bookcafe": ""
+      }
+    },
+    {
+      "slug": "labur-santai",
+      "featured": false,
       "added": "2026-11-18",
       "title": "Labur Santai",
       "author": "Adib Yazid & Kauthar Rozmal",
