@@ -111,9 +111,9 @@ def info(P, age):
         d.line([(x0, y), (x1, y)], fill=GRID, width=14); d.line([(x0, y), (x0 + (x1 - x0) * p, y)], fill=GOLD, width=14)
         for yr in [a] + P.get("ticks", []) + [b]:
             fx = (yr - a) / (b - a); xx = x0 + (x1 - x0) * fx; on = p >= fx - 0.001
-            d.ellipse([xx - 16, y - 16, xx + 16, y + 16], fill=GOLD if on else GRID); label(d, xx, y + 60, str(yr), 32, FG if on else OFF_TXT)
-        label(d, x0, y - 70, P.get("left", ""), 30); label(d, x1, y - 70, P.get("right", ""), 30, ORANGE)
-        label(d, (x0 + x1) / 2, 450, P.get("caption", "{n} tahun").format(n=int(round((b - a) * p))), 44, GOLD, "lora")
+            d.ellipse([xx - 16, y - 16, xx + 16, y + 16], fill=GOLD if on else GRID); label(d, xx, y + 70, str(yr), 46, FG if on else OFF_TXT)
+        label(d, x0 + 60, y - 80, P.get("left", ""), 42); label(d, x1 - 60, y - 80, P.get("right", ""), 42, ORANGE)
+        label(d, (x0 + x1) / 2, 455, P.get("caption", "{n} tahun").format(n=int(round((b - a) * p))), 72, GOLD, "lora")
     elif t == "equals":
         k = ease_out(age / 0.5); ICONS[P.get("left_icon", "barrel")](d, 230, 250, 1.4 * k + 0.01, MUTED)
         if age > 0.6: label(d, 480, 250, P.get("sign", "="), 140 * min(1, back_out((age - 0.6) / 0.4)), GOLD, "lora")
@@ -155,7 +155,9 @@ def info(P, age):
         label(d, 480, 480, P.get("caption", ""), 32, GOLD)
     elif t == "text":
         for j, s in enumerate(P["lines"]):
-            k = ease_out((age - j * 0.3) / 0.5); label(d, 480, 270 + (j - (len(P["lines"]) - 1) / 2) * 80, s, 56, fade(GOLD if j == 0 else FG, k), "lora")
+            k = ease_out((age - j * 0.3) / 0.5); sz = P.get("size", 88)
+            while sz > 40 and text_w(F(FONTMAP.get("lora", "lora"), sz, 700), s) > 900: sz -= 4
+            label(d, 480, 270 + (j - (len(P["lines"]) - 1) / 2) * (sz * 1.35), s, sz, fade(GOLD if j == 0 else FG, k), "lora")
     return im
 
 class Panel:
@@ -280,9 +282,9 @@ def info_maths(P, age):
     t = P["type"]; im = Image.new("RGBA", (CW, CH), PANEL_BG); d = ImageDraw.Draw(im)
     fi = lambda sz, w=700: F(FONTMAP.get("inter", "inter"), sz, w)
     if t == "tree":
-        gens = P.get("gens", 7); y0, step = 40, 52; shown = min(gens, int(max(0, age - P.get("start", 0)) / P.get("pace", 0.4)))
+        gens = P.get("gens", 7); y0, step = 36, 56; shown = min(gens, int(max(0, age - P.get("start", 0)) / P.get("pace", 0.4)))
         TX = CW / 2 - 40; prev = [(TX, y0)]; d.ellipse([TX - 9, y0 - 9, TX + 9, y0 + 9], fill=GOLD)
-        d.text((TX + 22, y0), P.get("you", "Anda"), font=fi(26), fill=FG, anchor="lm")
+        d.text((TX + 24, y0), P.get("you", "Anda"), font=fi(34), fill=FG, anchor="lm")
         collapse = P.get("collapse") and age > P.get("collapse_at", 1.2)
         for g in range(1, shown + 1):
             n = 2 ** g; span = min(780, 60 * n); x0 = TX - span / 2; gap = span / (n - 1); y = y0 + g * step
@@ -293,32 +295,32 @@ def info_maths(P, age):
                 dead = collapse and g == gens and (k * 37) % 128 < 28          # ~22% of the last row are repeats
                 d.ellipse([x - r, y - r, x + r, y + r], fill=(DIM if dead else (GOLD if g == gens else FG)))
             prev = cur
-            d.text((CW - 12, y), str(n), font=fi(22, 600), fill=MUTED, anchor="rm")
+            d.text((CW - 8, y), str(n), font=fi(30, 700), fill=MUTED, anchor="rm")
         if shown >= gens:
-            if collapse: label(d, CW / 2, 490, P.get("collapse_label", "≈ 100 orang berbeza"), 40, GOLD)
+            if collapse: label(d, CW / 2, 498, P.get("collapse_label", "≈ 100 orang berbeza"), 56, GOLD)
             else:
-                fa = F(FONTMAP.get("anton", "anton"), 64); tail = f"  =  {2 ** gens}"; wt = text_w(fa, tail)
-                xe = _sup(d, CW / 2 - wt / 2 - 30, 490, "2", str(gens), 64, FG); d.text((xe, 490), tail, font=fa, fill=GOLD, anchor="lm")
+                fa = F(FONTMAP.get("anton", "anton"), 72); tail = f"  =  {2 ** gens}"; wt = text_w(fa, tail)
+                xe = _sup(d, CW / 2 - wt / 2 - 30, 498, "2", str(gens), 72, FG); d.text((xe, 498), tail, font=fa, fill=GOLD, anchor="lm")
     elif t == "compound":
         base = P.get("base", 0.99); N = P.get("n", 100); k = max(1, min(N, int(1 + max(0, age - P.get("start", 0)) * P.get("speed", 40))))
         v = base ** k; t_full = P.get("start", 0) + N / P.get("speed", 40); flip = P.get("flip") and k >= N and age > t_full + 0.8
-        _sup(d, CW / 2, 120, "0.99", str(k), 96, FG); d.text((CW / 2, 230), f"= {v * 100:.0f}%", font=F(FONTMAP.get("anton", "anton"), 80), fill=GOLD, anchor="mm")
-        bx0, bx1, by = 80, CW - 80, 330
-        d.rounded_rectangle([bx0, by, bx1, by + 46], radius=20, fill=DIM)
-        d.rounded_rectangle([bx0, by, bx0 + (bx1 - bx0) * v, by + 46], radius=20, fill=FG)
-        d.text((bx0, by + 70), P.get("clean_label", "peluang semua moyang bersih"), font=fi(28, 600), fill=FG, anchor="lm")
+        _sup(d, CW / 2, 105, "0.99", str(k), 140, FG); d.text((CW / 2, 250), f"= {v * 100:.0f}%", font=F(FONTMAP.get("anton", "anton"), 120), fill=GOLD, anchor="mm")
+        bx0, bx1, by = 40, CW - 40, 340
+        d.rounded_rectangle([bx0, by, bx1, by + 64], radius=28, fill=DIM)
+        d.rounded_rectangle([bx0, by, bx0 + (bx1 - bx0) * v, by + 64], radius=28, fill=FG)
+        d.text((bx0, by + 100), P.get("clean_label", "peluang semua moyang bersih"), font=fi(38, 700), fill=FG, anchor="lm")
         if flip:
             q = ease_out((age - t_full - 0.8) / 0.6)
-            d.rounded_rectangle([bx0 + (bx1 - bx0) * v, by, bx0 + (bx1 - bx0) * (v + (1 - v) * q), by + 46], radius=20, fill=RED)
-            d.text((bx1, by + 120), f"1 − {v:.2f} = {1 - v:.2f}  →  {(1 - v) * 100:.0f}%", font=fi(40, 800), fill=RED, anchor="rm")
+            d.rounded_rectangle([bx0 + (bx1 - bx0) * v, by, bx0 + (bx1 - bx0) * (v + (1 - v) * q), by + 64], radius=28, fill=RED)
+            d.text((bx1, by + 165), f"1 − {v:.2f} = {1 - v:.2f}  →  {(1 - v) * 100:.0f}%", font=fi(50, 800), fill=RED, anchor="rm")
     elif t == "grid":
         cols = P.get("cols", 10); rows = P.get("rows", 10); total = cols * rows; fill = P["filled"]
-        on = min(fill, int(age * P.get("speed", 45))); r = 13; gap = 34; x0 = (CW - (cols - 1) * gap) / 2; y0 = 40
+        on = min(fill, int(age * P.get("speed", 45))); r = 17; gap = 42; x0 = (CW - (cols - 1) * gap) / 2; y0 = 26
         for k in range(total):
             rr, cc = divmod(k, cols); x = x0 + cc * gap; y = y0 + rr * gap
             d.ellipse([x - r, y - r, x + r, y + r], fill=(RED if k < on else DIM))
-        if P.get("caption"): label(d, CW / 2, 400, P["caption"], 34, FG)
-        if P.get("note"): label(d, CW / 2, 455, P["note"], 28, MUTED)
+        if P.get("caption"): label(d, CW / 2, 455, P["caption"], 50, FG)
+        if P.get("note"): label(d, CW / 2, 512, P["note"], 34, MUTED)
     return im
 
 MATHS_TYPES = {"tree", "compound", "grid"}

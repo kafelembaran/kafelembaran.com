@@ -15,7 +15,7 @@ RED = (184, 50, 43, 255); KOPI = (59, 38, 24, 255); CREAM = (247, 241, 232, 255)
 SAFE_TOP, SAFE_BOTTOM, SAFE_RIGHT = 150, 1440, 930
 SUB_BOTTOM = 1490   # subtitles may sit 50 px lower than SAFE_BOTTOM: TikTok's name starts ~1650, Reels/Shorts ~1540
 TABLE_Y = 600; TABLE_H = H - TABLE_Y
-PANEL_SCALE, PANEL_Y = 0.88, 640
+PANEL_SCALE, PANEL_Y = 0.92, 630
 SLIP_SCALE, SLIP_Y = 0.82, 275
 LAND = 0.55
 rng = np.random.default_rng(3)
@@ -197,7 +197,7 @@ def build(ep, SCN, OUT_T, SUBS, SUB_END, intro_a, intro_b, OFF, panels_list):
         fr = SCENE_BG.copy()
         pim = panels_list[i].render(age, dur, frame_panel)
         pim = pim.resize((int(pim.width * PANEL_SCALE), int(pim.height * PANEL_SCALE)), Image.BILINEAR)
-        fr.alpha_composite(pim, (60, PANEL_Y))
+        fr.alpha_composite(pim, (45, PANEL_Y))
         if sc.get("source"):
             ImageDraw.Draw(fr).text((SAFE_RIGHT, PANEL_Y + pim.height + 8), "Sumber: " + sc["source"], font=F("inter", 28, 600), fill=KOPI, anchor="ra")
         place_slap(fr, slips[i], 30, SLIP_Y, age, 0.0)
