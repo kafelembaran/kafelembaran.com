@@ -25,8 +25,8 @@ IN PROGRESS
    To build: "crank" panel (animated crankshaft) before rendering.
 
 3. Clean Break (1996)
-   Status:   SCRIPT READY 19 Nov 2026 (episodes/2026-11-20-clean-break/tts_script.txt), for 20 Nov
-   Title:    "Clean Break: pelan rahsia 1996?" (TikTok: no book, commercial toggle OFF)
+   Status:   SCRIPT DRAFTED 19 Nov 2026, then swapped for the Clark memo episode (below). Keep for later.
+   Draft:    in git history of episodes/2026-11-20-clean-break/tts_script.txt (commit e0c78ab)
    Political: YES
    Angle:    What the document really says vs what is claimed online; who wrote it; what happened after.
    Books checked: The Israel Lobby and U.S. Foreign Policy (RM37.77, 1% = RM0.38/sale, too low).
@@ -40,6 +40,13 @@ IN PROGRESS
    Political: no
    Spec:     episodes/2026-11-19-saka-matematik/episode.json
    Note:     1-in-100 is an illustrative assumption, shown as ANDAIAN on screen.
+
+3b. Memo 7 negara dalam 5 tahun (Jeneral Wesley Clark)
+   Status:   SCRIPT READY 19 Nov 2026, for 20 Nov
+   Spec:     episodes/2026-11-20-memo-clark/tts_script.txt
+   Title:    "7 negara dalam 5 tahun: betul ke?"
+   Political: YES (TikTok: no book, commercial toggle OFF). Book: none yet.
+   Angle:    what Clark heard vs what documents prove (Rumsfeld 30 Sep 2001 memo) vs what happened after.
 
 NEW IDEAS
 ---------
