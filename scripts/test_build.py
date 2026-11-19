@@ -1,4 +1,5 @@
 """Checks run before every preview or release: python3 scripts/test_build.py"""
+import html
 import copy, json, subprocess, sys
 from pathlib import Path
 
@@ -45,7 +46,7 @@ for b in data["books"]:
     if not page.exists():
         continue
     h = page.read_text(encoding="utf-8")
-    check(f"{b['slug']}: has title", b["title"] in h.replace("&#x27;", "'"))
+    check(f"{b['slug']}: has title", b["title"] in html.unescape(h))
     if b["links"].get("shopee"):
         check(f"{b['slug']}: Shopee button present", 'class="buy"' in h and "Beli di Shopee" in h)
     check(f"{b['slug']}: no price shown", "RM" not in h)
