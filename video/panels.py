@@ -327,3 +327,27 @@ MATHS_TYPES = {"tree", "compound", "grid"}
 _info_prev = info
 def info(P, age):
     return info_maths(P, age) if P["type"] in MATHS_TYPES else _info_prev(P, age)
+
+# ---------------- added 19 Nov 2026: levels (chance climbs per ancestor level) ----------------
+def info_levels(P, age):
+    """{"type":"levels","rows":[["Ibu bapa",2],...],"base":0.99,"at":[t0,t1,...]}  bars reveal at each 'at' (s from scene start)."""
+    im = Image.new("RGBA", (CW, CH), PANEL_BG); d = ImageDraw.Draw(im)
+    fi = lambda sz, w=700: F(FONTMAP.get("inter", "inter"), sz, w)
+    rows = P["rows"]; base = P.get("base", 0.99); at = P.get("at") or [0.8 + 1.6 * i for i in range(len(rows))]
+    top, rh = 34, (CH - 60) / len(rows); lx, bx0, bx1 = 24, 330, 800
+    for i, (name, n) in enumerate(rows):
+        y = top + i * rh + rh / 2; q = ease_out((age - at[i]) / 0.6) if age > at[i] else 0
+        last = i == len(rows) - 1; col = RED if last else GOLD
+        d.text((lx, y), name, font=fi(34, 700), fill=FG if q else DIM, anchor="lm")
+        d.text((bx0 - 16, y), str(n), font=fi(30, 700), fill=MUTED if q else DIM, anchor="rm")
+        d.rounded_rectangle([bx0, y - 18, bx1, y + 18], radius=18, fill=DIM)
+        v = 1 - base ** n
+        if q:
+            d.rounded_rectangle([bx0, y - 18, bx0 + max(36, (bx1 - bx0) * v * q), y + 18], radius=18, fill=col)
+            d.text((CW - 20, y), f"{v * 100 * q:.0f}%", font=F(FONTMAP.get("anton", "anton"), 44), fill=col, anchor="rm")
+    return im
+
+MATHS_TYPES.add("levels")
+_info_maths_prev = info_maths
+def info_maths(P, age):
+    return info_levels(P, age) if P["type"] == "levels" else _info_maths_prev(P, age)

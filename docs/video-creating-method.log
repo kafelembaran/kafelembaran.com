@@ -400,3 +400,5 @@ CHANGE LOG
              TikTok business accounts; personal TikTok uses the first frame).
 19 Nov 2026  Kopitiam chatter bed quieter: 0.60 before the voice, 0.22 under it (was 0.85 / 0.32);
              CHATTER_LEVEL in make_episode.py. Playback speed back to normal (CHATTER_TEMPO = 1.0).
+
+- 2026-11-19: subtitle timing now uses word-level forced alignment (video/msalign.py: pocketsphinx en-us model + Malay spelling-to-phone rules). The old pause/syllable DP drifted up to 6 s on the saka voice and put the "ahh" gap mid-sentence; DP is kept as fallback. Checked against Whisper small transcript: unit starts within ~0.3 s. PREP_ONLY=1 with render prints scene-relative timings for tuning panel start/pace/at.

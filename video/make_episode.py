@@ -71,6 +71,27 @@ def syllables(text):
     return n
 
 def align(ep, voice):
+    """Word-level forced alignment (msalign: pocketsphinx + Malay phone rules); falls back to the old DP method."""
+    U = units(ep); segs, dur = speech_segments(voice)
+    try:
+        import msalign
+        words, owner = [], []
+        for k, u in enumerate(U):
+            ws = msalign.words_of(u[1]); words += ws; owner += [k] * len(ws)
+        wt = msalign.align_words(voice, words)
+        if len(wt) != len(words): raise ValueError(f"aligned {len(wt)} of {len(words)} words")
+        spans = {}
+        for (w, a, b), k in zip(wt, owner): spans.setdefault(k, [a, b]); spans[k][1] = b
+        out = []
+        for k, u in enumerate(U):
+            a, b = spans[k]; ss = [(max(s0, a), min(s1, b)) for s0, s1 in segs if s1 > a and s0 < b] or [(a, b)]
+            out.append((u, ss[0][0], ss[-1][1], ss))
+        return out, dur
+    except Exception as e:
+        print("forced alignment unavailable, using DP:", e)
+    return align_dp(ep, voice)
+
+def align_dp(ep, voice):
     """Dynamic programming: split the speech segments into len(units) consecutive groups whose lengths best match
     each sentence's character count, preferring to cut at long pauses."""
     U = units(ep); segs, dur = speech_segments(voice); n, m = len(U), len(segs)
@@ -165,6 +186,9 @@ def cmd_render(ep_dir, nobook=False):
     OUT_T = outro_u[1] - LEAD; TOTAL = OFF + vlen + 1.2
     if nobook: TOTAL = OFF + OUT_T + 4.5          # the spoken book line is cut, so the closing is shorter
     SUBS = [(a + 0.05, u[2]) for (u, a, b, s) in mid]; SUB_END = OUT_T - 0.3
+    if os.environ.get("PREP_ONLY"):                     # print scene-relative timings for tuning panels, then stop
+        for (u, a, b, s) in res: print(f"{a:7.2f}  [{u[0]}] +{a - (SCN[u[0]] if isinstance(u[0], int) else 0):5.2f}  {u[1][:50]}")
+        print("voice", vlen); return
     iseg = intro_u[3]; line_b = max(iseg[1:], key=lambda s: s[0] - 0)[0] if len(iseg) > 1 else intro_u[1] + 2.0
     if len(iseg) > 1:                                   # second half starts after the longest pause inside the hook
         gaps = [(iseg[k][0] - iseg[k - 1][1], iseg[k][0]) for k in range(1, len(iseg))]; line_b = max(gaps)[1]

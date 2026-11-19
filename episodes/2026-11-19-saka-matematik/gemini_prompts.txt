@@ -1,0 +1,2 @@
+GEMINI VIDEO (Veo). Optional: missing clips fall back to text panels. Save each as clips/<name>.mp4
+

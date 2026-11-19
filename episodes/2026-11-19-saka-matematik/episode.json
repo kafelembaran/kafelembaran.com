@@ -1,371 +1,457 @@
 {
- "slug": "kafelembaran-tipu-daya-saka-matematik",
- "date": "2026-11-19",
- "style": "kopitiam",
- "title": [
-  "Tipu daya syaitan",
-  "menggunakan matematik"
- ],
- "book": {
-  "title": "Ilmu Alam Melayu",
-  "slip_lines": [
-   "Ilmu Alam",
-   "Melayu"
+  "slug": "kafelembaran-tipu-daya-saka-matematik",
+  "date": "2026-11-19",
+  "style": "kopitiam",
+  "title": [
+    "Tipu daya syaitan",
+    "menggunakan matematik"
   ],
-  "author": "Naim Tamdjis",
-  "shopee": "TODO: Shopee affiliate short link"
- },
- "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
- "outro_say": "Nak tahu kisah penuh mistik dan manuskrip Melayu? Baca Ilmu Alam Melayu. Link kat bio.",
- "scenes": [
-  {
-   "head": {
-    "kind": "big",
-    "text": "Saka?",
-    "sub": "ikut darah, 7 keturunan"
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "Moyang kita dulu...",
-     "ada saka?"
-    ]
-   },
-   "say": [
-    "Setiap keluarga Melayu, mesti ada satu cerita.",
-    "Moyang kita dulu... ada saka.",
-    "Betul ke? Jom kira. Langkah demi langkah."
-   ]
+  "book": {
+    "title": "Ilmu Alam Melayu",
+    "slip_lines": [
+      "Ilmu Alam",
+      "Melayu"
+    ],
+    "author": "Naim Tamdjis",
+    "shopee": "https://s.shopee.com.my/6AmhcCSg7D"
   },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Langkah 1",
-    "sub": "kira moyang"
-   },
-   "panel": {
-    "type": "tree",
-    "gens": 7,
-    "start": 8.2,
-    "pace": 0.88
-   },
-   "say": [
-    "Langkah pertama: kira moyang.",
-    "Setiap orang ada dua ibu bapa. Setiap generasi, jumlahnya berganda.",
+  "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+  "outro_say": "Nak tahu kisah penuh mistik dan manuskrip Melayu? Baca Ilmu Alam Melayu. Link kat bio.",
+  "scenes": [
     {
-     "say": "Dua, empat, lapan, enam belas, tiga puluh dua, enam puluh empat... seratus dua puluh lapan.",
-     "show": "2, 4, 8, 16, 32, 64... 128."
+      "head": {
+        "kind": "big",
+        "text": "Saka?",
+        "sub": "ikut darah, 7 keturunan"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Moyang kita dulu...",
+          "ada saka?"
+        ]
+      },
+      "say": [
+        "Setiap keluarga Melayu, mesti ada satu cerita.",
+        "Moyang kita dulu... ada saka.",
+        "Betul ke? Jom kira. Langkah demi langkah."
+      ]
     },
     {
-     "say": "Itu dua kuasa tujuh.",
-     "show": "Itu 2 kuasa 7."
+      "head": {
+        "kind": "type",
+        "text": "Langkah 1",
+        "sub": "kira nenek moyang"
+      },
+      "panel": {
+        "type": "tree",
+        "gens": 7,
+        "start": 6.7,
+        "pace": 1.05
+      },
+      "say": [
+        "Langkah pertama: kira nenek moyang.",
+        "Setiap orang ada dua ibu bapa. Setiap generasi, jumlahnya berganda.",
+        {
+          "say": "Dua, empat, lapan, enam belas, tiga puluh dua, enam puluh empat... seratus dua puluh lapan.",
+          "show": "2, 4, 8, 16, 32, 64... 128."
+        },
+        {
+          "say": "Itu dua kuasa tujuh.",
+          "show": "Itu 2 kuasa 7."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Langkah 2",
+        "sub": "tolak yang berulang"
+      },
+      "panel": {
+        "type": "tree",
+        "gens": 7,
+        "pace": 0.01,
+        "collapse": true,
+        "collapse_at": 8.1
+      },
+      "say": [
+        "Langkah kedua: tolak yang berulang.",
+        "Keluarga Melayu dulu, sepupu kahwin sepupu.",
+        "Jadi ada nenek moyang yang terkira dua kali.",
+        {
+          "say": "Tinggal lebih kurang seratus orang yang berbeza.",
+          "show": "Tinggal lebih kurang 100 orang yang berbeza."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Langkah 3",
+        "sub": "andaian: 1 dalam 100"
+      },
+      "panel": {
+        "type": "grid",
+        "filled": 1,
+        "caption": "1 dalam 100 orang",
+        "note": "ANDAIAN, bukan data"
+      },
+      "say": [
+        "Langkah ketiga: buat andaian.",
+        {
+          "say": "Bayangkan satu masyarakat, satu juta orang.",
+          "show": "Bayangkan satu masyarakat, 1,000,000 orang."
+        },
+        {
+          "say": "Andaikan zaman dulu, satu dalam seratus orang membela saka. Peluangnya, satu peratus.",
+          "show": "Andaikan zaman dulu, 1 dalam 100 orang membela saka. Peluangnya, 1%."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Langkah 4",
+        "sub": "kira yang terbalik"
+      },
+      "panel": {
+        "type": "compound",
+        "start": 11.2,
+        "speed": 28
+      },
+      "say": [
+        "Langkah keempat: kira yang terbalik.",
+        {
+          "say": "Peluang seorang nenek moyang bersih, sembilan puluh sembilan peratus.",
+          "show": "Peluang seorang nenek moyang bersih: 99%."
+        },
+        {
+          "say": "Setiap seorang bertambah, darab sembilan puluh sembilan peratus sekali lagi.",
+          "show": "Setiap seorang bertambah, darab 99% sekali lagi."
+        },
+        {
+          "say": "Untuk seratus orang, sembilan puluh sembilan peratus, kuasa seratus. Cuma tiga puluh tujuh peratus.",
+          "show": "Untuk 100 orang: 99% kuasa 100. Cuma 37%."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "big",
+        "text": "63%",
+        "sub": "sekurang-kurangnya seorang nenek moyang"
+      },
+      "panel": {
+        "type": "compound",
+        "speed": 1000,
+        "flip": true
+      },
+      "say": [
+        "Langkah kelima: tolak dari seratus.",
+        {
+          "say": "Seratus, tolak tiga puluh tujuh. Enam puluh tiga peratus.",
+          "show": "100 − 37 = 63%."
+        },
+        "Itulah peluang, sekurang-kurangnya seorang nenek moyang anda membela saka."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Perhatikan corak",
+        "sub": "naik peringkat, naik peluang"
+      },
+      "panel": {
+        "type": "levels",
+        "rows": [
+          [
+            "Ibu bapa",
+            2
+          ],
+          [
+            "Datuk nenek",
+            4
+          ],
+          [
+            "Moyang",
+            8
+          ],
+          [
+            "Peringkat 4",
+            16
+          ],
+          [
+            "Peringkat 5",
+            32
+          ],
+          [
+            "Peringkat 6",
+            64
+          ],
+          [
+            "Peringkat 7",
+            100
+          ]
+        ],
+        "at": [
+          2.7,
+          5.7,
+          8.8,
+          11.9,
+          14.3,
+          16.9,
+          19.7
+        ]
+      },
+      "say": [
+        "Sekarang, perhatikan corak ini.",
+        {
+          "say": "Ibu bapa, dua orang. Dua peratus.",
+          "show": "Ibu bapa, 2 orang. 2%."
+        },
+        {
+          "say": "Datuk nenek, empat orang. Empat peratus.",
+          "show": "Datuk nenek, 4 orang. 4%."
+        },
+        {
+          "say": "Moyang, lapan orang. Lapan peratus.",
+          "show": "Moyang, 8 orang. 8%."
+        },
+        {
+          "say": "Enam belas orang, lima belas peratus.",
+          "show": "16 orang, 15%."
+        },
+        {
+          "say": "Tiga puluh dua orang, dua puluh lapan peratus.",
+          "show": "32 orang, 28%."
+        },
+        {
+          "say": "Enam puluh empat orang, empat puluh tujuh peratus.",
+          "show": "64 orang, 47%."
+        },
+        {
+          "say": "Dan seratus orang... enam puluh tiga peratus.",
+          "show": "Dan 100 orang... 63%."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "big",
+        "text": "Kuasa kompaun",
+        "sub": "lebih ramai nenek moyang, lebih tinggi peluang"
+      },
+      "panel": {
+        "type": "levels",
+        "rows": [
+          [
+            "Ibu bapa",
+            2
+          ],
+          [
+            "Datuk nenek",
+            4
+          ],
+          [
+            "Moyang",
+            8
+          ],
+          [
+            "Peringkat 4",
+            16
+          ],
+          [
+            "Peringkat 5",
+            32
+          ],
+          [
+            "Peringkat 6",
+            64
+          ],
+          [
+            "Peringkat 7",
+            100
+          ]
+        ],
+        "at": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "say": [
+        "Semakin ramai nenek moyang, semakin tinggi peluang salah seorang ada saka. Itulah kuasa kompaun."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "2 daripada 3",
+        "sub": "bomoh betul, tanpa ilmu"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "“Keluarga awak",
+          "ada saka…”"
+        ]
+      },
+      "say": [
+        "Jadi bila bomoh pandang muka anda, dan kata, keluarga awak ada saka...",
+        "dia betul, hampir dua daripada tiga kali. Tanpa sebarang ilmu."
+      ]
+    },
+    {
+      "head": {
+        "kind": "stamp",
+        "text": "TIPU DAYA",
+        "sub": "guna kuasa kompaun"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "1% + kompaun",
+          "= 63%"
+        ]
+      },
+      "say": [
+        "Macam itulah tipu daya syaitan. Guna kuasa kompaun matematik, untuk kelebihan mereka."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Hirup kopi dulu",
+        "sub": "kenapa mudah menjadi?"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Kenapa begitu",
+          "mudah menjadi?"
+        ]
+      },
+      "say": [
+        "Tapi, kenapa tipu daya ini begitu mudah menjadi?",
+        {
+          "say": "Hirup kopi dulu...",
+          "sfx_after": "ahh_A"
+        },
+        "Jawapannya, kepercayaan ini dah berakar dalam budaya kita, ratusan tahun lamanya."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Manuskrip lama",
+        "sub": "punca penyakit?"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Sihir, hantu",
+          "polong, pelesit"
+        ]
+      },
+      "say": [
+        "Manuskrip Melayu lama mencatat penyakit datang dari sihir, hantu, polong dan pelesit."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Puja Pantai",
+        "sub": "pantai timur"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Kerbau balar dihanyutkan",
+          "untuk 'hantu laut'"
+        ]
+      },
+      "say": [
+        "Di pantai timur, nelayan pernah sembelih kerbau balar, dan hanyutkan ke laut. Pesta Puja Pantai."
+      ]
+    },
+    {
+      "head": {
+        "kind": "big",
+        "text": "1963",
+        "sub": "bidaah dan syirik"
+      },
+      "panel": {
+        "type": "timeline",
+        "start": 1963,
+        "end": 2026,
+        "left": "diisytihar syirik",
+        "right": "hampir pupus",
+        "caption": "{n} tahun"
+      },
+      "say": [
+        {
+          "say": "Tahun seribu sembilan ratus enam puluh tiga, seorang mufti isytihar amalan ini bidaah dan syirik.",
+          "show": "Tahun 1963, seorang mufti isytihar amalan ini bidaah dan syirik."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "big",
+        "text": "Faham",
+        "sub": "sejarah + matematik"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Faham sejarahnya,",
+          "faham matematiknya"
+        ]
+      },
+      "say": [
+        "Bila faham sejarah dan matematiknya... kita tak mudah ditipu."
+      ]
     }
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Langkah 2",
-    "sub": "tolak yang berulang"
-   },
-   "panel": {
-    "type": "tree",
-    "gens": 7,
-    "pace": 0.01,
-    "collapse": true,
-    "collapse_at": 7.9
-   },
-   "say": [
-    "Langkah kedua: tolak yang berulang.",
-    "Keluarga Melayu dulu, sepupu kahwin sepupu. Satu kampung, saudara belaka.",
-    "Jadi ada moyang yang terkira dua kali.",
-    {
-     "say": "Tinggal lebih kurang seratus orang yang berbeza.",
-     "show": "Tinggal lebih kurang 100 orang yang berbeza."
-    }
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Langkah 3",
-    "sub": "andaian: 1 dalam 100"
-   },
-   "panel": {
-    "type": "grid",
-    "filled": 1,
-    "caption": "1 dalam 100 keluarga",
-    "note": "ANDAIAN, bukan data"
-   },
-   "say": [
-    "Langkah ketiga: buat andaian.",
-    {
-     "say": "Bayangkan satu masyarakat, satu juta orang.",
-     "show": "Bayangkan satu masyarakat, 1,000,000 orang."
-    },
-    "Andaikan zaman dulu, satu dalam seratus keluarga membela saka.",
-    {
-     "say": "Itu sepuluh ribu keluarga. Peluangnya, satu peratus.",
-     "show": "Itu 10,000 keluarga. Peluangnya, 1%."
-    }
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Langkah 4",
-    "sub": "kira yang terbalik"
-   },
-   "panel": {
-    "type": "compound",
-    "start": 10.8,
-    "speed": 28
-   },
-   "say": [
-    "Langkah keempat: kira yang terbalik.",
-    "Lebih mudah kira peluang tiada seorang pun moyang anda terlibat.",
-    {
-     "say": "Untuk seorang moyang, peluang dia bersih, sembilan puluh sembilan peratus.",
-     "show": "Untuk seorang moyang, peluang dia bersih: 99%."
-    },
-    {
-     "say": "Untuk seratus moyang, darab seratus kali. Sembilan puluh sembilan per seratus, kuasa seratus.",
-     "show": "Untuk 100 moyang, darab 100 kali: (99/100) kuasa 100."
-    },
-    {
-     "say": "Jawapannya... cuma tiga puluh tujuh peratus.",
-     "show": "Jawapannya... cuma 37%."
-    }
-   ]
-  },
-  {
-   "head": {
-    "kind": "big",
-    "text": "63%",
-    "sub": "peluang ada saka keturunan"
-   },
-   "panel": {
-    "type": "compound",
-    "speed": 1000,
-    "flip": true
-   },
-   "say": [
-    "Langkah kelima: tolak dari seratus.",
-    {
-     "say": "Seratus, tolak tiga puluh tujuh.",
-     "show": "100 − 37."
-    },
-    {
-     "say": "Peluang keluarga anda ada saka keturunan... enam puluh tiga peratus!",
-     "show": "Peluang keluarga anda ada saka keturunan... 63%!"
-    }
-   ]
-  },
-  {
-   "head": {
-    "kind": "big",
-    "text": "630,000",
-    "sub": "daripada 1,000,000 orang"
-   },
-   "panel": {
-    "type": "grid",
-    "filled": 63,
-    "caption": "630,000 daripada 1,000,000",
-    "note": "anggaran, andaian 1 dalam 100"
-   },
-   "say": [
-    {
-     "say": "Dalam satu juta orang hari ini... enam ratus tiga puluh ribu orang, boleh dikata ada saka keturunan.",
-     "show": "Dalam 1,000,000 orang hari ini... 630,000 orang, boleh dikata ada saka keturunan."
-    }
-   ]
-  },
-  {
-   "head": {
-    "kind": "big",
-    "text": "Kuasa kompaun",
-    "sub": "1% jadi 63%"
-   },
-   "panel": {
-    "type": "compound",
-    "speed": 40,
-    "flip": true
-   },
-   "say": [
-    {
-     "say": "Satu peratus nampak kecil. Tapi bila dikompaun seratus kali, ia jadi enam puluh tiga peratus.",
-     "show": "1% nampak kecil. Tapi bila dikompaun 100 kali, ia jadi 63%."
-    },
-    "Itulah kuasa kompaun. Moyang berganda, peluang berganda."
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "2 daripada 3",
-    "sub": "bomoh betul, tanpa ilmu"
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "“Keluarga awak",
-     "ada saka…”"
-    ]
-   },
-   "say": [
-    "Jadi bila bomoh pandang muka anda, dan kata, keluarga awak ada saka...",
-    "dia betul, hampir dua daripada tiga kali. Tanpa sebarang ilmu."
-   ]
-  },
-  {
-   "head": {
-    "kind": "stamp",
-    "text": "TIPU DAYA",
-    "sub": "guna kuasa kompaun"
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "1% + kompaun",
-     "= 63%"
-    ]
-   },
-   "say": [
-    "Macam itulah tipu daya syaitan. Guna kuasa kompaun matematik, untuk kelebihan mereka."
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Hirup kopi dulu",
-    "sub": "cerita sebenar..."
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "Kenapa begitu",
-     "mudah menjadi?"
-    ]
-   },
-   "say": [
-    {
-     "say": "Hirup kopi dulu...",
-     "sfx_after": "ahh_A"
-    },
-    "Sebab cerita sebenar, bermula jauh lebih awal.",
-    "Kenapa tipu daya ini begitu mudah menjadi?",
-    "Sebab kepercayaannya dah berakar dalam budaya kita, ratusan tahun lamanya."
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Manuskrip lama",
-    "sub": "punca penyakit?"
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "Sihir, hantu",
-     "polong, pelesit"
-    ]
-   },
-   "say": [
-    "Manuskrip Melayu lama mencatat penyakit datang dari sihir, hantu, polong dan pelesit."
-   ]
-  },
-  {
-   "head": {
-    "kind": "type",
-    "text": "Puja Pantai",
-    "sub": "pantai timur"
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "Kerbau balar dihanyutkan",
-     "untuk 'hantu laut'"
-    ]
-   },
-   "say": [
-    "Di pantai timur, nelayan pernah sembelih kerbau balar, dan hanyutkan ke laut, untuk tenangkan hantu laut.",
-    "Pesta Puja Pantai."
-   ]
-  },
-  {
-   "head": {
-    "kind": "big",
-    "text": "1963",
-    "sub": "bidaah dan syirik"
-   },
-   "panel": {
-    "type": "timeline",
-    "start": 1963,
-    "end": 2026,
-    "left": "diisytihar syirik",
-    "right": "hampir pupus",
-    "caption": "{n} tahun"
-   },
-   "say": [
-    {
-     "say": "Tahun seribu sembilan ratus enam puluh tiga, seorang mufti isytihar amalan ini bidaah dan syirik.",
-     "show": "Tahun 1963, seorang mufti isytihar amalan ini bidaah dan syirik."
-    },
-    "Hari ini, ia hampir pupus."
-   ]
-  },
-  {
-   "head": {
-    "kind": "big",
-    "text": "Faham",
-    "sub": "sejarah + matematik"
-   },
-   "panel": {
-    "type": "text",
-    "lines": [
-     "Faham sejarahnya,",
-     "faham matematiknya"
-    ]
-   },
-   "say": [
-    "Bila faham sejarah dan matematiknya... kita tak mudah ditipu."
-   ]
-  }
- ],
- "post": {
-  "caption": "Tipu daya syaitan menggunakan matematik ☕ Diterangkan di antara dua hirupan kopi.\n\n\"Moyang kau dulu ada saka.\" Kalau satu dalam 100 keluarga zaman dulu ada saka, peluang anda 'mewarisi' saka ialah 63%. Bukan sebab ilmu bomoh, tapi kuasa kompaun: 2 kuasa 7 = 128 moyang, (0.99) kuasa 100 = 37%, 1 − 0.37 = 63%. Lepas tu: dari mana datangnya kepercayaan ini? Manuskrip lama, Puja Pantai, dan fatwa 1963.\n\nAndaian 1 dalam 100 ialah ilustrasi, bukan data.\n\nBuku: Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi, Naim Tamdjis. Link kat bio (link affiliate).\nSuara dijana AI.",
-  "hashtags": [
-   "duahirupankopi",
-   "kafelembaran",
-   "saka",
-   "bomoh",
-   "matematik",
-   "kebarangkalian",
-   "mistikmelayu",
-   "sejarahmelayu",
-   "bukumalaysia"
   ],
-  "youtube_title": "Saka keturunan 63%? Tipu daya guna matematik | Dua Hirupan Kopi",
-  "youtube_tags": [
-   "saka",
-   "saka keturunan",
-   "bomoh",
-   "matematik",
-   "kebarangkalian",
-   "kuasa kompaun",
-   "mistik Melayu",
-   "Puja Pantai",
-   "Ilmu Alam Melayu"
+  "post": {
+    "caption": "Tipu daya syaitan menggunakan matematik ☕ Diterangkan di antara dua hirupan kopi.\n\n\"Moyang kau dulu ada saka.\" Kalau satu dalam 100 keluarga zaman dulu ada saka, peluang anda 'mewarisi' saka ialah 63%. Bukan sebab ilmu bomoh, tapi kuasa kompaun: 2 kuasa 7 = 128 moyang, (0.99) kuasa 100 = 37%, 1 − 0.37 = 63%. Lepas tu: dari mana datangnya kepercayaan ini? Manuskrip lama, Puja Pantai, dan fatwa 1963.\n\nAndaian 1 dalam 100 ialah ilustrasi, bukan data.\n\nBuku: Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi, Naim Tamdjis. Link kat bio (link affiliate).\nSuara dijana AI.",
+    "hashtags": [
+      "duahirupankopi",
+      "kafelembaran",
+      "saka",
+      "bomoh",
+      "matematik",
+      "kebarangkalian",
+      "mistikmelayu",
+      "sejarahmelayu",
+      "bukumalaysia"
+    ],
+    "youtube_title": "Saka keturunan 63%? Tipu daya guna matematik | Dua Hirupan Kopi",
+    "youtube_tags": [
+      "saka",
+      "saka keturunan",
+      "bomoh",
+      "matematik",
+      "kebarangkalian",
+      "kuasa kompaun",
+      "mistik Melayu",
+      "Puja Pantai",
+      "Ilmu Alam Melayu"
+    ],
+    "category": "EDUCATION",
+    "political": false
+  },
+  "sources": [
+    "https://pusatsumber.jkkn.gov.my/bib/3143",
+    "https://adab.um.edu.my/index.php/SEJARAH/article/download/9281/6579/18901",
+    "https://malaysia4u.com/bomoh-guide",
+    "Ilmu Alam Melayu promo (Patriots, Shopee listing image 2/4)"
   ],
-  "category": "EDUCATION",
-  "political": false
- },
- "sources": [
-  "https://pusatsumber.jkkn.gov.my/bib/3143",
-  "https://adab.um.edu.my/index.php/SEJARAH/article/download/9281/6579/18901",
-  "https://malaysia4u.com/bomoh-guide",
-  "Ilmu Alam Melayu promo (Patriots, Shopee listing image 2/4)"
- ],
- "max_gap": 0.45,
- "voice_tempo": 1.06
+  "max_gap": 0.45,
+  "voice_tempo": 1.06
 }
