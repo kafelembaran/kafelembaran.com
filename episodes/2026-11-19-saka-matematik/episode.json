@@ -46,8 +46,8 @@
    "panel": {
     "type": "tree",
     "gens": 7,
-    "start": 3.5,
-    "pace": 0.55
+    "start": 8.2,
+    "pace": 0.88
    },
    "say": [
     "Langkah pertama: kira moyang.",
@@ -73,7 +73,7 @@
     "gens": 7,
     "pace": 0.01,
     "collapse": true,
-    "collapse_at": 4.0
+    "collapse_at": 7.9
    },
    "say": [
     "Langkah kedua: tolak yang berulang.",
@@ -118,8 +118,8 @@
    },
    "panel": {
     "type": "compound",
-    "start": 6.5,
-    "speed": 30
+    "start": 10.8,
+    "speed": 28
    },
    "say": [
     "Langkah keempat: kira yang terbalik.",
@@ -365,5 +365,7 @@
   "https://adab.um.edu.my/index.php/SEJARAH/article/download/9281/6579/18901",
   "https://malaysia4u.com/bomoh-guide",
   "Ilmu Alam Melayu promo (Patriots, Shopee listing image 2/4)"
- ]
+ ],
+ "max_gap": 0.45,
+ "voice_tempo": 1.06
 }

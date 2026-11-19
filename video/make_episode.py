@@ -137,6 +137,18 @@ def subtitle(fr, txt, age):
 
 def cmd_render(ep_dir, nobook=False):
     ep = load(ep_dir); ep["_nobook"] = nobook; voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
+    if ep.get("max_gap") or ep.get("voice_tempo"):     # tighten long pauses and/or speed up slightly (pitch kept), then re-align
+        q = wave.open(voice); fr_ = q.getframerate(); ch = q.getnchannels(); sw = q.getsampwidth(); raw = np.frombuffer(q.readframes(q.getnframes()), np.int16).reshape(-1, ch); q.close()
+        mg = ep.get("max_gap", 99); keep, last = [], 0
+        for k in range(1, len(res)):
+            b, a2 = res[k - 1][2], res[k][1]
+            if a2 - b > mg:
+                cut0 = int((b + mg / 2) * fr_); cut1 = int((a2 - mg / 2) * fr_); keep.append(raw[last:cut0]); last = cut1
+        keep.append(raw[last:]); os.makedirs(os.path.join(ep_dir, "out"), exist_ok=True)
+        tmpw = os.path.join(ep_dir, "out", "voice_tight_raw.wav"); q = wave.open(tmpw, "wb"); q.setnchannels(ch); q.setsampwidth(sw); q.setframerate(fr_); q.writeframes(np.concatenate(keep).tobytes()); q.close()
+        voice = os.path.join(ep_dir, "out", "voice_tight.wav")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmpw, "-af", f"atempo={ep.get('voice_tempo', 1.0)}", voice], check=True)
+        res, vlen = align(ep, voice)
     says_ = [({"say": x} if isinstance(x, str) else x) for sc in ep["scenes"] for x in sc["say"]]
     gaps_at = [res[1:-1][k][2] + 0.05 for k, sd in enumerate(says_) if sd.get("sfx_after")]
     if gaps_at:                                         # open a 1.1 s gap in the voice for each sound effect, then re-align
