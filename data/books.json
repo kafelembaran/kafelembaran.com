@@ -8,8 +8,29 @@
   },
   "books": [
     {
-      "slug": "ilmu-alam-melayu",
+      "slug": "palestin-dari-sungai-ke-segara",
       "featured": true,
+      "added": "2026-11-20",
+      "title": "Palestin: Dari Sungai ke Segara",
+      "author": "Ayman Rashdan Wong",
+      "category": "Sejarah & Geopolitik",
+      "cover_color": "#2F4A3A",
+      "summary": [
+        "Sejarah Palestin dari zaman purba hingga hari ini, dalam bahasa yang santai.",
+        "Bagaimana sempadan, kuasa besar dan identiti membentuk konflik yang panjang.",
+        "Titik mula yang mudah sebelum membaca isu Timur Tengah yang lebih besar."
+      ],
+      "why_read": "Video '7 negara dalam 5 tahun' kami ikut garis masa perang di Timur Tengah sejak 2001. Buku ini memberi latar sejarah yang lebih panjang tentang kenapa rantau itu tak pernah aman.",
+      "for_who": "Pembaca yang mahu faham isu Palestin dan Timur Tengah dari asasnya. Bahasa Melayu.",
+      "links": {
+        "shopee": "https://s.shopee.com.my/2LZzXwbY6w",
+        "publisher": "",
+        "bookcafe": ""
+      }
+    },
+    {
+      "slug": "ilmu-alam-melayu",
+      "featured": false,
       "added": "2026-11-19",
       "title": "Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi",
       "author": "Naim Tamdjis",
