@@ -129,8 +129,9 @@ def subtitle(fr, txt, age):
 
 # ---------------- opening / closing ----------------
 class Intro:
-    def __init__(self, t1, t2, length, line_a, line_b, gag=None):
-        self.L, self.a, self.b, self.gag = length, line_a, line_b, gag     # gag = (t_scratch, t_dua): "satu" crossed out, "DUA" slapped in
+    def __init__(self, t1, t2, length, line_a, line_b, gag=None, quote=None):
+        self.L, self.a, self.b, self.gag = length, line_a, line_b, gag
+        self.q = quote or ("“Biar saya terangkan isu ini…", "di antara dua hirupan kopi.”")     # gag = (t_scratch, t_dua): "satu" crossed out, "DUA" slapped in
         self.slip = slip([(t1, 150, "anton", RED), (t2, 150, "anton", KOPI), ("Dua hirupan kopi", 40, "inter", KOPI)], rot=-3)
         self.bg = TILES.copy(); self.bg.alpha_composite(_marble(W, 700), (0, 1220)); self.cup = cup_img(400, GREEN)
     def frame(self, t):
@@ -141,9 +142,9 @@ class Intro:
         place_slap(fr, self.slip, 50, 300, t, -1.0)   # already on the table at frame 0: the first frame is the grid thumbnail
         lay = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ld = ImageDraw.Draw(lay); fq = F("lora", 58, 500)
         ka, kb = ease_out((t - self.a) / 0.4), ease_out((t - self.b) / 0.4)
-        if ka > 0: ld.text((70, 880 if self.gag is None else 800), "“Biar saya terangkan isu ini…", font=fq, fill=CREAM[:3] + (int(255 * ka),))
+        if ka > 0: ld.text((70, 880 if self.gag is None else 800), self.q[0], font=fq, fill=CREAM[:3] + (int(255 * ka),))
         if self.gag is None:
-            if kb > 0: ld.text((70, 960), "di antara dua hirupan kopi.”", font=fq, fill=CREAM[:3] + (int(255 * kb),))
+            if kb > 0: ld.text((70, 960), self.q[1], font=fq, fill=CREAM[:3] + (int(255 * kb),))
         else:
             ts, td = self.gag
             if kb > 0: ld.text((70, 960), "dalam satu hirupan kopi.”", font=fq, fill=CREAM[:3] + (int(255 * kb),))
@@ -188,9 +189,9 @@ def build(ep, SCN, OUT_T, SUBS, SUB_END, intro_a, intro_b, OFF, panels_list):
     theme_panels()
     slips = [head_slip(sc["head"], i) for i, sc in enumerate(ep["scenes"])]
     stamps = {i: stamp_img(sc["head"]["text"]) for i, sc in enumerate(ep["scenes"]) if sc["head"]["kind"] == "stamp"}
-    intro = Intro(ep["title"][0], ep["title"][1], OFF + SCN[0], intro_a, intro_b, gag=ep.get("_gag"))
+    intro = Intro(ep["title"][0], ep["title"][1], OFF + SCN[0], intro_a, intro_b, gag=ep.get("_gag"), quote=ep.get("intro_quote"))
     nobook = ep.get("_nobook")
-    outro = Outro(None if nobook else ep["book"].get("slip_lines", [ep["book"]["title"]]), ep["book"]["author"], OUT_T - SCN[0])
+    outro = Outro(None if nobook else ep["book"].get("slip_lines", [ep["book"]["title"]]), "" if nobook else ep["book"]["author"], OUT_T - SCN[0])
 
     def scene(i, tv):
         sc = ep["scenes"][i]; age = tv - SCN[i]; dur = (SCN[i + 1] if i + 1 < len(SCN) else OUT_T) - SCN[i]

@@ -1,0 +1,289 @@
+{
+  "slug": "kafelembaran-minggu-lepas-hari-ini-1",
+  "date": "2026-11-20",
+  "style": "kopitiam",
+  "title": [
+    "Minggu Lepas",
+    "Hari Ini"
+  ],
+  "intro_say": "Minggu lepas... hari ini.",
+  "outro_say": "Minggu lepas... hari ini.",
+  "scenes": [
+    {
+      "head": {
+        "kind": "type",
+        "text": "7 cerita",
+        "sub": "minggu ini"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "7 cerita",
+          "minggu ini"
+        ]
+      },
+      "say": [
+        "Pagi-pagi makan roti,",
+        "Dicicah kopi di kedai lama;",
+        "Minggu lepas kita teliti,",
+        "Tujuh cerita kita kupas bersama."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Ekonomi",
+        "sub": "KDNK suku ketiga 2026"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "5.5%",
+          "KDNK suku ketiga",
+          "anggaran awal 5.3%"
+        ]
+      },
+      "say": [
+        "Buah duku buah cempedak,",
+        "Dijual orang di tepi telaga;",
+        "Ekonomi negara tumbuh semarak,",
+        "Lima koma lima, suku ketiga.",
+        "Lebih tinggi daripada anggaran awal.",
+        "Ada bank dah jangka, kadar faedah mungkin naik awal tahun depan."
+      ],
+      "source": "DOSM, NST"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Jerebu",
+        "sub": "Sidang Kemuncak ASEAN, Manila"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "\"Bukan salah kami\"",
+          "...tapi kami mohon maaf"
+        ]
+      },
+      "say": [
+        "Rumah Pak Din luas halamannya,",
+        "Teduh berlindung di bawah pohon;",
+        "Jerebu bukan salah kami, katanya,",
+        "Tapi maaf tetap dipohon.",
+        "Di Sidang Kemuncak ASEAN di Manila, Presiden Prabowo kata jerebu bukan salah Indonesia, mereka dah buat yang terbaik.",
+        "Tapi bagi pihak rakyat Indonesia, beliau mohon maaf kepada Malaysia dan Singapura."
+      ],
+      "source": "Malay Mail, Bernama"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Macron di KL",
+        "sub": "lawatan rasmi pertama"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "7 dokumen",
+          "perkongsian strategik",
+          "nadir bumi, helikopter Airbus"
+        ]
+      },
+      "say": [
+        "Kain sutera dibeli di Bali,",
+        "Dijahit halus, kancing sepuluh;",
+        "Macron datang pertama kali,",
+        "Tujuh dokumen dimeterai teguh.",
+        "Presiden Perancis buat lawatan rasmi pertama ke Malaysia.",
+        "Hubungan dinaik taraf jadi perkongsian strategik, termasuk loji nadir bumi di Perak, dan helikopter penyelamat Airbus."
+      ],
+      "source": "Bernama, Élysée"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "19 November",
+        "sub": "amaran bencana"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Telefon senyap",
+          "ujian dalaman sahaja"
+        ]
+      },
+      "say": [
+        "Burung pipit terbang berpusing,",
+        "Hinggap sebentar di beranda;",
+        "Telefon kita tak berdering,",
+        "Ujian dalaman, bukan untuk anda.",
+        {
+          "say": "Berminggu-minggu kita diberitahu telefon akan berbunyi pada sembilan belas November.",
+          "show": "Berminggu-minggu kita diberitahu telefon akan berbunyi pada 19 November."
+        },
+        "Rupanya, M C M C kata cuma ujian dalaman."
+      ],
+      "source": "MCMC, SoyaCincau"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Awan AI",
+        "sub": "Malaysia dan Amerika"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "US$50 juta",
+          "sokongan ditawarkan",
+          "kawalan kekal Malaysia"
+        ]
+      },
+      "say": [
+        "Petik bunga di taman lama,",
+        "Bunga dipetik dibawa ke kota;",
+        "Awan A I dibina bersama,",
+        "Kawalan tetap di tangan kita.",
+        {
+          "say": "Amerika tawar sokongan sehingga lima puluh juta dolar, untuk Awan A I Berdaulat Malaysia.",
+          "show": "Amerika tawar sokongan sehingga US$50 juta, untuk Awan AI Berdaulat Malaysia."
+        }
+      ],
+      "source": "Bernama, MCMC"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Banjir kilat",
+        "sub": "Selangor"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "NKVE sesak",
+          "Puncak Alam: 2 hari"
+        ]
+      },
+      "say": [
+        "Burung merbuk terbang ke Johor,",
+        "Singgah minum di Kampung Duri;",
+        "Banjir kilat melanda Selangor,",
+        "Musim tengkujuh, jagalah diri.",
+        "NKVE sesak teruk, dan Puncak Alam ditenggelami air dua hari berturut-turut."
+      ],
+      "source": "Berita Harian, NST"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Boling",
+        "sub": "Kejohanan Asia"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Emas ke-4",
+          "berturut-turut",
+          "trio lelaki"
+        ]
+      },
+      "say": [
+        "Anak itik berenang ria,",
+        "Berenang jauh ke tengah laut;",
+        "Boling trio juara Asia,",
+        "Empat kali berturut-turut.",
+        "Pasukan trio lelaki negara, emas Asia, empat edisi berturut-turut."
+      ],
+      "source": "NST"
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Minggu ini",
+        "sub": "di Kafe Lembaran"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Jensen Huang",
+          "Formula 1955",
+          "Gelembung AI",
+          "Saka dan matematik",
+          "Memo 7 negara"
+        ],
+        "size": 56
+      },
+      "say": [
+        "Dan di Kafe Lembaran minggu ini:",
+        {
+          "say": "kejatuhan Jensen Huang, formula seribu sembilan ratus lima puluh lima, gelembung A I, saka dan matematik, dan memo tujuh negara.",
+          "show": "kejatuhan Jensen Huang, formula 1955, gelembung AI, saka dan matematik, dan memo 7 negara."
+        },
+        "Episod penuh, kat profil."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Jumpa lagi",
+        "sub": "Isnin depan"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Minggu Lepas",
+          "Hari Ini"
+        ]
+      },
+      "say": [
+        "Burung pucung terbang lepas,",
+        "Hinggap di dahan pokok rambutan;",
+        "Lima kisah sudah dikupas,",
+        "Jumpa lagi Isnin depan."
+      ]
+    }
+  ],
+  "music": {
+    "file": "kopi-beat-90bpm.wav",
+    "level": 0.12
+  },
+  "chatter_scale": 0.6,
+  "scene_ting": true,
+  "sources": [
+    "https://www.malaymail.com/amp/news/world/2026/11/16/indonesias-prabowo-tells-asean-summit-haze-not-our-fault-but-apologises-to-malaysia-singapore/243447",
+    "https://bernama.com/en/news.php?id=2635685",
+    "https://www.bernama.com/en/news.php?id=2635677",
+    "https://soyacincau.com/?p=454518",
+    "https://www.bernama.com/en/general/news.php?id=2636420",
+    "https://www.bharian.com.my/ringkasanberita/1719307",
+    "https://www.nst.com.my/newssummary/1580449"
+  ],
+  "post": {
+    "caption": "Minggu Lepas Hari Ini #1 ☕ Tujuh cerita minggu ini, dalam pantun empat kerat.\n\nEkonomi 5.5%, jerebu dan maaf Prabowo, Macron di KL, telefon yang tak berdering, Awan AI, banjir kilat Selangor, dan emas boling Asia.\n\nSumber: DOSM, Malay Mail, Bernama, Élysée, MCMC, SoyaCincau, Berita Harian, NST.\nSuara dijana AI.",
+    "hashtags": [
+      "minggulepashariini",
+      "duahirupankopi",
+      "kafelembaran",
+      "pantun",
+      "beritaminggu",
+      "Malaysia"
+    ],
+    "youtube_title": "Minggu Lepas Hari Ini #1: 7 cerita dalam pantun | Dua Hirupan Kopi",
+    "youtube_tags": [
+      "Minggu Lepas Hari Ini",
+      "pantun",
+      "berita Malaysia",
+      "Prabowo jerebu",
+      "Macron Malaysia",
+      "Awan AI",
+      "KDNK"
+    ],
+    "category": "NEWS_POLITICS",
+    "political": true
+  },
+  "intro_quote": [
+    "“Minggu lepas…",
+    "hari ini.”"
+  ]
+}

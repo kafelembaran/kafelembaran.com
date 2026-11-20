@@ -158,7 +158,7 @@ def subtitle(fr, txt, age):
             x += text_w(f, w) + sp
 
 def cmd_render(ep_dir, nobook=False):
-    ep = load(ep_dir); ep["_nobook"] = nobook; voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
+    ep = load(ep_dir); ep["_nobook"] = nobook or not ep.get("book"); cutbook = nobook and bool(ep.get("book")); voice = os.path.join(ep_dir, "voice.wav"); res, vlen = align(ep, voice)
     if ep.get("max_gap") or ep.get("voice_tempo"):     # tighten long pauses and/or speed up slightly (pitch kept), then re-align
         q = wave.open(voice); fr_ = q.getframerate(); ch = q.getnchannels(); sw = q.getsampwidth(); raw = np.frombuffer(q.readframes(q.getnframes()), np.int16).reshape(-1, ch); q.close()
         mg = ep.get("max_gap", 99); keep, last = [], 0
@@ -184,7 +184,7 @@ def cmd_render(ep_dir, nobook=False):
     intro_u = res[0]; outro_u = res[-1]; mid = res[1:-1]
     SCN = [min(a for (u, a, b, s) in mid if u[0] == i) - LEAD for i in range(len(ep["scenes"]))]
     OUT_T = outro_u[1] - LEAD; TOTAL = OFF + vlen + 1.2
-    if nobook: TOTAL = OFF + OUT_T + 4.5          # the spoken book line is cut, so the closing is shorter
+    if cutbook: TOTAL = OFF + OUT_T + 4.5          # the spoken book line is cut, so the closing is shorter
     SUBS = [(a + 0.05, u[2]) for (u, a, b, s) in mid]; SUB_END = OUT_T - 0.3
     if os.environ.get("PREP_ONLY"):                     # print scene-relative timings for tuning panels, then stop
         for (u, a, b, s) in res: print(f"{a:7.2f}  [{u[0]}] +{a - (SCN[u[0]] if isinstance(u[0], int) else 0):5.2f}  {u[1][:50]}")
@@ -201,7 +201,7 @@ def cmd_render(ep_dir, nobook=False):
         gag = (OFF + t_scr, OFF + t_dua)
     ep["_gag"] = gag
     intro = Intro(ep["title"][0], ep["title"][1], OFF + SCN[0], OFF + intro_u[1], OFF + line_b)
-    CLK = OUT_T - SCN[0]; outro = Outro(ep["book"]["title"], ep["book"]["author"], clk_str(CLK))
+    CLK = OUT_T - SCN[0]; outro = Outro(ep.get("book", {}).get("title", ""), ep.get("book", {}).get("author", ""), clk_str(CLK))
     panels = [Panel(sc["panel"], ep_dir) for sc in ep["scenes"]]; bgs = [bg(0), bg(1)]
 
     def scene(i, tv):
@@ -260,11 +260,15 @@ def cmd_render(ep_dir, nobook=False):
     bed = chain([c1, c2], 0) * 0.8 + chain([c2, c1], 4.7 / CHATTER_TEMPO)[:, ::-1] * 0.5
     env = np.where(tt < OFF - 0.2, CHATTER_LEVEL[0], CHATTER_LEVEL[1]) * np.clip(tt / 0.4, 0, 1) * np.clip((TOTAL - tt) / 2, 0, 1)
     k_ = int(0.3 * sr); cs = np.cumsum(np.concatenate([np.full(k_, env[0]), env, np.full(k_, env[-1])])); env = ((cs[2 * k_:] - cs[:-2 * k_]) / (2 * k_))[:n]
-    mix = bed * env[:, None]
+    mix = bed * env[:, None] * ep.get("chatter_scale", 1.0)
+    if ep.get("music"):                           # optional music bed (looped), e.g. the weekly pantun recap
+        mu = wav(os.path.join(HERE, "music", ep["music"]["file"])); reps = n // len(mu) + 1; mu = np.tile(mu, (reps, 1))[:n]
+        menv = ep["music"].get("level", 0.15) * np.clip((tt - 0.2) / 1.5, 0, 1) * np.clip((TOTAL - tt) / 2.5, 0, 1)
+        mix += mu * menv[:, None]
     def put(x, at, g):
         s = int(at * sr); e = min(n, s + len(x)); mix[s:e] += x[:e - s] * g
     put(wav(os.path.join(SFX, "shout.wav")), 0.0, 1.2); put(wav(os.path.join(SFX, "ahh_A.wav")), 1.25, 1.0); vo = wav(voice)
-    if nobook:                                    # cut the voice before the spoken book line
+    if cutbook:                                   # cut the voice before the spoken book line
         cut = int((outro_u[1] - 0.12) * sr); vo = vo[:cut].copy(); f = int(0.08 * sr); vo[-f:] *= np.linspace(1, 0, f)[:, None]
     put(vo, OFF, 1.6)
     put(wav(os.path.join(SFX, "ting_B.wav")), OFF + OUT_T + Outro.LAND - 0.143, 1.1)
@@ -272,6 +276,9 @@ def cmd_render(ep_dir, nobook=False):
     says = [({"say": x} if isinstance(x, str) else x) for sc in ep["scenes"] for x in sc["say"]]
     for (u, a, b, s_), sd in zip(mid, says):           # optional sound after a sentence, e.g. {"sfx_after": "ahh_A"}
         if sd.get("sfx_after"): put(wav(os.path.join(SFX, sd["sfx_after"] + ".wav")), OFF + b + 0.05, 0.8)
+    if ep.get("scene_ting"):                      # soft "ting" at each new story
+        tg = wav(os.path.join(SFX, "ting_B.wav"))
+        for i in range(1, len(SCN)): put(tg, OFF + SCN[i] - 0.05, ep.get("scene_ting_gain", 0.45))
     tk = np.arange(int(0.03 * sr)) / sr; click = np.repeat((np.sin(2 * np.pi * 1800 * tk) * np.exp(-tk * 180) * 0.025)[:, None], 2, axis=1)
     for s_ in range(int(CLK) + 1): put(click, OFF + SCN[0] + s_, 1.0)
     mix *= 0.9 / np.abs(mix).max(); mixp = os.path.join(out_dir, "mix.wav")
