@@ -1,23 +1,52 @@
-MINGGU LEPAS HARI INI #1 (week 16-22 Nov 2026), DRAFT 20 Nov - finalise Sun 22 Nov with Fri-Sun news
+MINGGU LEPAS HARI INI #1 (week 16-22 Nov 2026), PANTUN VERSION DRAFT 20 Nov - finalise Sun 22 Nov
 AI STUDIO: Gemini Flash TTS, Speaker 1 - Enzo, Friendly. Download -> voice.wav
-STYLE: Read in Malaysian Malay, relaxed and a little upbeat, like a friend giving a quick weekly recap at a kopitiam. Steady rhythm, short punchy sentences. Keep the same speed from start to finish. Say "Minggu lepas... hari ini." slowly, with a pause at the "...", the same way every time.
-FORMAT: calm voice over a light 90 BPM beat (low volume); "ting" between stories; hook at the start and the end.
+STYLE: Read in Malaysian Malay, warm and relaxed, like a friend at a kopitiam. Read each pantun with a gentle rhythm: a short pause at each comma, a longer pause at each semicolon, and a clear pause after the fourth line. The plain sentences after each pantun are read normally. Same speed from start to finish. Say "Minggu lepas... hari ini." slowly, the same way both times.
+FORMAT: voice over a light 90 BPM beat (low volume); "ting" between stories.
 
 --- paste below ---
 
 Minggu lepas... hari ini.
-Lima cerita minggu lepas, dalam satu cawan kopi. Jom.
 
-Satu. Ekonomi. Angka penuh dah keluar: ekonomi Malaysia suku ketiga tumbuh lima perpuluhan lima peratus, lebih tinggi daripada anggaran awal, lima perpuluhan tiga. Ada bank dah mula jangka, kadar faedah mungkin naik awal tahun depan.
+Pagi-pagi makan roti,
+Dicicah kopi di kedai lama;
+Minggu lepas kita teliti,
+Lima cerita kita kupas bersama.
 
-Dua. Telefon. Berminggu-minggu kita diberitahu, sembilan belas November telefon akan berbunyi kuat, ujian amaran bencana. Malam sebelumnya, M C M C jelaskan: tiada ujian awam, cuma ujian dalaman. Jadi kalau telefon anda senyap hari Khamis... memang patut senyap.
+Buah duku buah cempedak,
+Dijual orang di tepi telaga;
+Ekonomi negara tumbuh semarak,
+Lima koma lima, suku ketiga.
+Lebih tinggi daripada anggaran awal. Ada bank dah jangka, kadar faedah mungkin naik awal tahun depan.
 
-Tiga. A I. Malaysia dan Amerika umum hasrat bekerjasama membina Awan A I Berdaulat. Amerika tawar sokongan sehingga lima puluh juta dolar. Tapi reka bentuk dan kawalan, kekal di tangan Malaysia.
+Burung pipit terbang berpusing,
+Hinggap sebentar di beranda;
+Telefon kita tak berdering,
+Ujian dalaman, bukan untuk anda.
+Berminggu-minggu kita diberitahu telefon akan berbunyi pada sembilan belas November. Rupanya, M C M C kata cuma ujian dalaman.
 
-Empat. Banjir kilat. Selangor dilanda banjir kilat. NKVE sesak teruk, dan Puncak Alam ditenggelami air dua hari berturut-turut. Musim tengkujuh dah mula. Jaga diri.
+Petik bunga di taman lama,
+Bunga dipetik dibawa ke kota;
+Awan A I dibina bersama,
+Kawalan tetap di tangan kita.
+Amerika tawar sokongan sehingga lima puluh juta dolar, untuk Awan A I Berdaulat Malaysia.
 
-Lima. Sukan. Pasukan boling trio lelaki negara menang emas Asia. Kali keempat berturut-turut.
+Burung merbuk terbang ke Johor,
+Singgah minum di Kampung Duri;
+Banjir kilat melanda Selangor,
+Musim tengkujuh, jagalah diri.
+NKVE sesak teruk, dan Puncak Alam ditenggelami air dua hari berturut-turut.
+
+Anak itik berenang ria,
+Berenang jauh ke tengah laut;
+Boling trio juara Asia,
+Empat kali berturut-turut.
+Pasukan trio lelaki negara, emas Asia, empat edisi berturut-turut.
 
 Dan di Kafe Lembaran minggu ini: kejatuhan Jensen Huang, formula seribu sembilan ratus lima puluh lima, gelembung A I, saka dan matematik, dan memo tujuh negara. Episod penuh, kat profil.
 
-Minggu lepas... hari ini. Jumpa Isnin depan.
+Burung pucung terbang lepas,
+Hinggap di dahan pokok rambutan;
+Lima kisah sudah dikupas,
+Jumpa lagi Isnin depan.
+
+Minggu lepas... hari ini.
