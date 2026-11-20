@@ -54,7 +54,8 @@ NEW IDEAS
 ---------
 0. Minggu Lepas Hari Ini (weekly wrap-up in PANTUN 4 KERAT over a light beat, EVERY FRIDAY; named by the user 20 Nov 2026)
    Schedule: wrap-up on FRIDAY (covers Mon-Fri + the weekend before); new topic episode every MONDAY.
-   Status:   #1 script (pantun) in episodes/2026-11-23-minggu-lepas/tts_script.txt
+   Status:   #1 SCHEDULED Fri 20 Nov 2026 21:00 (TikTok, YouTube Short, IG Reel; no book, commercial OFF), 2:55
+   Render:   episode.json keys music (video/music/kopi-beat-90bpm.wav, level 0.12), chatter_scale 0.6, scene_ting, intro_quote; no book key = no-book outro, voice kept
    Format:   inspired by the FORMAT of "We Live in Singapura" (NCHProductions): one image per line, big
              karaoke lyrics, catchy recap. Own lyrics, own beat, own visuals only.
    Audio:    Enzo raps (AI Studio) + instrumental beat (Gemini), 90 BPM; lines placed on the bar grid.
