@@ -244,12 +244,6 @@
       ]
     }
   ],
-  "music": {
-    "file": "kopi-beat-90bpm.wav",
-    "level": 0.12
-  },
-  "chatter_scale": 0.6,
-  "scene_ting": true,
   "sources": [
     "https://www.malaymail.com/amp/news/world/2026/11/16/indonesias-prabowo-tells-asean-summit-haze-not-our-fault-but-apologises-to-malaysia-singapore/243447",
     "https://bernama.com/en/news.php?id=2635685",
