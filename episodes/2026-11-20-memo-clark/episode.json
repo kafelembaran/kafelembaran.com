@@ -1,0 +1,634 @@
+{
+  "slug": "kafelembaran-memo-7-negara",
+  "date": "2026-11-20",
+  "style": "kopitiam",
+  "title": [
+    "7 negara",
+    "dalam 5 tahun?"
+  ],
+  "book": {
+    "title": "Palestin: Dari Sungai ke Segara",
+    "slip_lines": [
+      "Palestin",
+      "Dari Sungai ke Segara"
+    ],
+    "author": "Ayman Rashdan Wong",
+    "shopee": "https://s.shopee.com.my/2LZzXwbY6w"
+  },
+  "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+  "outro_say": "Nak faham kenapa Timur Tengah tak pernah aman? Mulakan dengan Palestin, Dari Sungai ke Segara. Link kat bio.",
+  "scenes": [
+    {
+      "head": {
+        "kind": "big",
+        "text": "7 negara, 5 tahun",
+        "sub": "dirancang sejak 2001?"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2026,
+        "prev": 2026,
+        "note": "Dirancang?",
+        "done": [],
+        "mark": [],
+        "events": [],
+        "window": false,
+        "label": "2026"
+      },
+      "say": [
+        {
+          "say": "Tujuh negara dalam lima tahun.",
+          "show": "7 negara dalam 5 tahun."
+        },
+        "Iraq, Syria, Lubnan, Libya, Somalia, Sudan... dan Iran.",
+        "Hari ini, perang Amerika dengan Iran masih belum tamat.",
+        "Adakah semuanya dirancang? Jom ikut garis masa."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "September 2000",
+        "sub": "laporan PNAC"
+      },
+      "source": "Rebuilding America's Defenses, PNAC",
+      "panel": {
+        "type": "gtimeline",
+        "year": 2000,
+        "prev": 2026,
+        "note": "\"Pearl Harbor yang baru\"",
+        "done": [],
+        "mark": [],
+        "events": [],
+        "window": false,
+        "label": "2000"
+      },
+      "say": [
+        {
+          "say": "September dua ribu. Badan pemikir P N A C terbitkan laporan.",
+          "show": "September 2000. Badan pemikir PNAC terbitkan laporan."
+        },
+        "Tulisnya, perubahan besar tentera Amerika akan ambil masa lama...",
+        "kecuali berlaku satu peristiwa dahsyat, seperti Pearl Harbor yang baru.",
+        "Ramai ahlinya kemudian masuk kerajaan Bush."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "11 September 2001",
+        "sub": "New York"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2001.7,
+        "prev": 2000,
+        "note": "Menara Berkembar runtuh",
+        "done": [],
+        "mark": [],
+        "events": [
+          2000
+        ],
+        "window": false,
+        "label": "2001"
+      },
+      "say": [
+        {
+          "say": "Sebelas September dua ribu satu. Menara Berkembar runtuh.",
+          "show": "11 September 2001. Menara Berkembar runtuh."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Sepuluh hari kemudian",
+        "sub": "Jeneral Wesley Clark di Pentagon"
+      },
+      "source": "Wesley Clark, Democracy Now (2007)",
+      "panel": {
+        "type": "gtimeline",
+        "year": 2001.73,
+        "prev": 2001.7,
+        "note": "\"Kita akan perang|dengan Iraq\"",
+        "done": [],
+        "mark": [],
+        "events": [
+          2000,
+          2001.7
+        ],
+        "window": false,
+        "label": "Sept 2001"
+      },
+      "say": [
+        "Sepuluh hari kemudian.",
+        "Jeneral Wesley Clark, bekas Panglima Tertinggi NATO, singgah di Pentagon.",
+        "Seorang jeneral beritahu dia, kita akan perang dengan Iraq.",
+        "Kenapa? Jeneral itu pun tak tahu."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "30 September 2001",
+        "sub": "memo Rumsfeld kepada Bush"
+      },
+      "source": "National Security Archive",
+      "panel": {
+        "type": "gtimeline",
+        "year": 2001.75,
+        "prev": 2001.73,
+        "note": "Rejim baru di Afghanistan|+ satu atau dua negara lain",
+        "done": [],
+        "mark": [],
+        "events": [
+          2000,
+          2001.7,
+          2001.73
+        ],
+        "window": false,
+        "label": "30 Sept 2001"
+      },
+      "say": [
+        {
+          "say": "Tiga puluh September. Rumsfeld hantar memo kepada Presiden Bush.",
+          "show": "30 September. Rumsfeld hantar memo kepada Presiden Bush."
+        },
+        "Matlamatnya, rejim baru di Afghanistan,",
+        "dan satu atau dua negara lain yang menyokong keganasan.",
+        "Memo ini sudah didedahkan."
+      ]
+    },
+    {
+      "head": {
+        "kind": "stamp",
+        "text": "DIDENGAR",
+        "sub": "November 2001"
+      },
+      "source": "Wesley Clark, Democracy Now (2007)",
+      "panel": {
+        "type": "gtimeline",
+        "year": 2001.85,
+        "prev": 2001.75,
+        "note": "\"7 negara dalam 5 tahun\"",
+        "done": [],
+        "mark": [],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75
+        ],
+        "window": "grow",
+        "label": "Nov 2001"
+      },
+      "say": [
+        "November. Amerika sedang bom Afghanistan. Clark datang lagi.",
+        "Jeneral yang sama angkat satu memo.",
+        {
+          "say": "Tujuh negara dalam lima tahun.",
+          "show": "7 negara dalam 5 tahun."
+        },
+        "Clark kata, jangan tunjuk kepada saya.",
+        "Setakat ini, memo itu tak pernah didedahkan.",
+        {
+          "say": "Hirup kopi dulu...",
+          "sfx_after": "ahh_A"
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Mac 2003",
+        "sub": "Iraq diserang"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2003.2,
+        "prev": 2001.85,
+        "note": "Clark tulis kisah memo dalam bukunya",
+        "done": [],
+        "mark": [
+          "Iraq"
+        ],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85
+        ],
+        "window": true,
+        "label": "2003"
+      },
+      "say": [
+        {
+          "say": "Mac dua ribu tiga. Amerika serang Iraq. Saddam jatuh.",
+          "show": "Mac 2003. Amerika serang Iraq. Saddam jatuh."
+        },
+        "Tahun yang sama, Clark tulis kisah memo itu dalam bukunya.",
+        "Pengkritik kata, dia tiada bukti, cuma cerita yang dia dengar."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "2006",
+        "sub": "Lubnan"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2006.5,
+        "prev": 2003.2,
+        "note": "Perang di Lubnan",
+        "done": [
+          "Iraq"
+        ],
+        "mark": [
+          "Lubnan"
+        ],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2
+        ],
+        "window": true,
+        "label": "2006"
+      },
+      "say": [
+        {
+          "say": "Dua ribu enam. Perang di Lubnan.",
+          "show": "2006. Perang di Lubnan."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "2007",
+        "sub": "Somalia"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2007,
+        "prev": 2006.5,
+        "note": "Serangan udara Amerika",
+        "done": [
+          "Iraq",
+          "Lubnan"
+        ],
+        "mark": [
+          "Somalia"
+        ],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5
+        ],
+        "window": true,
+        "label": "2007"
+      },
+      "say": [
+        {
+          "say": "Dua ribu tujuh. Amerika mula serang dari udara di Somalia.",
+          "show": "2007. Amerika mula serang dari udara di Somalia."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "2008",
+        "sub": "buku Douglas Feith"
+      },
+      "source": "Gareth Porter, IPS (2008)",
+      "panel": {
+        "type": "gtimeline",
+        "year": 2008,
+        "prev": 2007,
+        "note": "\"Semuanya\"|tapi bukan dasar rasmi Rumah Putih",
+        "done": [
+          "Iraq",
+          "Lubnan",
+          "Somalia"
+        ],
+        "mark": [],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5,
+          2007
+        ],
+        "window": true,
+        "label": "2008"
+      },
+      "say": [
+        {
+          "say": "Dua ribu lapan.",
+          "show": "2008."
+        },
+        "Douglas Feith, pegawai Pentagon, petik memo Rumsfeld dalam bukunya.",
+        "Nama negara lain dihitamkan.",
+        "Wartawan tanya, adakah senarai Clark termasuk?",
+        "Feith dilaporkan jawab, semuanya.",
+        "Namun menurut laporan yang sama, itu bukan dasar rasmi Rumah Putih."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "2011",
+        "sub": "Arab Spring"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2011,
+        "prev": 2008,
+        "note": "Arab Spring",
+        "done": [
+          "Iraq",
+          "Lubnan",
+          "Somalia"
+        ],
+        "mark": [
+          "Libya",
+          "Syria"
+        ],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5,
+          2007,
+          2008
+        ],
+        "window": true,
+        "label": "2011",
+        "mark_at": 2.6
+      },
+      "say": [
+        {
+          "say": "Dua ribu sebelas. Arab Spring.",
+          "show": "2011. Arab Spring."
+        },
+        "Gaddafi jatuh di Libya. Syria masuk perang saudara."
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "2023",
+        "sub": "Sudan"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2023.3,
+        "prev": 2011,
+        "note": "Perang saudara sendiri",
+        "done": [
+          "Iraq",
+          "Lubnan",
+          "Somalia",
+          "Libya",
+          "Syria"
+        ],
+        "mark": [
+          "Sudan"
+        ],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5,
+          2007,
+          2008,
+          2011
+        ],
+        "window": true,
+        "label": "2023"
+      },
+      "say": [
+        {
+          "say": "Dua ribu dua puluh tiga. Sudan, perang saudara sendiri.",
+          "show": "2023. Sudan, perang saudara sendiri."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Disember 2024",
+        "sub": "Syria"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2024.95,
+        "prev": 2023.3,
+        "note": "Assad jatuh",
+        "done": [
+          "Iraq",
+          "Lubnan",
+          "Somalia",
+          "Libya",
+          "Syria",
+          "Sudan"
+        ],
+        "mark": [],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5,
+          2007,
+          2008,
+          2011,
+          2023.3
+        ],
+        "window": true,
+        "label": "Dis 2024"
+      },
+      "say": [
+        {
+          "say": "Disember dua ribu dua puluh empat. Assad jatuh.",
+          "show": "Disember 2024. Assad jatuh."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "type",
+        "text": "Februari 2026",
+        "sub": "Iran"
+      },
+      "source": "Al Jazeera",
+      "panel": {
+        "type": "gtimeline",
+        "year": 2026,
+        "prev": 2024.95,
+        "note": "Amerika dan Israel serang Iran",
+        "done": [
+          "Iraq",
+          "Lubnan",
+          "Somalia",
+          "Libya",
+          "Syria",
+          "Sudan"
+        ],
+        "mark": [
+          "Iran"
+        ],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5,
+          2007,
+          2008,
+          2011,
+          2023.3,
+          2024.95
+        ],
+        "window": true,
+        "label": "Feb 2026"
+      },
+      "say": [
+        {
+          "say": "Februari dua ribu dua puluh enam. Amerika dan Israel serang Iran.",
+          "show": "Februari 2026. Amerika dan Israel serang Iran."
+        }
+      ]
+    },
+    {
+      "head": {
+        "kind": "big",
+        "text": "5 → 25 tahun",
+        "sub": "rancangan atau kebetulan?"
+      },
+      "panel": {
+        "type": "gtimeline",
+        "year": 2026,
+        "prev": 2026,
+        "note": "5 tahun jadi 25 tahun",
+        "done": [
+          "Iraq",
+          "Lubnan",
+          "Somalia",
+          "Libya",
+          "Syria",
+          "Sudan",
+          "Iran"
+        ],
+        "mark": [],
+        "events": [
+          2000,
+          2001.7,
+          2001.73,
+          2001.75,
+          2001.85,
+          2003.2,
+          2006.5,
+          2007,
+          2008,
+          2011,
+          2023.3,
+          2024.95,
+          2026
+        ],
+        "window": true,
+        "label": "2026"
+      },
+      "say": [
+        {
+          "say": "Jadi, lima tahun jadi dua puluh lima tahun.",
+          "show": "Jadi, 5 tahun jadi 25 tahun."
+        },
+        "Ada yang kata, senarai itu jadi kenyataan.",
+        "Ada yang kata, setiap negara ada sebab sendiri."
+      ]
+    },
+    {
+      "head": {
+        "kind": "big",
+        "text": "Bezakan",
+        "sub": "dengar, bukti, tafsir"
+      },
+      "panel": {
+        "type": "text",
+        "lines": [
+          "Apa yang didengar",
+          "Apa yang dibuktikan",
+          "Apa yang ditafsir"
+        ],
+        "size": 72
+      },
+      "say": [
+        "Bezakan tiga perkara.",
+        "Apa yang Clark dengar. Apa yang dokumen buktikan. Dan apa yang kita tafsir.",
+        "Bila kita tahu bezanya, kita tak mudah ditipu."
+      ]
+    }
+  ],
+  "max_gap": 0.45,
+  "voice_tempo": 1.0,
+  "sources": [
+    "https://www.democracynow.org/2007/3/2/gen_wesley_clark_weighs_presidential_bid",
+    "https://nsarchive.gwu.edu/node/2723",
+    "https://www.commondreams.org/news/2008/05/06/pentagon-targeted-iran-regime-change-after-911",
+    "https://quincyinst.org/2024/02/03/beware-the-iran-pearl-harbor-moment/",
+    "https://www.washingtonexaminer.com/?p=2271393",
+    "https://www.aljazeera.com/news/2026/11/17/is-the-us-israel-war-on-iran-turning-into-a-frozen-conflict"
+  ],
+  "post": {
+    "caption": "7 negara dalam 5 tahun: betul ke? Diterangkan di antara dua hirupan kopi ☕\n\nJeneral Wesley Clark kata dia diberitahu tentang memo Pentagon selepas 11 September: Iraq, Syria, Lubnan, Libya, Somalia, Sudan dan Iran. Memo itu tak pernah didedahkan. Tapi memo Rumsfeld 30 September 2001 memang wujud. Kita ikut garis masa dari laporan PNAC tahun 2000 hingga perang Iran 2026, dan bezakan apa yang didengar, apa yang terbukti, dan apa yang ditafsir.\n\nBuku: Palestin: Dari Sungai ke Segara, Ayman Rashdan Wong. Link kat bio (link affiliate).\n\nSumber: Democracy Now (2007), National Security Archive, IPS/Common Dreams (2008), Quincy Institute, Al Jazeera.\nSuara dijana AI.",
+    "caption_nobook": "7 negara dalam 5 tahun: betul ke? Diterangkan di antara dua hirupan kopi ☕\n\nJeneral Wesley Clark kata dia diberitahu tentang memo Pentagon selepas 11 September: Iraq, Syria, Lubnan, Libya, Somalia, Sudan dan Iran. Memo itu tak pernah didedahkan. Tapi memo Rumsfeld 30 September 2001 memang wujud. Kita ikut garis masa dari laporan PNAC tahun 2000 hingga perang Iran 2026, dan bezakan apa yang didengar, apa yang terbukti, dan apa yang ditafsir.\n\nSumber: Democracy Now (2007), National Security Archive, IPS/Common Dreams (2008), Quincy Institute, Al Jazeera.\nSuara dijana AI.",
+    "hashtags": [
+      "duahirupankopi",
+      "kafelembaran",
+      "WesleyClark",
+      "911",
+      "Iraq",
+      "Iran",
+      "TimurTengah",
+      "sejarah",
+      "geopolitik"
+    ],
+    "youtube_title": "7 negara dalam 5 tahun? Memo Jeneral Clark disemak | Dua Hirupan Kopi",
+    "youtube_tags": [
+      "Wesley Clark",
+      "7 negara 5 tahun",
+      "memo Pentagon",
+      "Rumsfeld",
+      "PNAC",
+      "Iraq",
+      "Iran",
+      "Timur Tengah",
+      "geopolitik"
+    ],
+    "category": "NEWS_POLITICS",
+    "political": true
+  }
+}

@@ -351,3 +351,57 @@ MATHS_TYPES.add("levels")
 _info_maths_prev = info_maths
 def info_maths(P, age):
     return info_levels(P, age) if P["type"] == "levels" else _info_maths_prev(P, age)
+
+# ---------------- added 20 Nov 2026: gtimeline (2000-2026 axis + list of countries ticked off) ----------------
+def info_gtimeline(P, age):
+    """{"type":"gtimeline","year":2003.2,"prev":2001.9,"note":"...","done":["Iraq"],"mark":["Lubnan"],
+        "countries":[...7...],"window":true,"events":[2000,2001.7,...]}"""
+    im = Image.new("RGBA", (CW, CH), PANEL_BG); d = ImageDraw.Draw(im)
+    a, b, x0, x1, y = P.get("start", 2000), P.get("end", 2026), 70, 890, 168
+    X = lambda yr: x0 + (x1 - x0) * (yr - a) / (b - a)
+    fi = lambda sz, w=700: F(FONTMAP.get("inter", "inter"), sz, w)
+    if P.get("window"):                                   # the claimed 5-year window, Nov 2001 to Nov 2006
+        k = ease_out(age / 0.8) if P.get("window") == "grow" else 1
+        d.rectangle([X(2001.85), y - 22, X(2001.85) + (X(2006.85) - X(2001.85)) * k, y + 22], fill=fade(GOLD, 0.35))
+        if k > 0.5: d.text(((X(2001.85) + X(2006.85)) / 2, y + 40), "5 tahun", font=fi(28), fill=GOLD, anchor="mt")
+    d.line([(x0, y), (x1, y)], fill=MUTED, width=6)
+    for yr in (2000, 2005, 2010, 2015, 2020, 2026):
+        d.line([(X(yr), y - 12), (X(yr), y + 12)], fill=MUTED, width=4)
+        if not (P.get("window") and yr == 2005): d.text((X(yr), y + 30), str(yr), font=fi(26, 600), fill=MUTED, anchor="mt")
+    for ev in P.get("events", []): d.ellipse([X(ev) - 9, y - 9, X(ev) + 9, y + 9], fill=FG)
+    yr = P.get("year", a); pv = P.get("prev", yr); cur = pv + (yr - pv) * ease_out(age / 0.9)
+    cx = X(cur); d.ellipse([cx - 17, y - 17, cx + 17, y + 17], fill=RED)
+    lab = P.get("label", str(int(yr)))
+    tw = text_w(F(FONTMAP.get("anton", "anton"), 60), lab); lx = min(max(cx, 20 + tw / 2), CW - 20 - tw / 2)
+    d.text((lx, y - 34), lab, font=F(FONTMAP.get("anton", "anton"), 60), fill=RED, anchor="md")
+    note = P.get("note", "")
+    if note:
+        k = ease_out((age - 0.4) / 0.5); sz = 50
+        rows = note.split("|")
+        while sz > 30 and max(text_w(F(FONTMAP.get("lora", "lora"), sz, 700), r) for r in rows) > 880: sz -= 2
+        for j, r in enumerate(rows):
+            d.text((CW / 2, 300 + (j - (len(rows) - 1) / 2) * sz * 1.25), r, font=F(FONTMAP.get("lora", "lora"), sz, 700), fill=fade(FG, k), anchor="mm")
+    cs = P.get("countries", ["Iraq", "Syria", "Lubnan", "Libya", "Somalia", "Sudan", "Iran"])
+    done, mark = set(P.get("done", [])), P.get("mark", [])
+    cw, gap = 118, 10; tot = len(cs) * cw + (len(cs) - 1) * gap; sx = (CW - tot) / 2; cy0, cy1 = 420, 486
+    for j, c in enumerate(cs):
+        bx = sx + j * (cw + gap)
+        if c in mark:
+            q = ease_out((age - P.get("mark_at", 0.9) - 0.35 * mark.index(c)) / 0.4)
+        else:
+            q = 1.0 if c in done else 0.0
+        if q > 0:
+            grow = 1 + 0.12 * math.sin(min(1, q) * math.pi) if c in mark else 1
+            pad = (grow - 1) * 30
+            d.rounded_rectangle([bx - pad, cy0 - pad, bx + cw + pad, cy1 + pad], radius=16, fill=RED if c in mark else FG)
+            d.text((bx + cw / 2, (cy0 + cy1) / 2), c, font=fi(26), fill=CREAM_ON, anchor="mm")
+        else:
+            d.rounded_rectangle([bx, cy0, bx + cw, cy1], radius=16, outline=MUTED, width=3)
+            d.text((bx + cw / 2, (cy0 + cy1) / 2), c, font=fi(26, 600), fill=MUTED, anchor="mm")
+    return im
+
+CREAM_ON = (247, 241, 232, 255)
+MATHS_TYPES.add("gtimeline")
+_info_maths_prev2 = info_maths
+def info_maths(P, age):
+    return info_gtimeline(P, age) if P["type"] == "gtimeline" else _info_maths_prev2(P, age)
