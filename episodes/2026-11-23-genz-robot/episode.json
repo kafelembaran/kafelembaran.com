@@ -1,0 +1,434 @@
+{
+ "slug": "kafelembaran-genz-bukan-malas",
+ "date": "2026-11-23",
+ "style": "kopitiam",
+ "title": [
+  "Gen Z malas?",
+  "Lawan manusia & robot"
+ ],
+ "book": {
+  "title": "AI Untuk Pemula",
+  "slip_lines": [
+   "AI Untuk",
+   "Pemula"
+  ],
+  "author": "The Patriots",
+  "shopee": "https://s.shopee.com.my/30pm8FUcWl"
+ },
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "outro_say": "Nak mula guna mesin sebagai alat? Baca A I Untuk Pemula, terbitan The Patriots. Link kat bio.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "big",
+    "text": "1 bilion",
+    "sub": "robot humanoid menjelang 2050"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "2025: 100 ribu",
+     "2050: 1 bilion?"
+    ]
+   },
+   "say": [
+    {
+     "say": "Satu bilion robot menjelang tahun dua ribu lima puluh.",
+     "show": "1 bilion robot menjelang tahun 2050."
+    },
+    "Itu anggaran satu kajian penyelidik dari Universiti Milan, Exeter dan Rockefeller.",
+    {
+     "say": "Tahun lepas, robot humanoid di dunia cuma kira-kira seratus ribu.",
+     "show": "Tahun lepas, robot humanoid di dunia cuma kira-kira 100,000."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Gen Z",
+    "sub": "generasi yang dicop malas"
+   },
+   "panel": {
+    "type": "equals",
+    "left_icon": "person",
+    "left": "Gen Z",
+    "sign": "vs",
+    "right_icon": "chip",
+    "right": "1 bilion robot"
+   },
+   "say": [
+    "Dan siapa yang akan bersaing dengan mereka?",
+    "Gen Z.",
+    "Generasi yang selalu dicop malas."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Kata majikan",
+    "sub": "MEF"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Majikan makin sukar",
+     "penuhi kehendak Gen Z"
+    ]
+   },
+   "say": [
+    "Persekutuan Majikan-Majikan Malaysia sendiri kata,",
+    "majikan makin sukar memenuhi kehendak pekerja Gen Z."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "60%",
+    "sub": "Gen Z Malaysia ada kerja kedua"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "Kerja kedua",
+      60
+     ],
+     [
+      "Gaji ke gaji",
+      65
+     ]
+    ],
+    "unit": "%",
+    "caption": "Gen Z Malaysia, tinjauan Deloitte 2023"
+   },
+   "say": [
+    "Tapi tengok data.",
+    "Tinjauan Deloitte dapati,",
+    {
+     "say": "enam puluh peratus Gen Z Malaysia ada kerja kedua, selain kerja utama.",
+     "show": "60% Gen Z Malaysia ada kerja kedua, selain kerja utama."
+    },
+    {
+     "say": "Enam puluh lima peratus pula hidup dari gaji ke gaji.",
+     "show": "65% pula hidup dari gaji ke gaji."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "MALAS?",
+    "sub": "label lama"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Dulu milenial",
+     "pun kena."
+    ]
+   },
+   "say": [
+    "Label malas pun bukan perkara baru.",
+    "Dulu milenial pun kena.",
+    "Jadi kalau bukan malas... kenapa Gen Z nampak lain?",
+    {
+     "say": "Hirup kopi dulu...",
+     "sfx_after": "ahh_A"
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Padang berubah",
+    "sub": "manusia + mesin"
+   },
+   "panel": {
+    "type": "versus",
+    "left": {
+     "text": "Ibu bapa|lawan manusia"
+    },
+    "right": {
+     "text": "Gen Z|lawan manusia|+ mesin",
+     "mark": "yes"
+    }
+   },
+   "say": [
+    "Jawapannya, padang permainan sudah berubah.",
+    "Generasi ibu bapa mereka bersaing dengan manusia.",
+    "Gen Z bersaing dengan manusia... dan mesin."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "5 juta",
+    "sub": "robot di kilang, 2025"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "2018",
+      2.4
+     ],
+     [
+      "2025",
+      5.1
+     ]
+    ],
+    "unit": " juta",
+    "highlight": 1,
+    "caption": "robot industri seluruh dunia (IFR)"
+   },
+   "say": [
+    {
+     "say": "Tahun lepas, lima juta robot industri bekerja di kilang seluruh dunia.",
+     "show": "Tahun lepas, 5 juta robot industri bekerja di kilang seluruh dunia."
+    },
+    {
+     "say": "Dua kali ganda berbanding tujuh tahun lalu.",
+     "show": "2 kali ganda berbanding 7 tahun lalu."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "40%",
+    "sub": "pekerjaan terkesan AI"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "Terkesan AI",
+      40
+     ],
+     [
+      "Lain-lain",
+      60
+     ]
+    ],
+    "unit": "%",
+    "caption": "anggaran UNCTAD (PBB)"
+   },
+   "say": [
+    "Agensi Pertubuhan Bangsa-Bangsa Bersatu, UNCTAD,",
+    {
+     "say": "pula anggar A I boleh beri kesan kepada empat puluh peratus pekerjaan di dunia.",
+     "show": "pula anggar AI boleh beri kesan kepada 40% pekerjaan di dunia."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "4.2x",
+    "sub": "harga rumah ÷ pendapatan, 2024"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "Mampu milik",
+      3.0
+     ],
+     [
+      "Malaysia 2024",
+      4.2
+     ]
+    ],
+    "unit": "x",
+    "highlight": 1,
+    "caption": "median multiple, Khazanah Research Institute"
+   },
+   "say": [
+    "Satu lagi beza... pemilikan aset.",
+    {
+     "say": "Rumah dikira mampu milik kalau harganya tiga kali pendapatan setahun isi rumah.",
+     "show": "Rumah dikira mampu milik kalau harganya 3 kali pendapatan setahun isi rumah."
+    },
+    "Menurut Khazanah Research Institute,",
+    {
+     "say": "sejak dua ribu dua kita tak pernah capai angka itu.",
+     "show": "sejak 2002 kita tak pernah capai angka itu."
+    },
+    {
+     "say": "Tahun dua ribu dua puluh empat, empat perpuluhan dua kali.",
+     "show": "Tahun 2024: 4.2 kali."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "4% vs 2%",
+    "sub": "setahun, 2014 hingga 2020"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "Harga rumah",
+      4.1
+     ],
+     [
+      "Pendapatan",
+      2.1
+     ]
+    ],
+    "unit": "%",
+    "caption": "pertumbuhan setahun, Bank Negara Malaysia"
+   },
+   "say": [
+    {
+     "say": "Bank Negara pula dapati, dari dua ribu empat belas hingga dua ribu dua puluh,",
+     "show": "Bank Negara pula dapati, dari 2014 hingga 2020,"
+    },
+    {
+     "say": "harga rumah naik empat peratus setahun.",
+     "show": "harga rumah naik 4% setahun."
+    },
+    {
+     "say": "Pendapatan, cuma dua peratus.",
+     "show": "Pendapatan, cuma 2%."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "DATA?",
+    "sub": "pemilik rumah ikut umur"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Pemilik rumah",
+     "bawah 35 tahun?"
+    ]
+   },
+   "say": [
+    {
+     "say": "Berapa ramai anak muda bawah tiga puluh lima tahun yang ada rumah?",
+     "show": "Berapa ramai anak muda bawah 35 tahun yang ada rumah?"
+    },
+    "Jun lalu di Dewan Rakyat, kerajaan akui...",
+    "data mengikut umur itu belum ada."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Menyusun cita-cita",
+    "sub": "istilah kajian Deloitte"
+   },
+   "panel": {
+    "type": "chain",
+    "steps": [
+     "Kemahiran",
+     "Kestabilan",
+     "Pangkat"
+    ],
+    "highlight": 0,
+    "note": "DULU",
+    "note2": "baru kejar pangkat"
+   },
+   "say": [
+    "Bila kerja keras tak lagi menjamin rumah,",
+    "Gen Z mula bertanya.",
+    "Kenapa kerja lebih masa, kalau esok mesin boleh buat?",
+    "Kajian Deloitte panggil ini menyusun cita-cita.",
+    "Kemahiran dulu, kestabilan dulu, baru kejar pangkat."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Senjata",
+    "sub": "apa yang robot belum mampu"
+   },
+   "panel": {
+    "type": "equals",
+    "left_icon": "person",
+    "left": "Faham manusia",
+    "sign": "+",
+    "right_icon": "chip",
+    "right": "Mesin sebagai alat"
+   },
+   "say": [
+    "Jadi apa senjata Gen Z?",
+    "Bukan lari dari robot.",
+    "Tapi buat apa yang robot belum mampu.",
+    "Faham manusia.",
+    "Dan guna mesin sebagai alat, bukan pesaing."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Warisan",
+    "sub": "soalan untuk milenial"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Apa yang kita",
+     "wariskan?"
+    ]
+   },
+   "say": [
+    "Gen Z lemah atau tidak... itu bukan lagi persoalannya.",
+    "Persoalan utamanya,",
+    "Gen Z hidup di zaman yang cabarannya lain daripada generasi sebelum mereka.",
+    "Dan persoalan untuk generasi milenial...",
+    "apa yang kita wariskan kepada generasi seterusnya?"
+   ]
+  }
+ ],
+ "post": {
+  "caption": "Gen Z malas? Diterangkan di antara dua hirupan kopi ☕\n\nGen Z dicop malas. Tapi 60% Gen Z Malaysia ada kerja kedua, dan 65% hidup dari gaji ke gaji (Deloitte 2023). Mereka bersaing bukan sahaja dengan manusia, tapi dengan mesin: 5 juta robot di kilang dunia (IFR), dan satu kajian anggar 1 bilion robot humanoid menjelang 2050. Rumah pula 4.2 kali pendapatan setahun (KRI), jauh dari paras mampu milik 3 kali.\n\nGen Z lemah atau tidak bukan lagi persoalannya. Persoalan untuk milenial: apa yang kita wariskan?\n\nBuku: AI Untuk Pemula, terbitan The Patriots. Link kat bio (link affiliate).\n\nSumber: kajian Univ. Milan/Exeter/Rockefeller, IFR World Robotics 2026, UNCTAD, Deloitte Gen Z Survey (Malaysia 2023), MEF, Khazanah Research Institute, Bank Negara Malaysia, Dewan Rakyat (Jun 2026).\nSuara dijana AI.",
+  "caption_nobook": "Gen Z malas? Diterangkan di antara dua hirupan kopi ☕\n\nGen Z dicop malas. Tapi 60% Gen Z Malaysia ada kerja kedua, dan 65% hidup dari gaji ke gaji (Deloitte 2023). Mereka bersaing bukan sahaja dengan manusia, tapi dengan mesin: 5 juta robot di kilang dunia (IFR), dan satu kajian anggar 1 bilion robot humanoid menjelang 2050. Rumah pula 4.2 kali pendapatan setahun (KRI), jauh dari paras mampu milik 3 kali.\n\nGen Z lemah atau tidak bukan lagi persoalannya. Persoalan untuk milenial: apa yang kita wariskan?\n\nSumber: kajian Univ. Milan/Exeter/Rockefeller, IFR World Robotics 2026, UNCTAD, Deloitte Gen Z Survey (Malaysia 2023), MEF, Khazanah Research Institute, Bank Negara Malaysia, Dewan Rakyat (Jun 2026).\nSuara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "GenZ",
+   "milenial",
+   "robot",
+   "AI",
+   "pekerjaan",
+   "rumahmampumilik",
+   "bukumalaysia"
+  ],
+  "youtube_title": "Gen Z malas? Bersaing dengan manusia dan 1 bilion robot | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "Gen Z",
+   "Gen Z malas",
+   "robot",
+   "AI",
+   "pekerjaan masa depan",
+   "rumah mampu milik",
+   "Khazanah Research Institute",
+   "milenial",
+   "AI Untuk Pemula"
+  ],
+  "category": "EDUCATION",
+  "political": false
+ },
+ "sources": [
+  "https://dunyo.info/en/news/uchyonye-dopustili-chto-k-2083-godu-roboty-gumanoidy-prevzoydut",
+  "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2026_-_Industrial_Robots.pdf",
+  "https://www.spacedaily.com/reports/AI_could_impact_40_percent_of_jobs_worldwide_UN_999.html",
+  "https://malaysia.news.yahoo.com/survey-half-malaysian-millennials-gen-094304494.html",
+  "https://www.freemalaysiatoday.com/category/nation/2024/09/16/employers-struggling-to-cope-with-gen-z-demands-says-mef",
+  "https://www.businesstoday.com.my/2026/11/01/can-malaysians-really-pay-for-their-housing-khazanah-report/",
+  "https://malaysiakini.com/news/473700",
+  "https://university.taylors.edu.my/en/student-life/news/2026/when-a-house-stops-being-a-home.html",
+  "https://www.malaymail.com/news/malaysia/2026/06/29/housing-mismatch-persists-as-32800-unsold-homes-worth-rm163b-recorded-in-q1-2026-dewan-rakyat-told/225632",
+  "https://fastcompanyme.com/work-life/what-if-employers-can-learn-something-from-gen-z-about-work-culture/"
+ ],
+ "max_gap": 0.45,
+ "voice_tempo": 1.0
+}
