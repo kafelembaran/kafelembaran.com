@@ -110,3 +110,13 @@ POSTED
              Deloitte 2023 MY (201 Gen Z): 60% have a second job, 65% paycheck to paycheck; KRI 4.2x (2024);
              BNM 2021: prices +4.1%/yr vs income +2.1% (2014-2020); Dewan Rakyat Jun 2026: no official home-ownership
              data by age (under 35). Dropped Monster 54%, US BLS hours, Redfin, Korea density. US version kept as tts_script_us.txt.
+
+7. Hipotesis Riemann "terbukti"? (slot: Monday 30 Nov 2026 unless user wants it sooner)
+   Status:   SCRIPT DRAFTED (episodes/2026-11-30-riemann/tts_script.txt); waiting for user OK + voice
+   Book:     AI Untuk Pemula (reuse, already featured) unless user sends a maths book. Not political/finance -> TikTok with book.
+   Facts:    20 Nov 2026 Levent Alpöge (Anthropic) announced RH + GRH (Dirichlet) proof with Claude, Lean ~17M lines,
+             175,187 files; 21 Nov Lean FRO + Mathlib joint statement certifies statement and proof; MIT Sutherland
+             kernel replays. Caveats: human-readable proof pending; Nielsen (PhilArchive, not peer-reviewed) questions
+             `anyGeometry` def; Clay still lists unsolved (rules: journal publication + 2 years + acceptance).
+             Background: Aug 2026 Claude raised zeros-on-line floor 41.6% -> 67.2%; Oct 2026 OpenAI quasi-RH.
+   Note:     Claude (the assistant writing these scripts) is the AI involved -> keep framing neutral, caveats in.

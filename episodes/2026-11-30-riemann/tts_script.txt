@@ -1,0 +1,23 @@
+AI STUDIO: Gemini Flash TTS (Audio tab), Speaker 1 - Enzo, Friendly. Download -> voice.wav
+STYLE: Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. Clear, steady pace. Keep the same speed from start to finish; do not slow down towards the end. Short pause at each "...". Neutral tone, not dramatic. Say "Riemann" as "Ree-man", "Alpöge" as "Al-po-ge", "Lean" as "Leen".
+
+--- paste below ---
+
+Biar saya terangkan isu ini... di antara dua hirupan kopi.
+
+Seratus enam puluh tujuh tahun. Itu umur satu soalan matematik paling terkenal di dunia... Hipotesis Riemann. Minggu lepas, seorang ahli matematik kata dia sudah membuktikannya. Dengan bantuan A I.
+Apa sebenarnya Hipotesis Riemann? Mula dengan nombor perdana. Dua, tiga, lima, tujuh, sebelas. Nombor yang hanya boleh dibahagi dengan satu dan dirinya sendiri.
+Nombor perdana nampak bertaburan tanpa corak. Tapi pada tahun lapan belas lima puluh sembilan, Bernhard Riemann jumpa satu fungsi... fungsi zeta. Titik sifar fungsi ini mengawal bagaimana nombor perdana tersebar.
+Riemann meneka, semua titik sifar yang penting duduk atas satu garisan lurus. Kalau betul, nombor perdana tersusun sekemas mungkin.
+Komputer sudah semak trilion titik sifar. Semuanya atas garisan itu. Tapi trilion bukan infiniti. Tiada siapa dapat membuktikannya.
+Tahun sembilan belas ratus, David Hilbert letak soalan ini dalam senarai masalah terbesar abad baru. Tahun dua ribu, Institut Matematik Clay tawarkan satu juta dolar kepada sesiapa yang dapat membuktikannya.
+Jadi apa yang berlaku minggu lepas?
+Hirup kopi dulu...
+Dua puluh November, Levent Alpöge, ahli matematik di syarikat A I Anthropic, umumkan bukti yang dia hasilkan bersama model A I Claude. Bukti itu ditulis dalam Lean, bahasa komputer yang menyemak setiap langkah logik. Kira-kira tujuh belas juta baris.
+Sehari kemudian, komuniti Lean dan Mathlib keluarkan kenyataan bersama. Mereka sahkan... pernyataan dan bukti itu betul.
+Tapi tunggu dulu. Yang menyemak ialah komputer. Versi yang boleh dibaca manusia belum siap. Ada pengkritik yang persoal satu definisi dalam kod itu. Dan Institut Clay masih senaraikan masalah ini sebagai belum selesai. Syarat mereka, bukti mesti diterbitkan dalam jurnal, dan diterima selama dua tahun.
+Satu salah faham biasa. Bukti ini tak akan pecahkan kata laluan bank anda. Penyulitan bergantung pada sukarnya memecahkan nombor besar kepada faktor, bukan pada Hipotesis Riemann.
+Yang berubah, ratusan teorem yang selama ini bermula dengan andaikan Hipotesis Riemann benar... kini boleh berdiri sendiri.
+Dan muncul satu soalan baru. Kalau satu bukti terlalu panjang untuk dibaca mana-mana manusia... adakah kita faham, atau kita cuma percaya?
+
+Nak faham bagaimana A I berfikir? Baca A I Untuk Pemula, terbitan The Patriots. Link kat bio.
