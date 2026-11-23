@@ -9,7 +9,7 @@
   "books": [
     {
       "slug": "palestin-dari-sungai-ke-segara",
-      "featured": true,
+      "featured": false,
       "added": "2026-11-20",
       "title": "Palestin: Dari Sungai ke Segara",
       "author": "Ayman Rashdan Wong",
@@ -93,7 +93,7 @@
     },
     {
       "slug": "ai-untuk-pemula",
-      "featured": false,
+      "featured": true,
       "added": "2026-11-23",
       "title": "AI Untuk Pemula",
       "author": "The Patriots",
