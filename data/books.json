@@ -90,6 +90,27 @@
         "publisher": "",
         "bookcafe": ""
       }
+    },
+    {
+      "slug": "ai-untuk-pemula",
+      "featured": false,
+      "added": "2026-11-23",
+      "title": "AI Untuk Pemula",
+      "author": "The Patriots",
+      "category": "Teknologi & Masa Depan",
+      "cover_color": "#1E2A38",
+      "summary": [
+        "Asas Kecerdasan Buatan dalam bahasa yang mesra pembaca, tanpa jargon yang rumit.",
+        "Dari cara chatbot berbual hingga kereta tanpa pemandu: pembelajaran mesin, algoritma dan aplikasi harian.",
+        "Contoh, ilustrasi dan panduan langkah demi langkah untuk mula guna AI."
+      ],
+      "why_read": "Video 'Gen Z bukan malas' kami tunjuk Gen Z bersaing dengan manusia dan mesin. Langkah pertama untuk guna mesin sebagai alat, bukan pesaing, ialah faham cara AI berfikir.",
+      "for_who": "Pelajar, pekerja muda dan sesiapa yang mahu faham AI dari asas. Bahasa Melayu.",
+      "links": {
+        "shopee": "https://s.shopee.com.my/30pm8FUcWl",
+        "publisher": "",
+        "bookcafe": ""
+      }
     }
   ]
 }
