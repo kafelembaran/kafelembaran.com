@@ -430,5 +430,8 @@
   "https://fastcompanyme.com/work-life/what-if-employers-can-learn-something-from-gen-z-about-work-culture/"
  ],
  "max_gap": 0.45,
- "voice_tempo": 1.0
+ "voice_tempo": 1.0,
+ "say_as": {
+  "Gen Z": "Jen Zi"
+ }
 }

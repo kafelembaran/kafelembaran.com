@@ -17,8 +17,17 @@ CHATTER_TEMPO = 1.0    # chatter playback speed (1.0 = original)
 CHATTER_LEVEL = (0.60, 0.22)   # chatter volume before the voice, and under the voice (was 0.85 / 0.32)
 OFF = 2.6          # voice starts after "Bang, order bang!" (0.0 s) and sound A (1.25 s)
 LEAD = 0.3         # a scene appears this long before its first sentence
+# Standard voice style for EVERY episode (fixed 24 Nov 2026). Do not change per episode;
+# only add pronunciations through episode.json "say_as": {"Riemann": "Ree-man", ...}.
 TTS_STYLE = ("Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. "
-             "Slow, clear pace. Short pause at each \"...\". Neutral tone, not dramatic.")
+             "Clear, steady pace. Keep the same speed from start to finish; do not slow down towards the end. "
+             "Short pause at each \"...\". Neutral tone, not dramatic.")
+TTS_HEADER = "AI STUDIO: Gemini Flash TTS (Audio tab), Speaker 1 - Enzo, Friendly. Download -> voice.wav"
+
+def tts_style(ep):
+    say_as = ep.get("say_as") or {}
+    extra = " ".join(f'Say "{k}" as "{v}".' for k, v in say_as.items())
+    return TTS_STYLE + (" " + extra if extra else "")
 
 def load(ep_dir):
     with open(os.path.join(ep_dir, "episode.json")) as f: return json.load(f)
@@ -40,8 +49,8 @@ def cmd_script(ep_dir):
         out.append(" ".join(s if isinstance(s, str) else s["say"] for s in sc["say"]))
     out += ["", ep["outro_say"]]
     with open(os.path.join(ep_dir, "tts_script.txt"), "w") as f:
-        f.write("AI STUDIO: Gemini 3.8 Flash TTS, Speaker 1 - Enzo, Friendly. Download -> voice.wav\n")
-        f.write(f"STYLE: {TTS_STYLE}\n\n--- paste below ---\n\n" + "\n".join(out) + "\n")
+        f.write(TTS_HEADER + "\n")
+        f.write(f"STYLE: {tts_style(ep)}\n\n--- paste below ---\n\n" + "\n".join(out) + "\n")
     prompts = [f"[{sc['panel']['file']}]\n{sc['panel']['prompt']}\n" for sc in ep["scenes"] if sc["panel"].get("prompt")]
     with open(os.path.join(ep_dir, "gemini_prompts.txt"), "w") as f:
         f.write("GEMINI VIDEO (Veo). Optional: missing clips fall back to text panels. Save each as clips/<name>.mp4\n\n" + "\n".join(prompts))

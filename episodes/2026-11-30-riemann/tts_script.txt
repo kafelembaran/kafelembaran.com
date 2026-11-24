@@ -1,5 +1,5 @@
 AI STUDIO: Gemini Flash TTS (Audio tab), Speaker 1 - Enzo, Friendly. Download -> voice.wav
-STYLE: Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. Clear, steady pace. Keep the same speed from start to finish; do not slow down towards the end. Short pause at each "...". Neutral tone, not dramatic. Say "Riemann" as "Ree-man", "Alpöge" as "Al-po-ge", "Lean" as "Leen".
+STYLE: Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. Clear, steady pace. Keep the same speed from start to finish; do not slow down towards the end. Short pause at each "...". Neutral tone, not dramatic. Say "Riemann" as "Ree-man". Say "Alpöge" as "Al-po-ge". Say "Lean" as "Leen".
 
 --- paste below ---
 

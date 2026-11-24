@@ -1,4 +1,4 @@
-AI STUDIO: Gemini Flash TTS, Speaker 1 - Enzo, Friendly. Download -> voice.wav
+AI STUDIO: Gemini Flash TTS (Audio tab), Speaker 1 - Enzo, Friendly. Download -> voice.wav
 STYLE: Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. Clear, steady pace. Keep the same speed from start to finish; do not slow down towards the end. Short pause at each "...". Neutral tone, not dramatic. Say "Gen Z" as "Jen Zi".
 
 --- paste below ---

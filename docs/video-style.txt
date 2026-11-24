@@ -156,3 +156,7 @@ CHANGE LOG
                  Kafe Klasik theme, opening/closing templates, "Bang, order bang!" + sound A,
                  kopitiam chatter instead of music, AI Studio voiceover (Enzo, Friendly) with
                  synced subtitles, visual panel in every middle scene, sound B at the close.
+24 Nov 2026      Voice style fixed for every video (see video-creating-method.log 2026-11-24):
+                 Enzo, Friendly, "calm and relaxed ... kopitiam ... Clear, steady pace ...
+                 same speed from start to finish ... Short pause at each '...' ... Neutral".
+                 Per-episode: pronunciations only (episode.json "say_as").
