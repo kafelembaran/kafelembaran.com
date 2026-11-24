@@ -1,0 +1,370 @@
+{
+ "slug": "kafelembaran-hipotesis-riemann",
+ "date": "2026-11-30",
+ "style": "kopitiam",
+ "title": [
+  "Hipotesis Riemann",
+  "terbukti?"
+ ],
+ "book": {
+  "title": "AI Untuk Pemula",
+  "slip_lines": [
+   "AI Untuk",
+   "Pemula"
+  ],
+  "author": "The Patriots",
+  "shopee": "https://s.shopee.com.my/30pm8FUcWl"
+ },
+ "say_as": {
+  "Riemann": "Ree-man",
+  "Alpöge": "Al-po-ge",
+  "Lean": "Leen"
+ },
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "outro_say": "Nak faham bagaimana A I berfikir? Baca A I Untuk Pemula, terbitan The Patriots. Link kat bio.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "big",
+    "text": "167 tahun",
+    "sub": "Hipotesis Riemann"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "1859 hingga 2026",
+     "soalan belum terjawab"
+    ]
+   },
+   "say": [
+    {
+     "say": "Seratus enam puluh tujuh tahun.",
+     "show": "167 tahun."
+    },
+    "Itu umur satu soalan matematik paling terkenal di dunia... Hipotesis Riemann.",
+    "Minggu lepas, seorang ahli matematik kata dia sudah membuktikannya.",
+    {
+     "say": "Dengan bantuan A I.",
+     "show": "Dengan bantuan AI."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Nombor perdana",
+    "sub": "asas segalanya"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "2, 3, 5, 7, 11 ...",
+     "bahagi 1 & diri sendiri"
+    ]
+   },
+   "say": [
+    "Apa sebenarnya Hipotesis Riemann?",
+    "Mula dengan nombor perdana.",
+    {
+     "say": "Dua, tiga, lima, tujuh, sebelas.",
+     "show": "2, 3, 5, 7, 11."
+    },
+    "Nombor yang hanya boleh dibahagi dengan satu dan dirinya sendiri."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "1859",
+    "sub": "Bernhard Riemann"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Fungsi zeta",
+     "kawal taburan perdana"
+    ]
+   },
+   "say": [
+    "Nombor perdana nampak bertaburan tanpa corak.",
+    {
+     "say": "Tapi pada tahun lapan belas lima puluh sembilan,",
+     "show": "Tapi pada tahun 1859,"
+    },
+    "Bernhard Riemann jumpa satu fungsi... fungsi zeta.",
+    "Titik sifar fungsi ini mengawal bagaimana nombor perdana tersebar."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Tekaan Riemann",
+    "sub": "satu garisan lurus"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Semua titik sifar",
+     "atas garisan ½"
+    ]
+   },
+   "say": [
+    "Riemann meneka, semua titik sifar yang penting duduk atas satu garisan lurus.",
+    "Kalau betul, nombor perdana tersusun sekemas mungkin."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Trilion",
+    "sub": "titik sifar disemak komputer"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Trilion",
+     "bukan infiniti"
+    ]
+   },
+   "say": [
+    "Komputer sudah semak trilion titik sifar.",
+    "Semuanya atas garisan itu.",
+    "Tapi trilion bukan infiniti.",
+    "Tiada siapa dapat membuktikannya."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "$1 juta",
+    "sub": "hadiah Institut Clay"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "1900: senarai Hilbert",
+     "2000: hadiah Clay"
+    ]
+   },
+   "say": [
+    {
+     "say": "Tahun sembilan belas ratus, David Hilbert letak soalan ini",
+     "show": "Tahun 1900, David Hilbert letak soalan ini"
+    },
+    "dalam senarai masalah terbesar abad baru.",
+    {
+     "say": "Tahun dua ribu, Institut Matematik Clay tawarkan satu juta dolar",
+     "show": "Tahun 2000, Institut Matematik Clay tawarkan 1 juta dolar"
+    },
+    "kepada sesiapa yang dapat membuktikannya.",
+    "Jadi apa yang berlaku minggu lepas?",
+    {
+     "say": "Hirup kopi dulu...",
+     "sfx_after": "ahh_A"
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "20 Nov",
+    "sub": "Levent Alpöge + Claude"
+   },
+   "panel": {
+    "type": "equals",
+    "left_icon": "person",
+    "left": "Levent Alpöge",
+    "sign": "+",
+    "right_icon": "chip",
+    "right": "Claude (AI)"
+   },
+   "say": [
+    {
+     "say": "Dua puluh November, Levent Alpöge,",
+     "show": "20 November, Levent Alpöge,"
+    },
+    {
+     "say": "ahli matematik di syarikat A I Anthropic,",
+     "show": "ahli matematik di syarikat AI Anthropic,"
+    },
+    {
+     "say": "umumkan bukti yang dia hasilkan bersama model A I Claude.",
+     "show": "umumkan bukti yang dia hasilkan bersama model AI Claude."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "17 juta",
+    "sub": "baris bukti dalam Lean"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Komputer semak",
+     "setiap langkah logik"
+    ]
+   },
+   "say": [
+    "Bukti itu ditulis dalam Lean,",
+    "bahasa komputer yang menyemak setiap langkah logik.",
+    {
+     "say": "Kira-kira tujuh belas juta baris.",
+     "show": "Kira-kira 17 juta baris."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "DISAHKAN",
+    "sub": "Lean & Mathlib, 21 Nov"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Pernyataan & bukti:",
+     "betul"
+    ]
+   },
+   "say": [
+    "Sehari kemudian, komuniti Lean dan Mathlib keluarkan kenyataan bersama.",
+    "Mereka sahkan... pernyataan dan bukti itu betul."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Tunggu dulu",
+    "sub": "belum muktamad"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Disemak: komputer",
+     "Versi manusia: belum"
+    ]
+   },
+   "say": [
+    "Tapi tunggu dulu.",
+    "Yang menyemak ialah komputer.",
+    "Versi yang boleh dibaca manusia belum siap.",
+    "Ada pengkritik yang persoal satu definisi dalam kod itu."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "2 tahun",
+    "sub": "syarat Institut Clay"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Terbit dalam jurnal",
+     "+ diterima 2 tahun"
+    ]
+   },
+   "say": [
+    "Dan Institut Clay masih senaraikan masalah ini sebagai belum selesai.",
+    "Syarat mereka, bukti mesti diterbitkan dalam jurnal,",
+    "dan diterima selama dua tahun."
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "MITOS",
+    "sub": "kata laluan bank"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Penyulitan bank",
+     "tak terjejas"
+    ]
+   },
+   "say": [
+    "Satu salah faham biasa.",
+    "Bukti ini tak akan pecahkan kata laluan bank anda.",
+    "Penyulitan bergantung pada sukarnya memecahkan nombor besar kepada faktor,",
+    "bukan pada Hipotesis Riemann."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Yang berubah",
+    "sub": "ratusan teorem"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "\"Andaikan RH benar\"",
+     "kini berdiri sendiri"
+    ]
+   },
+   "say": [
+    "Yang berubah, ratusan teorem yang selama ini bermula dengan",
+    "andaikan Hipotesis Riemann benar...",
+    "kini boleh berdiri sendiri."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Faham atau percaya?",
+    "sub": "soalan baru"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Faham?",
+     "atau percaya?"
+    ]
+   },
+   "say": [
+    "Dan muncul satu soalan baru.",
+    "Kalau satu bukti terlalu panjang untuk dibaca mana-mana manusia...",
+    "adakah kita faham, atau kita cuma percaya?"
+   ]
+  }
+ ],
+ "post": {
+  "caption": "Hipotesis Riemann terbukti? Diterangkan di antara dua hirupan kopi ☕\n\nHipotesis Riemann: soalan matematik berusia 167 tahun tentang corak nombor perdana, dengan hadiah USD1 juta dari Institut Clay. Pada 20 Nov 2026, ahli matematik Levent Alpöge (Anthropic) umumkan bukti yang dihasilkan bersama model AI Claude, ditulis dalam Lean (kira-kira 17 juta baris). Sehari kemudian, komuniti Lean dan Mathlib sahkan pernyataan dan bukti itu.\n\nTapi belum muktamad: versi untuk dibaca manusia belum siap, ada pengkritik, dan Institut Clay masih senaraikan masalah ini sebagai belum selesai.\n\nBuku: AI Untuk Pemula, terbitan The Patriots. Link kat bio (link affiliate).\n\nSumber: kenyataan bersama Lean FRO & Mathlib (21 Nov 2026), laman pengesahan Andrew Sutherland (MIT), Washington Times, Institut Matematik Clay.\nNota: skrip video ini disediakan dengan bantuan Claude, model AI yang sama yang terlibat dalam bukti ini.\nSuara dijana AI.",
+  "caption_nobook": "Hipotesis Riemann terbukti? Diterangkan di antara dua hirupan kopi ☕\n\nHipotesis Riemann: soalan matematik berusia 167 tahun tentang corak nombor perdana, dengan hadiah USD1 juta dari Institut Clay. Pada 20 Nov 2026, ahli matematik Levent Alpöge (Anthropic) umumkan bukti yang dihasilkan bersama model AI Claude, ditulis dalam Lean (kira-kira 17 juta baris). Sehari kemudian, komuniti Lean dan Mathlib sahkan pernyataan dan bukti itu.\n\nTapi belum muktamad: versi untuk dibaca manusia belum siap, ada pengkritik, dan Institut Clay masih senaraikan masalah ini sebagai belum selesai.\n\nSumber: kenyataan bersama Lean FRO & Mathlib (21 Nov 2026), laman pengesahan Andrew Sutherland (MIT), Washington Times, Institut Matematik Clay.\nNota: skrip video ini disediakan dengan bantuan Claude, model AI yang sama yang terlibat dalam bukti ini.\nSuara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "matematik",
+   "HipotesisRiemann",
+   "nomborperdana",
+   "AI",
+   "sains",
+   "bukumalaysia"
+  ],
+  "youtube_title": "Hipotesis Riemann terbukti? Bukti 17 juta baris dengan AI | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "Hipotesis Riemann",
+   "Riemann hypothesis",
+   "matematik",
+   "nombor perdana",
+   "AI",
+   "Claude",
+   "Lean",
+   "Millennium Prize",
+   "AI Untuk Pemula"
+  ],
+  "category": "SCIENCE_TECHNOLOGY",
+  "political": false
+ },
+ "sources": [
+  "https://www.washingtontimes.com/news/2026/nov/20/riemann-hypothesis-may-proved-ai-mathematician/",
+  "https://explainx.ai/blog/levent-alpoge-anthropic-riemann-hypothesis-claude-lean-proof-claimed-vs-verified-2026",
+  "https://www.effortlessmath.com/blog/riemann-hypothesis-explained/",
+  "https://github.com/nasqret/riemann-rev"
+ ],
+ "max_gap": 0.45,
+ "voice_tempo": 1.0
+}
