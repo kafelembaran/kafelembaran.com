@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulator Titik Silang: bila wang bekerja lebih kuat daripada anda | Kafe Lembaran</title>
+<meta name="description" content="Masukkan sasaran simpanan dan umur. Kalkulator ini kira titik silang kompaun, berapa perlu simpan sebulan, dan bila boleh berhenti menambah.">
+<link rel="canonical" href="https://kafelembaran.com/kira/">
+<meta property="og:title" content="Kalkulator Titik Silang | Kafe Lembaran">
+<meta property="og:description" content="Bila dividen setahun melebihi simpanan setahun? Kira sasaran anda.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/logo.svg">
+<style>
+.calc label{display:block;font-size:15px;font-weight:600;margin:10px 0 4px}
+.calc input{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.calc input:focus{outline:3px solid var(--brand-l);border-color:var(--brand)}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc .hint{font-size:13px;color:var(--mut);margin:2px 0 0}
+.res{background:var(--brand);color:#fff;border-radius:16px;padding:16px;margin:16px 0 12px}
+.res p{margin:0 0 6px}
+.res .big{font-family:Lora,Georgia,serif;font-size:30px;line-height:1.2;margin:2px 0 8px}
+.res .step{border-top:1px solid rgba(255,255,255,.25);padding-top:10px;margin-top:10px}
+.res small{opacity:.85}
+.chartbox{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px;margin:0 0 12px}
+.chartbox svg{width:100%;height:auto;display:block}
+.toggle{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--mut);margin:6px 0 0}
+.formula{font-family:Georgia,serif;font-size:17px;background:#fff;border:1px dashed var(--line);border-radius:10px;padding:8px 10px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.warn{font-size:14px;color:#7a4a0c;background:#fde7c7;border-radius:10px;padding:8px 10px;margin:8px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a class="brandrow brand" href="../"><img src="../assets/logo.svg" alt="">Kafe Lembaran</a><a class="back" href="../">&larr; Buku</a></nav>
+
+<header class="hero"><h1>Kalkulator Titik Silang</h1>
+<p>Bila dividen setahun mula melebihi simpanan setahun, wang anda bekerja lebih kuat daripada anda.</p></header>
+
+<form class="card calc" id="f" onsubmit="return false">
+  <div class="row">
+    <div><label for="age">Umur sekarang</label><input id="age" type="number" inputmode="numeric" min="15" max="80" value="25"></div>
+    <div><label for="ageT">Sasaran pada umur</label><input id="ageT" type="number" inputmode="numeric" min="16" max="100" value="60"></div>
+  </div>
+  <label for="target">Sasaran (RM)</label>
+  <input id="target" type="text" inputmode="numeric" value="1,000,000">
+  <div class="row">
+    <div><label for="rate">Pulangan setahun (%)</label><input id="rate" type="number" inputmode="decimal" min="0.5" max="20" step="0.1" value="6">
+      <p class="hint">Dividen KWSP 2025: 6.15%</p></div>
+    <div><label for="buf">Penampan selepas titik silang (tahun)</label><input id="buf" type="number" inputmode="numeric" min="0" max="10" value="3"></div>
+  </div>
+</form>
+
+<div class="res" id="res" aria-live="polite"></div>
+
+<div class="chartbox">
+  <svg id="chart" viewBox="0 0 520 300" role="img" aria-label="Graf simpanan mengikut umur"></svg>
+  <label class="toggle"><input type="checkbox" id="logscale"> Skala log (kompaun jadi garis lurus)</label>
+</div>
+
+<section class="card"><h2>Formula di sebalik kalkulator</h2>
+<p>Wang yang dibiarkan berkembang:</p>
+<div class="formula">A = P (1 + r)<sup>t</sup></div>
+<p>Ambil log kedua-dua belah, lengkung jadi garis lurus:</p>
+<div class="formula">ln A = ln P + t &middot; ln(1 + r)</div>
+<p>Kalau anda simpan jumlah yang sama setiap tahun, dividen setahun melebihi simpanan setahun bila baki berganda kali pertama. Itulah titik silang:</p>
+<div class="formula">t* = ln 2 &divide; ln(1 + r) &asymp; 72 &divide; r</div>
+<p>Pada titik silang, baki anda = simpanan setahun &divide; r. Contoh: RM6,000 setahun pada 6% &rarr; sekitar RM100,000 selepas 12 tahun.</p>
+</section>
+
+<section class="card"><h2>Andaian</h2>
+<ul>
+<li>Simpanan dibuat setiap bulan; dividen dikira sekali setahun pada kadar tetap.</li>
+<li>Pulangan sebenar naik turun. KWSP: 6.3% (2024), 6.15% (2025).</li>
+<li>Inflasi tidak dikira. RM1 juta 35 tahun lagi tidak sama nilainya dengan hari ini.</li>
+<li>Ini alat pembelajaran, bukan nasihat kewangan.</li>
+</ul></section>
+
+<a class="feat" href="../labur-santai/" style="margin-top:4px"><span><h3>Nak mula melabur dengan tenang?</h3><p class="why">Labur Santai, tulisan Adib Yazid &amp; Kauthar Rozmal: asas pelaburan dalam bahasa harian.</p><span class="go">Lihat buku &rarr;</span></span></a>
+
+<p class="disclose">Kafe Lembaran mungkin menerima komisen kecil jika anda membeli melalui pautan di halaman ini, tanpa kos tambahan kepada anda.</p>
+<footer>Kafe Lembaran &middot; Secawan kopi, selembar cerita.</footer>
+</div>
+
+<script>
+// Same maths as the video: yearly saving C added at the end of each year, rate r.
+function plan(age, ageT, target, r, buf) {
+  const years = ageT - age;
+  const tStar = Math.log(2) / Math.log(1 + r);          // titik silang (years from now)
+  const saveYears = Math.min(Math.round(tStar) + buf, years);
+  const grow = years - saveYears;                        // years left to grow untouched
+  const needAtStop = target / Math.pow(1 + r, grow);
+  const annuity = (Math.pow(1 + r, saveYears) - 1) / r;
+  const C = needAtStop / annuity;                         // per year
+  const Call = target / ((Math.pow(1 + r, years) - 1) / r);
+  return {years, tStar, saveYears, grow, needAtStop, monthly: C / 12, putIn: C * saveYears,
+          monthlyAll: Call / 12, putInAll: Call * years, crossBalance: C / r,
+          ageCross: age + Math.round(tStar), ageStop: age + saveYears};
+}
+function series(p, age, r) {
+  const C = p.monthly * 12, pts = [[age, 0]]; let b = 0;
+  for (let t = 1; t <= p.years; t++) { b = b * (1 + r) + (t <= p.saveYears ? C : 0); pts.push([age + t, b]); }
+  return pts;
+}
+if (typeof module !== "undefined") { module.exports = {plan, series}; }
+else {
+const $ = id => document.getElementById(id);
+const rm = x => "RM" + Math.round(x).toLocaleString("en-MY");
+const num = s => Number(String(s).replace(/[^0-9.]/g, ""));
+function draw(pts, p, log) {
+  const W = 520, H = 300, L = 62, R = 12, T = 14, B = 34;
+  const xs = pts.map(q => q[0]), x0 = xs[0], x1 = xs[xs.length - 1];
+  const ymax = Math.max(...pts.map(q => q[1]));
+  const ymin = log ? Math.max(pts[1] ? pts[1][1] : 1, 1) : 0;
+  const fy = v => log ? (Math.log(Math.max(v, ymin)) - Math.log(ymin)) / (Math.log(ymax) - Math.log(ymin) || 1) : v / (ymax || 1);
+  const X = a => L + (a - x0) / (x1 - x0 || 1) * (W - L - R), Y = v => H - B - fy(v) * (H - T - B);
+  let s = `<rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="#fff" stroke="#e6dccd"/>`;
+  const ticks = log ? [1e3,2e3,5e3,1e4,2e4,5e4,1e5,2e5,5e5,1e6,2e6,5e6,1e7].filter(v => v >= ymin && v <= ymax * 1.001) : [0, .25, .5, .75, 1].map(k => k * ymax);
+  for (const v of ticks) { const y = Y(v); s += `<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="#efe7da"/><text x="${L-6}" y="${y+4}" font-size="11" text-anchor="end" fill="#5c6b69">${v >= 1e6 ? (v/1e6).toFixed(v%1e6?1:0)+"j" : Math.round(v/1e3)+"k"}</text>`; }
+  for (let a = Math.ceil(x0/5)*5; a <= x1; a += 5) s += `<text x="${X(a)}" y="${H-12}" font-size="11" text-anchor="middle" fill="#5c6b69">${a}</text>`;
+  const line = pts.filter(q => !log || q[1] > 0).map(q => `${X(q[0]).toFixed(1)},${Y(q[1]).toFixed(1)}`).join(" ");
+  s += `<polyline points="${line}" fill="none" stroke="#1f6f6a" stroke-width="3" stroke-linejoin="round"/>`;
+  const mark = (a, label, color) => { const q = pts.find(z => z[0] === a); if (!q || (log && q[1] <= 0)) return "";
+    return `<line x1="${X(a)}" x2="${X(a)}" y1="${T}" y2="${H-B}" stroke="${color}" stroke-dasharray="4 4"/><circle cx="${X(a)}" cy="${Y(q[1])}" r="5" fill="${color}"/><text x="${X(a)+6}" y="${T+14}" font-size="12" fill="${color}" font-weight="700">${label}</text>`; };
+  s += mark(p.ageCross, "Titik silang", "#ee4d2d");
+  if (p.ageStop !== p.ageCross) s += mark(p.ageStop, "Berhenti tambah", "#165450").replace(`y="${T+14}"`, `y="${T+30}"`);
+  $("chart").innerHTML = s;
+}
+function run() {
+  const age = num($("age").value), ageT = num($("ageT").value), target = num($("target").value);
+  const r = num($("rate").value) / 100, buf = num($("buf").value);
+  const res = $("res");
+  if (!(age > 0 && ageT > age && target > 0 && r > 0)) { res.innerHTML = "<p>Isi umur, sasaran dan pulangan. Umur sasaran mesti lebih tinggi daripada umur sekarang.</p>"; $("chart").innerHTML = ""; return; }
+  const p = plan(age, ageT, target, r, buf);
+  let h = `<p>Titik silang anda</p><p class="big">Umur ${p.ageCross}</p><small>selepas ${p.tStar.toFixed(1)} tahun (72 &divide; ${(r*100).toFixed(1)} &asymp; ${(72/(r*100)).toFixed(1)})</small>`;
+  if (p.grow > 0) {
+    h += `<div class="step"><p>Simpan <b>${rm(p.monthly)} sebulan</b> sampai umur ${p.ageStop}.</p><p>Baki pada umur ${p.ageStop}: <b>${rm(p.needAtStop)}</b></p>
+          <p>Lepas itu berhenti menambah, jangan keluarkan. Biarkan ${p.grow} tahun &rarr; <b>${rm(target)}</b> pada umur ${ageT}.</p></div>
+          <div class="step"><p>Wang anda masukkan: ${rm(p.putIn)}<br>Hasil kompaun: ${rm(target - p.putIn)}</p>
+          <small>Kalau simpan sampai umur ${ageT}: ${rm(p.monthlyAll)} sebulan (jumlah ${rm(p.putInAll)}).</small></div>`;
+  } else {
+    h += `<div class="step"><p>Masa terlalu singkat untuk berhenti awal. Simpan <b>${rm(p.monthlyAll)} sebulan</b> sampai umur ${ageT}.</p></div>`;
+  }
+  if (p.monthly > 20000) h += `<p class="warn">Sasaran ini memerlukan simpanan yang sangat tinggi. Cuba sasaran lebih kecil atau umur sasaran lebih lewat.</p>`;
+  res.innerHTML = h;
+  draw(series(p, age, r), p, $("logscale").checked);
+}
+$("target").addEventListener("blur", e => { const v = num(e.target.value); if (v) e.target.value = v.toLocaleString("en-MY"); });
+document.querySelectorAll("#f input, #logscale").forEach(i => i.addEventListener("input", run));
+$("logscale").addEventListener("change", run);
+run();
+}
+</script>
+</body>
+</html>

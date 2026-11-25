@@ -133,4 +133,6 @@ POSTED
      RM500/month: year 12 balance RM101,220, dividend RM6,073 > RM6,000.
      Target RM1m at 60 from age 25: t* = 12 y (age 37), +3 buffer -> save RM1,116/month to age 40 (RM311,805,
      put in RM200,940), then stop adding and leave 20 y -> RM1,000,000. Saving all 35 y would need RM748/month (RM314k in).
+   Added 25 Nov: CTA asks viewers to comment age now / target / target age (user replies with their titik silang
+             saving) + calculator page kafelembaran.com/kira (pages/kira.html, same maths, tested in test_build.py).
    Visual plan: chessboard rice doubling; curve vs log-line chart; balance bars with dividend crossing saving at year 12.

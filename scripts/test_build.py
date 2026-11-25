@@ -67,6 +67,24 @@ check("homepage hidden from Google while all books are samples", (not all(b.get(
 
 check("media files published", all((dist / "media" / f.name).exists() for f in (ROOT / "media").glob("*")) if (ROOT / "media").exists() else True)
 
+# 2c. calculator page /kira/ (maths checked against the video numbers)
+calc = (dist / "kira" / "index.html")
+check("calculator page exists: /kira/", calc.exists())
+check("homepage links the calculator", 'href="kira/"' in home)
+if calc.exists():
+    ch = calc.read_text(encoding="utf-8")
+    check("calculator says it is not financial advice", "bukan nasihat kewangan" in ch)
+    js = ch.split("<script>")[1].split("</script>")[0]
+    node = subprocess.run(["node", "-e", js + "\nconst p=plan(25,60,1e6,0.06,3);console.log(JSON.stringify(p))"], capture_output=True, text=True)
+    if node.returncode == 0:
+        p = json.loads(node.stdout)
+        check("calc: titik silang at age 37", p["ageCross"] == 37)
+        check("calc: RM1,116/month to age 40", round(p["monthly"]) == 1116 and p["ageStop"] == 40)
+        check("calc: RM311,805 at age 40", round(p["needAtStop"]) == 311805)
+        check("calc: RM748/month if saving all 35 years", round(p["monthlyAll"]) == 748)
+    else:
+        print("SKIP calculator maths (node not available)")
+
 # 3. text is escaped (no broken pages from quotes or < >)
 evil = copy.deepcopy(data["books"][0]); evil["title"] = 'A <b>"bold"</b> title'
 check("escapes HTML in titles", "<b>\"bold\"</b>" not in build.book_page(data["site"], evil))

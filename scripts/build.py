@@ -37,7 +37,7 @@ def validate(data):
         if slug in seen:
             errors.append(f"{who}: slug used twice")
         seen.add(slug)
-        if slug in {"assets", "tentang", "index"}:
+        if slug in {"assets", "tentang", "index", "kira", "media"}:
             errors.append(f"{who}: slug '{slug}' is reserved")
         if len(b.get("summary", [])) != 3:
             errors.append(f"{who}: summary must have exactly 3 lines")
@@ -138,6 +138,9 @@ def home(site, books):
         out.append(f'<a href="{href(b["slug"] + "/")}">{cover(b)}<strong>{e(b["title"])}</strong>'
                    f'<small class="meta">{e(b["author"])} &middot; {e(b["category"])}</small></a>')
     out.append("</div>")
+    out.append(f'<a class="feat" href="{href("kira/")}" style="margin-top:22px"><span><h3>Kalkulator Titik Silang</h3>'
+               '<p class="why">Bila wang anda bekerja lebih kuat daripada anda? Masukkan sasaran dan umur, kira simpanan bulanan anda.</p>'
+               '<span class="go">Kira sekarang &rarr;</span></span></a>')
     if site.get("whatsapp_channel"):
         out.append(f'<a class="wa" href="{e(site["whatsapp_channel"])}" rel="noopener" target="_blank">Sertai saluran WhatsApp: 1 buku seminggu</a>')
     out.append(f'<p class="disclose">{e(site["disclosure"])}</p>')
@@ -160,6 +163,11 @@ def main():
     if (ROOT / "media").exists():
         shutil.copytree(ROOT / "media", DIST / "media")  # videos for social scheduling
     (DIST / "index.html").write_text(home(site, books), encoding="utf-8")
+    calc = (ROOT / "pages" / "kira.html").read_text(encoding="utf-8")
+    if PREVIEW:
+        calc = calc.replace('href="../"', 'href="../index.html"').replace('href="../labur-santai/"', 'href="../labur-santai/index.html"')
+    (DIST / "kira").mkdir()
+    (DIST / "kira" / "index.html").write_text(calc, encoding="utf-8")
     print(f"Built {len(books)} book pages into dist/" + (" (preview mode)" if PREVIEW else ""))
 
 
