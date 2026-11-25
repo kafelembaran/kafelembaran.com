@@ -405,3 +405,113 @@ MATHS_TYPES.add("gtimeline")
 _info_maths_prev2 = info_maths
 def info_maths(P, age):
     return info_gtimeline(P, age) if P["type"] == "gtimeline" else _info_maths_prev2(P, age)
+
+# ---------------- added 25 Nov 2026: chess, growth, cross (compounding episode) ----------------
+def _fi(sz, w=700): return F(FONTMAP.get("inter", "inter"), sz, w)
+def _fa(sz): return F(FONTMAP.get("anton", "anton"), sz)
+
+def info_compound2(P, age):
+    t = P["type"]; im = Image.new("RGBA", (CW, CH), PANEL_BG); d = ImageDraw.Draw(im)
+    if t == "chess":
+        # {"type":"chess","start":0.5,"dur":6}  squares light up 1..64, faster and faster
+        st, dur = P.get("start", 0.5), P.get("dur", 6.0); q = max(0.0, min(1.0, (age - st) / dur))
+        n = int(round(64 * q ** 1.6)); s = 60; x0 = 20; y0 = (CH - 8 * s) / 2
+        for k in range(64):
+            r, c = divmod(k, 8); x = x0 + c * s; y = y0 + r * s
+            base = DIM if (r + c) % 2 else (DIM[0], DIM[1], DIM[2], 120)
+            d.rectangle([x, y, x + s - 2, y + s - 2], fill=(GOLD if k < n else base))
+        sq = max(1, n); grains = 2 ** (sq - 1)
+        tx = x0 + 8 * s + 40; cx = tx + (CW - tx) / 2
+        d.text((cx, 120), f"Petak {sq}", font=_fi(54, 800), fill=FG, anchor="mm")
+        _sup(d, cx, 230, "2", str(sq - 1), 140, GOLD)
+        txt = f"{grains:,}" if grains < 10 ** 7 else f"{grains:.1e}".replace("e+", " × 10^")
+        d.text((cx, 330), txt + " butir", font=_fi(45, 700), fill=FG, anchor="mm")
+        if n >= 64:
+            d.text((cx, 420), "Jumlah ≈ 18 kuintilion", font=_fi(45, 800), fill=GOLD, anchor="mm")
+            d.text((cx, 465), "beras dunia tak cukup", font=_fi(40, 600), fill=MUTED, anchor="mm")
+    elif t == "growth":
+        # {"type":"growth","years":35,"r":0.06,"morph_at":6,"draw":3,"formula_at":...}
+        Y, r = P.get("years", 35), P.get("r", 0.06); st = P.get("start", 0.3)
+        dq = max(0.0, min(1.0, (age - st) / P.get("draw", 3.0)))
+        m = 0.0 if P.get("morph_at") is None else ease_out(max(0.0, min(1.0, (age - P["morph_at"]) / 1.2)))
+        L, R, T, B = 70, 30, 150, 80; W, H = CW - L - R, CH - T - B
+        d.line([(L, T), (L, T + H), (L + W, T + H)], fill=MUTED, width=3)
+        vmax = (1 + r) ** Y
+        def yv(v):
+            lin = (v - 1) / (vmax - 1); lg = math.log(v) / math.log(vmax)
+            return T + H - H * ((1 - m) * lin + m * lg)
+        pts = [(L + W * k / Y, yv((1 + r) ** k)) for k in range(0, int(Y * dq) + 1)]
+        if len(pts) > 1: d.line(pts, fill=GOLD, width=10, joint="curve")
+        d.text((L + W, T + H + 34), f"{Y} tahun", font=_fi(37, 700), fill=MUTED, anchor="rm")
+        d.text((L - 14, T + H), "P", font=_fi(35, 600), fill=MUTED, anchor="rm")
+        top = "skala biasa" if m < 0.5 else "skala log"
+        d.text((L + 10, T - 6), top, font=_fi(37, 700), fill=MUTED, anchor="ls")
+        fy = 60
+        if m < 0.5:
+            fb = _fa(78); xs = CW / 2 - 200
+            d.text((xs, fy), "A = P (1 + r)", font=fb, fill=FG, anchor="lm")
+            d.text((xs + text_w(fb, "A = P (1 + r)") + 6, fy - 20), "t", font=_fa(44), fill=FG, anchor="lm")
+        else:
+            d.text((CW / 2, fy), "ln A = ln P + t · ln(1 + r)", font=_fa(72), fill=FG, anchor="mm")
+        if P.get("rule_at") is not None and age > P["rule_at"]:
+            q = ease_out((age - P["rule_at"]) / 0.5)
+            d.rounded_rectangle([CW - 420, T + 10, CW - 30, T + 110], radius=16, fill=(0, 0, 0, int(90 * q)))
+            d.text((CW - 225, T + 60), "berganda: 72 ÷ r", font=_fi(43, 800), fill=GOLD, anchor="mm")
+    elif t == "cross":
+        # {"type":"cross","C":6000,"r":0.06,"years":15,"start":0.3,"pace":0.35}
+        C, r, Y = P.get("C", 6000), P.get("r", 0.06), P.get("years", 15)
+        shown = int(max(0, age - P.get("start", 0.3)) / P.get("pace", 0.35))
+        L, R, T, B = 70, 30, 60, 80; W, H = CW - L - R, CH - T - B
+        b = 0; divs = []
+        for k in range(1, Y + 1):
+            b = b * (1 + r) + C; divs.append(b * r)      # dividend the balance earns after year k
+        vmax = max(max(divs), C) * 1.15; bw = W / Y
+        yC = T + H - H * C / vmax
+        for k in range(min(shown, Y)):
+            v = divs[k]; x = L + k * bw; over = v > C
+            d.rectangle([x + 6, T + H - H * v / vmax, x + bw - 6, T + H], fill=(RED if over else FG))
+            if (k + 1) % 3 == 0 or k == 0: d.text((x + bw / 2, T + H + 28), str(k + 1), font=_fi(32, 600), fill=MUTED, anchor="mm")
+        d.line([(L, yC), (L + W, yC)], fill=MUTED, width=4)
+        d.text((L + 6, yC - 26), f"Simpanan setahun RM{C:,}", font=_fi(37, 800), fill=MUTED, anchor="lm")
+        d.text((L, T - 24), "Dividen setahun", font=_fi(37, 700), fill=FG, anchor="lm")
+        d.text((L + W, T + H + 60), "tahun", font=_fi(32, 600), fill=MUTED, anchor="rm")
+        k12 = next((k for k in range(Y) if divs[k] > C), None)
+        if k12 is not None and shown > k12:
+            x = L + k12 * bw + bw / 2
+            d.text((x - 10, T + 55), f"Tahun {k12 + 1}: titik silang", font=_fi(40, 800), fill=RED, anchor="rm")
+    elif t == "plan":
+        # {"type":"plan","age":25,"stop":40,"cross":37,"end":60,"C":13396,"r":0.06,"draw":4,"start":0.3}
+        a0, stop, cr, a1, C, r = P["age"], P["stop"], P["cross"], P["end"], P["C"], P.get("r", 0.06)
+        dq = max(0.0, min(1.0, (age - P.get("start", 0.3)) / P.get("draw", 4.0)))
+        L, R, T, B = 120, 40, 50, 80; W, H = CW - L - R, CH - T - B
+        bal = [0.0]; b = 0
+        for k in range(1, a1 - a0 + 1):
+            b = b * (1 + r) + (C if a0 + k <= stop else 0); bal.append(b)
+        vmax = bal[-1] * 1.05; X = lambda a: L + W * (a - a0) / (a1 - a0); Yv = lambda v: T + H - H * v / vmax
+        d.line([(L, T), (L, T + H), (L + W, T + H)], fill=MUTED, width=3)
+        n = int((a1 - a0) * dq)
+        if P.get("keys"):                        # [[time, age], ...] piecewise reveal
+            ks = P["keys"]; ag = ks[0][1] if age <= ks[0][0] else ks[-1][1]
+            for (t0, g0), (t1, g1) in zip(ks, ks[1:]):
+                if t0 <= age <= t1: ag = g0 + (g1 - g0) * (age - t0) / (t1 - t0)
+            n = int(round(ag - a0))
+        for k in range(n):
+            col = FG if a0 + k + 1 <= stop else GOLD
+            d.line([(X(a0 + k), Yv(bal[k])), (X(a0 + k + 1), Yv(bal[k + 1]))], fill=col, width=10)
+        for a in (a0, cr, stop, a1):
+            d.text((X(a), T + H + 30), str(a), font=_fi(35, 700), fill=MUTED, anchor="mm")
+        for a, lab, col, dy in ((cr, "titik silang", RED, 0), (stop, "berhenti tambah", FG, 40)):
+            if a - a0 <= n:
+                d.ellipse([X(a) - 9, Yv(bal[a - a0]) - 9, X(a) + 9, Yv(bal[a - a0]) + 9], fill=col)
+                d.text((X(a) - 14, Yv(bal[a - a0]) - 30 - dy), lab, font=_fi(35, 800), fill=col, anchor="rm" if a == cr else "lm")
+        for v in (250000, 500000, 750000, 1000000):
+            if v <= vmax: d.text((L - 12, Yv(v)), f"{v // 1000}k" if v < 1e6 else "1j", font=_fi(32, 600), fill=MUTED, anchor="rm")
+        if n >= a1 - a0:
+            d.text((X(a1) - 30, Yv(bal[-1]) + 10), "RM" + f"{bal[-1] / 1e6:.1f}".rstrip("0").rstrip(".") + " juta", font=_fi(48, 800), fill=GOLD, anchor="rm")
+            d.text((X(stop) + 14, T + H - 26), f"simpan RM{C / 12:,.0f}/bln", font=_fi(32, 700), fill=FG, anchor="lm")
+    return im
+
+MATHS_TYPES.update({"chess", "growth", "cross", "plan"})
+_info_maths_prev3 = info_maths
+def info_maths(P, age):
+    return info_compound2(P, age) if P["type"] in {"chess", "growth", "cross", "plan"} else _info_maths_prev3(P, age)

@@ -1,0 +1,389 @@
+{
+ "slug": "kafelembaran-rahsia-kompaun",
+ "date": "2026-11-30",
+ "style": "kopitiam",
+ "title": [
+  "Rahsia kekayaan",
+  "ialah masa"
+ ],
+ "book": {
+  "title": "Labur Santai",
+  "slip_lines": [
+   "Labur",
+   "Santai"
+  ],
+  "author": "Adib Yazid & Kauthar Rozmal",
+  "shopee": "https://s.shopee.com.my/3g5L2Y11vv"
+ },
+ "say_as": {},
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "outro_say": "Nak mula melabur dengan tenang? Baca Labur Santai. Link kat bio.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "big",
+    "text": "Masa",
+    "sub": "rahsia kekayaan"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Bukan gaji besar.",
+     "Bukan nasib."
+    ]
+   },
+   "say": [
+    "Rahsia kekayaan bukan gaji besar.",
+    "Bukan nasib.",
+    "Rahsianya satu perkataan... masa."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Beras atas catur",
+    "sub": "setiap petak, 2 kali ganda"
+   },
+   "panel": {
+    "type": "chess",
+    "start": 4.5,
+    "dur": 13.0
+   },
+   "say": [
+    "Seorang raja tanya pencipta catur, apa hadiah yang dia mahu.",
+    "Jawabnya, satu butir beras di petak pertama.",
+    "Dua butir di petak kedua.",
+    "Empat di petak ketiga.",
+    "Setiap petak, dua kali ganda.",
+    "Raja ketawa. Sikit sangat.",
+    {
+     "say": "Tapi bila sampai petak keenam puluh empat,",
+     "show": "Tapi bila sampai petak ke-64,"
+    },
+    "beras seluruh dunia pun tak cukup."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Kompaun",
+    "sub": "perlahan, kemudian meletup"
+   },
+   "panel": {
+    "type": "growth",
+    "years": 35,
+    "r": 0.06,
+    "start": 1.2,
+    "draw": 3.5
+   },
+   "say": [
+    "Itulah kompaun.",
+    "Awalnya nampak perlahan.",
+    "Kemudian, ia meletup.",
+    "Banyak aplikasi kewangan nampak rumit.",
+    "Sebenarnya, satu persamaan sudah cukup.",
+    "Wang akhir sama dengan wang awal,",
+    "darab satu tambah kadar pulangan,",
+    "kuasa bilangan tahun."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Ambil log",
+    "sub": "lengkung jadi garis lurus"
+   },
+   "panel": {
+    "type": "growth",
+    "years": 35,
+    "r": 0.06,
+    "start": 0.0,
+    "draw": 0.01,
+    "morph_at": 2.6,
+    "rule_at": 8.6
+   },
+   "say": [
+    "Ambil log kedua-dua belah...",
+    "lengkung yang meletup tadi, jadi satu garis lurus.",
+    "Dari situ, kita boleh kira bila wang berganda.",
+    {
+     "say": "Tujuh puluh dua, bahagi kadar pulangan.",
+     "show": "72 ÷ kadar pulangan."
+    },
+    "Jadi bila titik silang dalam hidup kita?",
+    {
+     "say": "Hirup kopi dulu...",
+     "sfx_after": "ahh_A"
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Titik silang",
+    "sub": "wang bekerja untuk anda"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Dividen setahun",
+     "> simpanan setahun"
+    ]
+   },
+   "say": [
+    "Titik silang ialah tahun di mana dividen setahun",
+    "lebih besar daripada simpanan setahun.",
+    "Ketika itu, wang anda bekerja lebih kuat daripada anda."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "RM500",
+    "sub": "sebulan, 6% setahun"
+   },
+   "panel": {
+    "type": "cross",
+    "C": 6000,
+    "r": 0.06,
+    "years": 15,
+    "start": 1.0,
+    "pace": 0.68
+   },
+   "say": [
+    "Contoh.",
+    {
+     "say": "Simpan lima ratus ringgit sebulan, pulangan enam peratus setahun.",
+     "show": "Simpan RM500 sebulan, pulangan 6% setahun."
+    },
+    {
+     "say": "Dividen KWSP tahun lepas, enam perpuluhan satu lima peratus.",
+     "show": "Dividen KWSP tahun lepas: 6.15%."
+    },
+    {
+     "say": "Tahun kedua belas, simpanan anda sekitar seratus ribu ringgit.",
+     "show": "Tahun ke-12, simpanan anda sekitar RM100,000."
+    },
+    {
+     "say": "Dividen setahun, lebih enam ribu.",
+     "show": "Dividen setahun, lebih RM6,000."
+    },
+    {
+     "say": "Lebih besar daripada enam ribu yang anda simpan.",
+     "show": "Lebih besar daripada RM6,000 yang anda simpan."
+    },
+    {
+     "say": "Dua belas tahun, sama dengan tujuh puluh dua bahagi enam.",
+     "show": "12 tahun = 72 ÷ 6."
+    },
+    "Bukan kebetulan."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "RM1 juta",
+    "sub": "pada umur 60"
+   },
+   "panel": {
+    "type": "plan",
+    "age": 25,
+    "stop": 40,
+    "cross": 37,
+    "end": 60,
+    "C": 13396,
+    "r": 0.06,
+    "keys": [
+     [
+      2.0,
+      25
+     ],
+     [
+      7.4,
+      37
+     ],
+     [
+      14.6,
+      40
+     ],
+     [
+      20.9,
+      60
+     ]
+    ]
+   },
+   "say": [
+    "Sekarang, sasaran.",
+    {
+     "say": "Katakan anda berumur dua puluh lima tahun,",
+     "show": "Katakan anda berumur 25 tahun,"
+    },
+    {
+     "say": "dan mahu satu juta ringgit pada umur enam puluh.",
+     "show": "dan mahu RM1 juta pada umur 60."
+    },
+    {
+     "say": "Titik silang anda, umur tiga puluh tujuh.",
+     "show": "Titik silang anda: umur 37."
+    },
+    {
+     "say": "Tambah tiga tahun sebagai penampan.",
+     "show": "Tambah 3 tahun sebagai penampan."
+    },
+    {
+     "say": "Simpan seribu seratus enam belas ringgit sebulan,",
+     "show": "Simpan RM1,116 sebulan,"
+    },
+    {
+     "say": "sampai umur empat puluh.",
+     "show": "sampai umur 40."
+    },
+    "Lepas itu?",
+    "Berhenti menambah.",
+    "Jangan keluarkan.",
+    {
+     "say": "Biarkan dua puluh tahun.",
+     "show": "Biarkan 20 tahun."
+    },
+    {
+     "say": "Pada umur enam puluh... satu juta ringgit.",
+     "show": "Pada umur 60... RM1 juta."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "RM200k",
+    "sub": "wang anda sendiri"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "Wang anda",
+      201
+     ],
+     [
+      "Hasil kompaun",
+      799
+     ]
+    ],
+    "unit": "k",
+    "highlight": 1,
+    "caption": "daripada RM1 juta (ribu ringgit)"
+   },
+   "say": [
+    {
+     "say": "Wang yang anda masukkan, cuma dua ratus ribu.",
+     "show": "Wang yang anda masukkan, cuma RM200,000."
+    },
+    "Selebihnya, kerja masa."
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "ANDAIAN",
+    "sub": "bukan nasihat kewangan"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Pulangan naik turun",
+     "Inflasi makan nilai"
+    ]
+   },
+   "say": [
+    {
+     "say": "Tapi ingat, ini andaian pulangan tetap enam peratus.",
+     "show": "Tapi ingat, ini andaian pulangan tetap 6%."
+    },
+    "Pasaran naik turun,",
+    {
+     "say": "dan satu juta tiga puluh lima tahun lagi tak sama nilainya dengan hari ini.",
+     "show": "dan RM1 juta 35 tahun lagi tak sama nilainya dengan hari ini."
+    },
+    "Ini bukan nasihat kewangan."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Mula awal",
+    "sub": "masa lebih mahal daripada wang"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Masa lebih mahal",
+     "daripada wang"
+    ]
+   },
+   "say": [
+    "Mula awal.",
+    "Kerana dalam kompaun... masa lebih mahal daripada wang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Sasaran anda?",
+    "sub": "tulis di komen"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "kafelembaran.com/kira",
+     "kira titik silang anda"
+    ]
+   },
+   "say": [
+    "Apa sasaran anda?",
+    "Tulis di komen: umur sekarang, jumlah sasaran, dan umur sasaran.",
+    "Saya kirakan simpanan anda di titik silang.",
+    {
+     "say": "Atau kira sendiri di kafe lembaran dot com slash kira.",
+     "show": "Atau kira sendiri di kafelembaran.com/kira"
+    }
+   ]
+  }
+ ],
+ "post": {
+  "caption": "Rahsia kekayaan ialah masa. Diterangkan di antara dua hirupan kopi ☕\n\nRahsia kekayaan bukan gaji besar, tapi masa. Formula kompaun: A = P(1+r)^t. Ambil log, lengkung jadi garis lurus: ln A = ln P + t·ln(1+r). Wang berganda dalam lebih kurang 72 ÷ r tahun.\n\nTitik silang = tahun dividen setahun melebihi simpanan setahun. Simpan RM500 sebulan pada 6%: tahun ke-12, baki sekitar RM101,000, dividen RM6,073 > RM6,000 disimpan.\n\nContoh sasaran RM1 juta pada umur 60, mula umur 25: titik silang umur 37, tambah 3 tahun penampan. Simpan RM1,116 sebulan sampai umur 40 (baki sekitar RM312,000), kemudian berhenti menambah dan biarkan 20 tahun.\n\nApa sasaran anda? Tulis di komen: umur sekarang, jumlah sasaran, umur sasaran. Atau kira sendiri: kafelembaran.com/kira\n\nBuku: Labur Santai, Adib Yazid & Kauthar Rozmal. Link kat bio (link affiliate).\n\nAndaian: pulangan tetap 6% setahun (dividen KWSP 2025: 6.15%), inflasi tidak dikira. Ini kiraan pembelajaran, bukan nasihat kewangan.\nSuara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "kompaun",
+   "kewangan",
+   "simpanan",
+   "KWSP",
+   "matematik",
+   "bukumalaysia"
+  ],
+  "youtube_title": "Rahsia kekayaan ialah masa: titik silang kompaun | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "kompaun",
+   "compound interest",
+   "titik silang",
+   "rule of 72",
+   "KWSP",
+   "simpanan",
+   "kewangan peribadi",
+   "Labur Santai"
+  ],
+  "category": "EDUCATION",
+  "political": false,
+  "finance": true,
+  "networks": [
+   "youtube",
+   "instagram"
+  ]
+ },
+ "sources": [
+  "https://berita.rtm.gov.my/niaga/senarai-berita-niaga/senarai-artikel/kwsp-umum-dividen-6-15-untuk-simpanan-konvensional-dan-shariah/",
+  "https://kafelembaran.com/kira/"
+ ],
+ "max_gap": 0.45,
+ "voice_tempo": 1.0
+}
