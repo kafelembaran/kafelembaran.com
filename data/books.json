@@ -51,7 +51,7 @@
     },
     {
       "slug": "labur-santai",
-      "featured": false,
+      "featured": true,
       "added": "2026-11-18",
       "title": "Labur Santai",
       "author": "Adib Yazid & Kauthar Rozmal",
@@ -93,7 +93,7 @@
     },
     {
       "slug": "ai-untuk-pemula",
-      "featured": true,
+      "featured": false,
       "added": "2026-11-23",
       "title": "AI Untuk Pemula",
       "author": "The Patriots",
