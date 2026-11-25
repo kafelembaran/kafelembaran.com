@@ -122,3 +122,15 @@ POSTED
              `anyGeometry` def; Clay still lists unsolved (rules: journal publication + 2 years + acceptance).
              Background: Aug 2026 Claude raised zeros-on-line floor 41.6% -> 67.2%; Oct 2026 OpenAI quasi-RH.
    Note:     Claude (the assistant writing these scripts) is the AI involved -> keep framing neutral, caveats in.
+
+8. Rahsia kekayaan = masa (kompaun, log, titik silang) (slot: Monday 30 Nov 2026)
+   Status:   SCRIPT DRAFTED (episodes/2026-11-30-kompaun/tts_script.txt), 352 words ~2:42; waiting for user OK + voice
+   FINANCE TOPIC -> YouTube + Instagram only, NO TikTok. Book: Labur Santai (https://s.shopee.com.my/3g5L2Y11vv).
+   Maths (annual compounding, r = 6%; KWSP 2025 dividend 6.15%):
+     A = P(1+r)^t ; ln A = ln P + t ln(1+r) (straight line on log scale); doubling t = ln2/ln(1+r) ~ 72/r.
+     "Titik silang" (user called it inflection point; an exponential has no true inflection): year when yearly
+     dividend > yearly saving. With saving C/yr from zero: r*B = C  ->  (1+r)^t = 2  ->  t* = doubling time, B* = C/r.
+     RM500/month: year 12 balance RM101,220, dividend RM6,073 > RM6,000.
+     Target RM1m at 60 from age 25: t* = 12 y (age 37), +3 buffer -> save RM1,116/month to age 40 (RM311,805,
+     put in RM200,940), then stop adding and leave 20 y -> RM1,000,000. Saving all 35 y would need RM748/month (RM314k in).
+   Visual plan: chessboard rice doubling; curve vs log-line chart; balance bars with dividend crossing saving at year 12.
