@@ -20,7 +20,7 @@ LEAD = 0.3         # a scene appears this long before its first sentence
 # Standard voice style for EVERY episode (fixed 24 Nov 2026). Do not change per episode;
 # only add pronunciations through episode.json "say_as": {"Riemann": "Ree-man", ...}.
 TTS_STYLE = ("Read in Malaysian Malay, calm and relaxed, like a friend explaining the news over coffee at a kopitiam. "
-             "Clear, steady pace. Keep the same speed from start to finish; do not slow down towards the end. "
+             "Clear, steady pace of about 140 words per minute. Keep exactly the same speed from the first line to the last; do not slow down towards the end or before numbers. "
              "Short pause at each \"...\". Neutral tone, not dramatic.")
 TTS_HEADER = "AI STUDIO: Gemini Flash TTS (Audio tab), Speaker 1 - Enzo, Friendly. Download -> voice.wav"
 
