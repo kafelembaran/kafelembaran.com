@@ -13,7 +13,7 @@ Each panel is {"type": ..., params}. Types:
   text      {"lines": ["...", "..."]}                               fallback: big quote-style text
 """
 import math, subprocess, os
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 from kl import F, FG, GOLD, ORANGE, TEAL_D, RED, MUTED, DIM, ease_out, back_out, text_w, fade
 FONTMAP = {"inter": "inter", "lora": "lora", "poppins": "poppins"}
 GRID = (60, 110, 104, 255); OFF_TXT = (130, 160, 155, 255); INK_ON = TEAL_D; PANEL_BG = TEAL_D
@@ -515,3 +515,89 @@ MATHS_TYPES.update({"chess", "growth", "cross", "plan"})
 _info_maths_prev3 = info_maths
 def info_maths(P, age):
     return info_compound2(P, age) if P["type"] in {"chess", "growth", "cross", "plan"} else _info_maths_prev3(P, age)
+
+# ---------------- added 26 Nov 2026: foil, freqscale, standing, eye (Hantu 19 Hz) ----------------
+def info_hantu(P, age):
+    t = P["type"]; im = Image.new("RGBA", (CW, CH), PANEL_BG); d = ImageDraw.Draw(im)
+    fi = lambda s, w=700: F(FONTMAP.get("inter", "inter"), s, w)
+    if t == "foil":
+        # {"type":"foil","start":3.0}  bench vice + fencing blade; shakes after start
+        on = age >= P.get("start", 1e9); q = max(0.0, min(1.0, (age - P.get("start", 0)) / 0.8)) if on else 0
+        vx, vy = 90, 280
+        d.rectangle([vx - 60, vy - 80, vx + 60, vy + 80], fill=MUTED)            # vice jaws
+        d.rectangle([vx - 70, vy + 70, vx + 70, vy + 110], fill=MUTED)         # base
+        L = 700; amp = 70 * q
+        for k, a in enumerate((0.25, 0.55, 1.0)):
+            ph = math.sin(age * 2 * math.pi * 3.1 + k * 2.0)
+            pts = [(vx + 50 + x, vy + amp * ph * (x / L) ** 2) for x in range(0, L + 1, 10)]
+            col = (FG[0], FG[1], FG[2], int(255 * (a if q > 0 else (1.0 if k == 2 else 0))))
+            if col[3]: d.line(pts, fill=col, width=11)
+        if q == 0:
+            d.text((vx + 50 + L / 2, vy - 120), "pedang di ragum", font=fi(56), fill=MUTED, anchor="mm")
+        else:
+            d.text((vx + 50 + L / 2, vy - 140), "bergetar sendiri", font=fi(64, 800), fill=RED, anchor="mm")
+            d.text((vx + 50 + L / 2, vy + 170), "tiada siapa sentuh", font=fi(50, 600), fill=MUTED, anchor="mm")
+    elif t == "freqscale":
+        # {"type":"freqscale","start":0.3,"mark_at":...}
+        L, R, Y = 60, 100, 300; W = CW - L - R
+        X = lambda f: L + W * (math.log10(f) - 0) / 5.0          # 1 Hz .. 100 kHz
+        q = max(0.0, min(1.0, (age - P.get("start", 0.3)) / 1.0))
+        d.rectangle([X(20), Y - 60, X(20) + (X(20000) - X(20)) * q, Y + 60], fill=(FG[0], FG[1], FG[2], 70))
+        d.rectangle([X(1), Y - 60, X(1) + (X(20) - X(1)) * q, Y + 60], fill=(RED[0], RED[1], RED[2], 70))
+        d.line([(L, Y + 60), (L + W, Y + 60)], fill=MUTED, width=3)
+        for f, lab in ((1, "1"), (20, "20"), (100, "100"), (1000, "1k"), (20000, "20k"), (100000, "100k")):
+            d.line([(X(f), Y + 60), (X(f), Y + 74)], fill=MUTED, width=3)
+            d.text((X(f), Y + 100), lab, font=fi(44, 700 if f in (20, 20000) else 500), fill=FG if f in (20, 20000) else MUTED, anchor="mm")
+        d.text((L + W, Y + 140), "hertz (Hz)", font=fi(39, 600), fill=MUTED, anchor="rm")
+        if q > 0.5:
+            d.text(((X(20) + X(20000)) / 2, Y), "boleh didengar", font=fi(56, 800), fill=FG, anchor="mm")
+            d.text(((X(1) + X(20)) / 2, Y - 100), "infrabunyi", font=fi(53, 800), fill=RED, anchor="mm")
+        if P.get("mark_at") is not None and age >= P["mark_at"]:
+            xm = X(18.98)
+            d.line([(xm, Y - 80), (xm, Y + 60)], fill=RED, width=6)
+            d.text((xm + 12, Y - 190), "kipas: 18.98 Hz", font=fi(56, 800), fill=RED, anchor="lm")
+    elif t == "standing":
+        # {"type":"standing","start":0.3,"math_at":...}  9 m room, half-wave standing wave
+        L, R, T, B = 110, 60, 150, 130; W, H = CW - L - R, CH - T - B; cy = T + H / 2
+        d.rectangle([L, T, L + W, T + H], outline=MUTED, width=4)
+        # fan at left wall
+        fx, fy = L - 40, cy
+        for k in range(3):
+            a = age * 9 + k * 2.094
+            d.line([(fx, fy), (fx + 44 * math.cos(a), fy + 44 * math.sin(a))], fill=FG, width=12)
+        d.ellipse([fx - 8, fy - 8, fx + 8, fy + 8], fill=FG)
+        q = max(0.0, min(1.0, (age - P.get("start", 0.3)) / 1.0))
+        A = (H / 2 - 20) * q
+        for k in range(5):
+            c = math.cos(age * 2 * math.pi * 0.9 + k * 0.6)
+            pts = [(L + x, cy - A * c * math.sin(math.pi * x / W)) for x in range(0, int(W) + 1, 8)]
+            d.line(pts, fill=(RED[0], RED[1], RED[2], 255 if k == 0 else 90), width=8 if k == 0 else 4)
+        d.line([(L, T + H + 40), (L + W, T + H + 40)], fill=FG, width=3)
+        d.text((L + W / 2, T + H + 75), "9 m = ½ panjang gelombang", font=fi(47, 800), fill=FG, anchor="mm")
+        if P.get("math_at") is not None and age >= P["math_at"]:
+            d.text((L + W / 2, T - 55), "343 ÷ 18.98 ≈ 18 m", font=fi(64, 800), fill=RED, anchor="mm")
+    elif t == "eye":
+        # {"type":"eye","start":0.3,"ghost_at":...}
+        cx, cy, rw, rh = CW * 0.36, CH * 0.42, 240, 145
+        q = max(0.0, min(1.0, (age - P.get("start", 0.3)) / 0.8))
+        offs = [0] if q == 0 else [-14 * q, -7 * q, 0, 7 * q, 14 * q]
+        for k, o in enumerate(offs):
+            al = 255 if o == 0 else 70
+            d.ellipse([cx + o - rw, cy - rh, cx + o + rw, cy + rh], outline=(FG[0], FG[1], FG[2], al), width=7)
+            d.ellipse([cx + o - 90, cy - 90, cx + o + 90, cy + 90], fill=(MUTED[0], MUTED[1], MUTED[2], al))
+            d.ellipse([cx + o - 36, cy - 36, cx + o + 36, cy + 36], fill=(FG[0], FG[1], FG[2], al))
+        if q > 0:
+            d.text((cx, cy + rh + 70), "bola mata bergetar ≈ 18 Hz", font=fi(50, 800), fill=RED, anchor="mm")
+        if P.get("ghost_at") is not None and age >= P["ghost_at"]:
+            g = min(1.0, (age - P["ghost_at"]) / 1.5); gx, gy = CW * 0.82, CH * 0.45; al = int(110 * g)
+            gl = Image.new("RGBA", (CW, CH), (0, 0, 0, 0)); gd = ImageDraw.Draw(gl)
+            gd.ellipse([gx - 38, gy - 150, gx + 38, gy - 70], fill=(120, 120, 120, al))
+            gd.rounded_rectangle([gx - 70, gy - 70, gx + 70, gy + 150], radius=60, fill=(120, 120, 120, al))
+            gl = gl.filter(ImageFilter.GaussianBlur(10)); im.alpha_composite(gl)
+            d.text((gx, gy - 200), "di hujung mata?", font=fi(44, 700), fill=MUTED, anchor="mm")
+    return im
+
+MATHS_TYPES.update({"foil", "freqscale", "standing", "eye"})
+_info_maths_prev4 = info_maths
+def info_maths(P, age):
+    return info_hantu(P, age) if P["type"] in {"foil", "freqscale", "standing", "eye"} else _info_maths_prev4(P, age)

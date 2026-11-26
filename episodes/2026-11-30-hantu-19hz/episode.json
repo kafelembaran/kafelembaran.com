@@ -1,0 +1,299 @@
+{
+ "slug": "kafelembaran-hantu-19hz",
+ "date": "2026-11-30",
+ "style": "kopitiam",
+ "title": [
+  "Hantu 19 Hz?",
+  "Bila kipas jadi hantu"
+ ],
+ "book": {
+  "title": "Ilmu Alam Melayu",
+  "slip_lines": [
+   "Ilmu Alam",
+   "Melayu"
+  ],
+  "author": "Naim Tamdjis",
+  "shopee": "https://s.shopee.com.my/6AmhcCSg7D"
+ },
+ "say_as": {
+  "Warwick": "Wo-rik",
+  "Tandy": "Ten-di"
+ },
+ "intro_say": "Biar saya terangkan isu ini... di antara dua hirupan kopi.",
+ "outro_say": "Nak kenal hantu Melayu dari manuskrip lama? Baca Ilmu Alam Melayu. Link kat bio.",
+ "scenes": [
+  {
+   "head": {
+    "kind": "type",
+    "text": "Makmal di Warwick",
+    "sub": "England"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Tukang cuci lari",
+     "Pekerja rasa murung"
+    ]
+   },
+   "say": [
+    "Sebuah makmal di Warwick, England.",
+    "Seorang tukang cuci lari keluar dalam ketakutan.",
+    "Pekerja di situ rasa murung, berpeluh sejuk... tanpa sebab."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Lembaga kelabu",
+    "sub": "di hujung mata"
+   },
+   "panel": {
+    "type": "eye",
+    "start": 99,
+    "ghost_at": 5.8
+   },
+   "say": [
+    "Seorang jurutera reka bentuk, Vic Tandy, bekerja lewat malam.",
+    "Dari hujung mata, dia nampak satu lembaga kelabu.",
+    "Bila dia toleh... ia hilang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Pedang bergetar",
+    "sub": "di atas ragum"
+   },
+   "panel": {
+    "type": "foil",
+    "start": 8.2
+   },
+   "say": [
+    "Esoknya, Vic bawa pedang lawan pedangnya ke makmal.",
+    "Dia kepit di ragum untuk dibaiki.",
+    "Bila dia kembali... bilah pedang itu bergetar sendiri.",
+    "Tiada siapa sentuh.",
+    "Jadi apa yang menggoncang pedang itu?",
+    {
+     "say": "Hirup kopi dulu...",
+     "sfx_after": "ahh_A"
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "Infrabunyi",
+    "sub": "bunyi yang tak didengar"
+   },
+   "panel": {
+    "type": "freqscale",
+    "start": 4.5,
+    "mark_at": 15.7
+   },
+   "say": [
+    "Jawapannya, bunyi.",
+    "Bunyi yang kita tak boleh dengar.",
+    {
+     "say": "Telinga manusia dengar dari dua puluh hingga dua puluh ribu hertz.",
+     "show": "Telinga manusia dengar dari 20 hingga 20,000 hertz."
+    },
+    {
+     "say": "Di bawah dua puluh hertz, kita panggil infrabunyi.",
+     "show": "Di bawah 20 hertz, kita panggil infrabunyi."
+    },
+    "Tak didengar, tapi masih menggoncang.",
+    "Vic ukur.",
+    {
+     "say": "Ada gelombang pegun lapan belas perpuluhan sembilan lapan hertz dalam bilik itu.",
+     "show": "Ada gelombang pegun 18.98 hertz dalam bilik itu."
+    },
+    "Puncanya? Kipas ekzos yang baru dipasang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "9 meter",
+    "sub": "separuh gelombang"
+   },
+   "panel": {
+    "type": "standing",
+    "start": 0.5,
+    "math_at": 5.3
+   },
+   "say": [
+    "Sekarang matematiknya.",
+    {
+     "say": "Halaju bunyi, tiga ratus empat puluh tiga meter sesaat.",
+     "show": "Halaju bunyi: 343 meter sesaat."
+    },
+    {
+     "say": "Bahagi lapan belas perpuluhan sembilan lapan...",
+     "show": "Bahagi 18.98..."
+    },
+    {
+     "say": "panjang gelombang, lebih kurang lapan belas meter.",
+     "show": "panjang gelombang, lebih kurang 18 meter."
+    },
+    {
+     "say": "Separuh gelombang, sembilan meter.",
+     "show": "Separuh gelombang, 9 meter."
+    },
+    "Dalam bilik yang panjangnya sepadan,",
+    "gelombang terperangkap, dan berdiri di tempat yang sama."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "18 Hz",
+    "sub": "getaran bola mata"
+   },
+   "panel": {
+    "type": "eye",
+    "start": 6.5,
+    "ghost_at": 13.3
+   },
+   "say": [
+    "Kenapa ia menakutkan?",
+    {
+     "say": "Satu laporan makmal perubatan tentera udara Amerika, tahun sembilan belas tujuh puluh enam,",
+     "show": "Satu laporan makmal perubatan tentera udara Amerika, tahun 1976,"
+    },
+    {
+     "say": "ukur bola mata manusia bergetar paling kuat sekitar lapan belas hertz.",
+     "show": "ukur bola mata manusia bergetar paling kuat sekitar 18 hertz."
+    },
+    "Mata bergetar, penglihatan kabur...",
+    "di hujung mata, muncul bayang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "stamp",
+    "text": "KIPAS OFF",
+    "sub": "hantu hilang"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Kipas dimatikan.",
+     "Hantu pun hilang."
+    ]
+   },
+   "say": [
+    "Bila kipas itu dimatikan... hantu pun hilang."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "22%",
+    "sub": "lebih banyak rasa pelik"
+   },
+   "panel": {
+    "type": "bars",
+    "items": [
+     [
+      "Lebih pelik",
+      22
+     ],
+     [
+      "Lain",
+      78
+     ]
+    ],
+    "unit": "%",
+    "highlight": 0,
+    "caption": "750 penonton konsert, England 2003"
+   },
+   "say": [
+    {
+     "say": "Tahun dua ribu tiga, saintis di England uji pada tujuh ratus lima puluh penonton konsert.",
+     "show": "Tahun 2003, saintis di England uji pada 750 penonton konsert."
+    },
+    {
+     "say": "Bila muzik dicampur infrabunyi, dua puluh dua peratus lapor lebih banyak rasa pelik.",
+     "show": "Bila muzik dicampur infrabunyi, 22% lapor lebih banyak rasa pelik."
+    },
+    "Seram sejuk, sedih, cemas."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Adil juga",
+    "sub": "satu penjelasan, bukan semua"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Sebelum salahkan hantu,",
+     "periksa kipas dulu."
+    ]
+   },
+   "say": [
+    "Tapi adil juga.",
+    "Saintis belum buktikan infrabunyi punca semua cerita hantu.",
+    "Ia satu penjelasan, bukan semua.",
+    "Dan ini bukan bermaksud alam ghaib tak wujud.",
+    "Cuma, sebelum salahkan hantu... mungkin periksa kipas dulu."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Pengalaman anda?",
+    "sub": "ceritakan di komen"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Kilang? Asrama?",
+     "Rumah lama?"
+    ]
+   },
+   "say": [
+    "Pernah rasa seram tanpa sebab di satu tempat?",
+    "Kilang, asrama, rumah lama? Ceritakan di komen."
+   ]
+  }
+ ],
+ "post": {
+  "caption": "Hantu 19 Hz? Diterangkan di antara dua hirupan kopi ☕\n\nSeorang jurutera di makmal Warwick, England nampak lembaga kelabu di hujung mata. Esoknya, pedang lawan pedangnya bergetar sendiri di atas ragum. Puncanya? Infrabunyi 18.98 Hz dari kipas ekzos baru, bunyi di bawah had pendengaran manusia (20 Hz). Matematiknya: 343 ÷ 18.98 ≈ 18 m panjang gelombang; separuhnya, 9 m, muat dalam bilik. Bola mata manusia bergetar paling kuat sekitar 18 Hz. Bila kipas dimatikan, 'hantu' pun hilang.\n\nInfrabunyi satu penjelasan, bukan untuk semua cerita hantu. Pernah rasa seram tanpa sebab? Ceritakan di komen.\n\nBuku: Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi, Naim Tamdjis. Link kat bio (link affiliate).\n\nSumber: Tandy & Lawrence, The Ghost in the Machine, Journal of the Society for Psychical Research (1998); laporan Aerospace Medical Research Laboratory, Tentera Udara AS (1976); eksperimen konsert National Physical Laboratory & Univ. Hertfordshire (2003).\nSuara dijana AI.",
+  "caption_nobook": "Hantu 19 Hz? Diterangkan di antara dua hirupan kopi ☕\n\nSeorang jurutera di makmal Warwick, England nampak lembaga kelabu di hujung mata. Esoknya, pedang lawan pedangnya bergetar sendiri di atas ragum. Puncanya? Infrabunyi 18.98 Hz dari kipas ekzos baru, bunyi di bawah had pendengaran manusia (20 Hz). Matematiknya: 343 ÷ 18.98 ≈ 18 m panjang gelombang; separuhnya, 9 m, muat dalam bilik. Bola mata manusia bergetar paling kuat sekitar 18 Hz. Bila kipas dimatikan, 'hantu' pun hilang.\n\nInfrabunyi satu penjelasan, bukan untuk semua cerita hantu. Pernah rasa seram tanpa sebab? Ceritakan di komen.\n\nSumber: Tandy & Lawrence, The Ghost in the Machine, Journal of the Society for Psychical Research (1998); laporan Aerospace Medical Research Laboratory, Tentera Udara AS (1976); eksperimen konsert National Physical Laboratory & Univ. Hertfordshire (2003).\nSuara dijana AI.",
+  "hashtags": [
+   "duahirupankopi",
+   "kafelembaran",
+   "hantu",
+   "sains",
+   "infrabunyi",
+   "seram",
+   "hantudansains",
+   "bukumalaysia"
+  ],
+  "youtube_title": "Hantu 19 Hz? Bila kipas jadi hantu | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "hantu",
+   "infrabunyi",
+   "infrasound",
+   "Vic Tandy",
+   "19 Hz",
+   "sains",
+   "seram",
+   "Ilmu Alam Melayu"
+  ],
+  "category": "EDUCATION",
+  "political": false
+ },
+ "shopee_caption": "Hantu 19 Hz? Bila kipas jadi hantu ☕ Bunyi yang tak didengar, mata yang bergetar. #hantu #sains #duahirupankopi",
+ "sources": [
+  "https://en.wikipedia.org/wiki/Vic_Tandy",
+  "https://www.damninteresting.com/curio/the-original-ghostbuster/",
+  "https://apps.dtic.mil/sti/tr/pdf/ADA030476.pdf",
+  "https://www.aljazeera.com/news/2003/9/8/sound-of-silence-gives-ghoul-vibrations"
+ ],
+ "max_gap": 0.45,
+ "voice_tempo": 1.0
+}
