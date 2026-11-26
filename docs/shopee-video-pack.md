@@ -10,5 +10,6 @@ Political episodes (Clark memo, Formula 1955) and Minggu Lepas (no book) are NOT
 | shopee-tipu-daya-saka-matematik.mp4 | Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi | Kenapa 63% orang boleh "mewarisi" saka? Jawapannya matematik ☕ #saka #matematik #duahirupankopi |
 | shopee-ai-gelembung.mp4 | Labur Santai | AI gelembung? Pelajaran dari kejatuhan dot-com tahun 2000 ☕ Bukan nasihat pelaburan. #AI #saham #duahirupankopi |
 | shopee-kejatuhan-jensen-huang.mp4 | Adikuasa (Ayman Rashdan Wong) | Kejatuhan Jensen Huang dan kenapa ia penting untuk Malaysia ☕ #nvidia #geopolitik #duahirupankopi |
+| shopee-hantu-19hz.mp4 | Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi | Hantu 19 Hz? Bila kipas jadi hantu ☕ Bunyi yang tak didengar, mata yang bergetar. #hantu #sains #duahirupankopi |
 
 From now on: every new episode with a book gets a Shopee file + caption at render time.
