@@ -30,7 +30,7 @@
     },
     {
       "slug": "ilmu-alam-melayu",
-      "featured": false,
+      "featured": true,
       "added": "2026-11-19",
       "title": "Ilmu Alam Melayu: Mistik, Manuskrip & Mitologi",
       "author": "Naim Tamdjis",
@@ -51,7 +51,7 @@
     },
     {
       "slug": "labur-santai",
-      "featured": true,
+      "featured": false,
       "added": "2026-11-18",
       "title": "Labur Santai",
       "author": "Adib Yazid & Kauthar Rozmal",
