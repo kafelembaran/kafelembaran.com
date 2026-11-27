@@ -1,0 +1,235 @@
+{
+ "slug": "kafelembaran-minggu-lepas-hari-ini-2",
+ "date": "2026-11-27",
+ "style": "kopitiam",
+ "title": [
+  "Minggu Lepas",
+  "Hari Ini"
+ ],
+ "intro_say": "Minggu lepas... hari ini.",
+ "outro_say": "Minggu lepas... hari ini.",
+ "intro_quote": [
+  "“Minggu lepas…",
+  "hari ini.”"
+ ],
+ "scenes": [
+  {
+   "head": {
+    "kind": "big",
+    "text": "7 cerita",
+    "sub": "satu minit"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Minggu 20-26",
+     "November 2026"
+    ]
+   },
+   "say": [
+    "Tujuh cerita, satu minit."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "1",
+    "sub": "SPM: penjodoh bilangan"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Sekaki payung?",
+     "Tular di Threads"
+    ]
+   },
+   "say": [
+    "Satu.",
+    "Soalan penjodoh bilangan dalam kertas Bahasa Melayu SPM tular di media sosial.",
+    "Ada calon kata susah."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "2",
+    "sub": "Fiona, 9 tahun"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Kuda nil Zoo Cincinnati",
+     "tertelan topi kait"
+    ]
+   },
+   "say": [
+    "Dua.",
+    "Fiona, kuda nil terkenal Zoo Cincinnati,",
+    {
+     "say": "mati pada umur sembilan tahun,",
+     "show": "mati pada umur 9 tahun,"
+    },
+    "selepas tertelan sebuah topi kait milik pengunjung."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "3",
+    "sub": "RON95 tanpa subsidi"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "RM3.47 seliter",
+     "turun 4 minggu"
+    ]
+   },
+   "say": [
+    "Tiga.",
+    "Harga minyak tanpa subsidi turun empat minggu berturut-turut.",
+    {
+     "say": "RON95 tanpa subsidi kini tiga ringgit empat puluh tujuh seliter.",
+     "show": "RON95 tanpa subsidi kini RM3.47 seliter."
+    }
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "4",
+    "sub": "tarif Amerika"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Sehingga 18%",
+     "masih cadangan"
+    ]
+   },
+   "say": [
+    "Empat.",
+    {
+     "say": "Amerika cadang tarif sehingga lapan belas peratus",
+     "show": "Amerika cadang tarif sehingga 18%"
+    },
+    {
+     "say": "ke atas empat belas rakan dagang, termasuk Malaysia.",
+     "show": "ke atas 14 rakan dagang, termasuk Malaysia."
+    },
+    "Masih cadangan."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "5",
+    "sub": "dana kekayaan AI"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Hasil AI",
+     "dikongsi rakyat?"
+    ]
+   },
+   "say": [
+    "Lima.",
+    {
+     "say": "Kerajaan kaji penubuhan dana kekayaan A I,",
+     "show": "Kerajaan kaji penubuhan dana kekayaan AI,"
+    },
+    "supaya hasil teknologi dikongsi dengan rakyat."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "6",
+    "sub": "LRT Kelana Jaya"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "4 stesen terjejas",
+     "bas percuma"
+    ]
+   },
+   "say": [
+    "Enam.",
+    "Gangguan elektrik di empat stesen LRT Laluan Kelana Jaya.",
+    "Bas perantara percuma disediakan."
+   ]
+  },
+  {
+   "head": {
+    "kind": "big",
+    "text": "7",
+    "sub": "kesihatan mental"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Masuk kurikulum",
+     "sekolah?"
+    ]
+   },
+   "say": [
+    "Tujuh.",
+    "Perdana Menteri sokong kesihatan mental dimasukkan dalam kurikulum sekolah."
+   ]
+  },
+  {
+   "head": {
+    "kind": "type",
+    "text": "Pilihan anda?",
+    "sub": "tulis di komen"
+   },
+   "panel": {
+    "type": "text",
+    "lines": [
+     "Cerita mana",
+     "paling menarik?"
+    ]
+   },
+   "say": [
+    "Cerita mana paling menarik minggu ini?",
+    "Tulis di komen."
+   ]
+  }
+ ],
+ "post": {
+  "caption": "Minggu Lepas Hari Ini #2 ☕ Tujuh cerita, satu minit.\n\n1. Soalan penjodoh bilangan SPM tular di Threads.\n2. Fiona, kuda nil Zoo Cincinnati, mati selepas tertelan topi kait pengunjung.\n3. Minyak tanpa subsidi turun 4 minggu berturut-turut; RON95 tanpa subsidi RM3.47/liter.\n4. Amerika cadang tarif sehingga 18% ke atas 14 rakan dagang termasuk Malaysia (cadangan).\n5. Kerajaan kaji dana kekayaan AI untuk rakyat.\n6. Gangguan elektrik di 4 stesen LRT Kelana Jaya, bas percuma disediakan.\n7. PM sokong kesihatan mental dalam kurikulum sekolah.\n\nCerita mana paling menarik? Tulis di komen.\n\nSumber: Kosmo, Getaran, theSun, Cincinnati Zoo/AP, Kementerian Kewangan, paultan.org, NST, The Edge, Malay Mail, The Star.\nSuara dijana AI.",
+  "hashtags": [
+   "minggulepashariini",
+   "duahirupankopi",
+   "kafelembaran",
+   "beritaminggu",
+   "Malaysia",
+   "SPM"
+  ],
+  "youtube_title": "Minggu Lepas Hari Ini #2: 7 cerita, satu minit | Dua Hirupan Kopi",
+  "youtube_tags": [
+   "Minggu Lepas Hari Ini",
+   "berita Malaysia",
+   "penjodoh bilangan",
+   "SPM",
+   "Fiona hippo",
+   "harga minyak",
+   "tarif",
+   "LRT Kelana Jaya"
+  ],
+  "category": "NEWS_POLITICS",
+  "political": true
+ },
+ "sources": [
+  "https://www.kosmo.com.my/2026/11/24/soalan-spm-penjodoh-bilangan-ramai-tidak-boleh-jawab/",
+  "https://en.wikipedia.org/wiki/Fiona_(hippopotamus)",
+  "https://paultan.org/2026/11/25/malaysian-fuel-prices-nov-26-dec-2-2026-all-down-diesel-to-rm4-47-ron95-to-rm3-47-ron97-to-rm3-75/",
+  "https://www.nst.com.my/business/corporate/2026/11/1586062/market-pulse-am-nov-26-2026-watch",
+  "https://theedgemalaysia.com/",
+  "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/25/asean-news-headlines-at-10pm-on-wednesday-nov-25-2026"
+ ],
+ "max_gap": 0.45,
+ "voice_tempo": 1.0
+}
